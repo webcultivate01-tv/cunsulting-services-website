@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OUR GALLERY - Creative Development Centre</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{
+      --navy:#1e2d6b;--navy-dark:#16235a;
+      --red:#e8402a;
+      --off:#f4f5f8;--text-gray:#444;
+      --border:#dde2f0;--shadow:0 4px 20px rgba(30,45,107,0.10);
+    }
+    html{scroll-behavior:smooth;}
+    body{font-family:'Open Sans',sans-serif;color:var(--text-gray);background:#fff;overflow-x:hidden;}
+    a{text-decoration:none;color:inherit;}
+    img{max-width:100%;display:block;}
+
+    /* TOP BAR */
+    .topbar{background:var(--navy-dark);color:#fff;padding:9px 4vw;display:flex;align-items:center;justify-content:space-between;font-size:0.82rem;font-family:'Poppins',sans-serif;flex-wrap:wrap;gap:6px;}
+    .tb-left,.tb-right{display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;}
+    .tb-left a,.tb-right a{color:#fff;display:flex;align-items:center;gap:7px;transition:opacity .2s;}
+    .tb-left a:hover,.tb-right a:hover{opacity:.8;}
+    .tb-icon{font-size:0.95rem;}
+    .tb-social{display:flex;gap:10px;}
+    .tb-social a{width:28px;height:28px;border-radius:4px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;font-size:0.8rem;color:#fff;transition:background .2s;}
+    .tb-social a:hover{background:var(--red);}
+
+    /* NAVBAR */
+    nav{background:#fff;box-shadow:0 2px 12px rgba(30,45,107,0.08);position:sticky;top:0;z-index:999;}
+    .nav-inner{max-width:1280px;margin:0 auto;padding:0 4vw;height:80px;display:flex;align-items:center;justify-content:space-between;}
+    .logo-circle{width:60px;height:60px;border-radius:50%;border:3px solid var(--navy);display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;}
+    .logo-circle .cdca{font-size:0.95rem;font-weight:800;color:var(--navy);letter-spacing:1px;}
+    .logo-circle .together{font-size:0.45rem;color:var(--text-gray);letter-spacing:0.5px;}
+    .logo-emoji{font-size:1.6rem;display:block;line-height:1;}
+    .nav-center{text-align:center;flex:1;padding:0 2rem;}
+    .nav-tagline{font-family:'Poppins',sans-serif;font-size:1.1rem;font-weight:700;color:var(--navy);display:block;margin-bottom:10px;}
+    .nav-links{display:flex;align-items:center;justify-content:center;gap:0;list-style:none;}
+    .nav-links>li{position:relative;}
+    .nav-links>li>a{display:block;padding:4px 18px;font-family:'Poppins',sans-serif;font-size:0.85rem;font-weight:600;color:var(--navy);letter-spacing:0.05em;text-transform:uppercase;transition:color .2s;white-space:nowrap;}
+    .nav-links>li>a:hover,.nav-links>li>a.active{color:var(--red);}
+    .nav-links>li>a.active{border-bottom:2px solid var(--red);padding-bottom:2px;}
+    .has-drop:hover .drop-menu{display:block;}
+    .drop-menu{display:none;position:absolute;top:100%;left:0;background:#fff;min-width:230px;box-shadow:0 8px 30px rgba(30,45,107,0.15);border-top:3px solid var(--navy);z-index:300;padding:6px 0;border-radius:0 0 8px 8px;}
+    .drop-menu a{display:block;padding:10px 20px;font-size:0.83rem;color:var(--text-gray);font-family:'Poppins',sans-serif;font-weight:400;transition:background .15s,color .15s;}
+    .drop-menu a:hover{background:#f0f3ff;color:var(--navy);}
+    .nav-cta{background:var(--navy);color:#fff;padding:12px 28px;border-radius:6px;font-family:'Poppins',sans-serif;font-size:0.9rem;font-weight:600;transition:background .2s,transform .2s;white-space:nowrap;flex-shrink:0;}
+    .nav-cta:hover{background:var(--red);transform:translateY(-1px);}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+    .hamburger span{width:26px;height:2px;background:var(--navy);border-radius:2px;display:block;}
+
+    /* MOBILE NAV */
+    .mob-nav{display:none;position:fixed;inset:0;background:#fff;z-index:1000;padding:80px 5vw 40px;overflow-y:auto;}
+    .mob-nav.show{display:block;}
+    .mob-close{position:absolute;top:22px;right:5vw;font-size:1.5rem;cursor:pointer;color:var(--navy);}
+    .mob-nav a{display:block;padding:14px 0;font-family:'Poppins',sans-serif;font-size:1rem;font-weight:600;color:var(--navy);border-bottom:1px solid var(--border);}
+    .mob-nav a:hover{color:var(--red);}
+
+    /* FLOAT BTNS */
+    .floats{position:fixed;left:18px;bottom:30px;z-index:999;display:flex;flex-direction:column;gap:12px;}
+    .fl-btn{width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:#fff;box-shadow:0 4px 16px rgba(0,0,0,0.25);transition:transform .2s;text-decoration:none;}
+    .fl-btn:hover{transform:scale(1.1);}
+    .fl-ph{background:#1a73e8;}
+    .fl-wa{background:#25d366;}
+
+    /* BREADCRUMB */
+    .breadcrumb-banner{background:var(--off);padding:40px 4vw;border-bottom:1px solid var(--border);}
+    .breadcrumb-banner h1{font-family:'Poppins',sans-serif;font-size:2rem;font-weight:700;color:var(--navy);margin-bottom:8px;}
+    .breadcrumb-nav{font-size:0.85rem;color:var(--text-gray);}
+    .breadcrumb-nav a:hover{color:var(--red);}
+    .breadcrumb-nav .current{color:var(--red);font-weight:600;}
+
+    /* GALLERY */
+    .gallery-section{padding:70px 4vw;background:#fff;}
+    .gallery-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+    .gallery-item{overflow:hidden;border-radius:10px;box-shadow:var(--shadow);cursor:pointer;}
+    .gallery-item img{width:100%;height:200px;object-fit:cover;transition:transform 0.3s ease;display:block;}
+    .gallery-item:hover img{transform:scale(1.05);}
+
+    /* LIGHTBOX */
+    .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:9999;align-items:center;justify-content:center;}
+    .lightbox.active{display:flex;}
+    .lightbox img{max-width:90vw;max-height:90vh;border-radius:8px;}
+
+    /* FOOTER */
+    footer{background:#12183a;color:#fff;padding:60px 4vw 0;}
+    .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.7fr 1fr 1fr 1.3fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,0.08);}
+    .f-brand-name{font-family:'Poppins',sans-serif;font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:1rem;}
+    .f-brand-name span{color:#7a8de8;}
+    .f-brand p{font-size:0.85rem;color:rgba(255,255,255,0.55);line-height:1.8;max-width:280px;}
+    .f-contact-row{display:flex;align-items:flex-start;gap:10px;margin-top:1.2rem;}
+    .f-contact-row a{color:rgba(255,255,255,0.7);font-size:0.82rem;}
+    .f-contact-row a:hover{color:#fff;}
+    .fc-ic{width:30px;height:30px;flex-shrink:0;background:rgba(30,45,107,0.5);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:0.85rem;}
+    .f-col h5{font-family:'Poppins',sans-serif;font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#fff;margin-bottom:1.2rem;padding-bottom:10px;border-bottom:2px solid rgba(122,141,232,0.4);}
+    .f-col ul{list-style:none;display:flex;flex-direction:column;gap:0.6rem;}
+    .f-col a{font-size:0.83rem;color:rgba(255,255,255,0.55);transition:color .2s;}
+    .f-col a:hover{color:#fff;}
+    .f-col a::before{content:'›  ';}
+    .footer-bottom{max-width:1200px;margin:0 auto;padding:20px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.8rem;font-size:0.78rem;color:rgba(255,255,255,0.35);}
+    .footer-bottom a{color:rgba(122,141,232,0.8);}
+
+    /* RESPONSIVE */
+    @media(max-width:860px){
+      .nav-center{display:none;}
+      .hamburger{display:flex;}
+      .gallery-grid{grid-template-columns:repeat(2,1fr);}
+    }
+    @media(max-width:500px){
+      .footer-grid{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- FLOAT BTNS -->
+  <div class="floats">
+    <a href="tel:+918779292084" class="fl-btn fl-ph">📞</a>
+    <a href="https://wa.me/918779292084" class="fl-btn fl-wa">💬</a>
+  </div>
+
+  <!-- MOBILE NAV -->
+  <div class="mob-nav" id="mobNav">
+    <span class="mob-close" onclick="closeMob()">✕</span>
+    <a href="index.html">Home</a>
+    <a href="#">About Us</a>
+    <a href="#">Children Counseling</a>
+    <a href="#">Marriage Counseling</a>
+    <a href="#">Senior Citizen Counseling</a>
+    <a href="#">Personal Counseling</a>
+    <a href="#">Relationship Counseling</a>
+    <a href="#">Financial Counseling</a>
+    <a href="#">Stress &amp; Anxiety Management</a>
+    <a href="#">Depression Support</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="contact.html" style="color:var(--navy);background:#f0f3ff;padding:12px;border-radius:6px;margin-top:1rem;border:none;">➜ Consult Now</a>
+  </div>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="tb-left">
+      <a href="tel:+918779292084"><span class="tb-icon">📞</span> +91 8779292084 / +91 7744896101</a>
+      <a href="mailto:cdcareeracademy@gmail.com"><span class="tb-icon">✉</span> cdcareeracademy@gmail.com</a>
+    </div>
+    <div class="tb-right">
+      <div class="tb-social">
+        <a href="#" title="Facebook">f</a>
+        <a href="#" title="Instagram">📷</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-inner">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div class="logo-circle">
+          <span class="logo-emoji">🤝</span>
+          <span class="cdca">CDCA</span>
+          <span class="together">Together we achieve</span>
+        </div>
+      </div>
+      <div class="nav-center">
+        <span class="nav-tagline">Find the Right Path with Expert Counselling</span>
+        <ul class="nav-links">
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="#">ABOUT US</a></li>
+          <li class="has-drop">
+            <a href="#">OUR SERVICES ▾</a>
+            <div class="drop-menu">
+              <a href="#">Children Counseling</a>
+              <a href="#">Marriage Counseling</a>
+              <a href="#">Senior Citizen Counseling</a>
+              <a href="#">Personal Counseling</a>
+              <a href="#">Relationship Counseling</a>
+              <a href="#">Financial Counseling</a>
+              <a href="#">Stress and Anxiety Management</a>
+              <a href="#">Depression Support</a>
+            </div>
+          </li>
+          <li><a href="gallery.html" class="active">GALLERY</a></li>
+          <li><a href="contact.html">CONTACT US</a></li>
+        </ul>
+      </div>
+      <a href="contact.html" class="nav-cta">Consult Now</a>
+      <div class="hamburger" onclick="openMob()"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb Banner -->
+  <section class="breadcrumb-banner">
+    <div style="max-width:1200px;margin:0 auto;">
+      <h1>OUR GALLERY</h1>
+      <nav class="breadcrumb-nav">
+        <a href="index.html">Home</a>
+        <span style="margin:0 8px;">›</span>
+        <span class="current">OUR GALLERY</span>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Gallery Grid -->
+  <section class="gallery-section">
+    <div class="gallery-grid">
+      <div class="gallery-item" onclick="openLightbox('https://www.developmentcentre.in/images/gallery/img1.webp')"><img src="https://www.developmentcentre.in/images/gallery/img1.webp" alt="Gallery 1"/></div>
+      <div class="gallery-item" onclick="openLightbox('https://www.developmentcentre.in/images/gallery/img2.webp')"><img src="https://www.developmentcentre.in/images/gallery/img2.webp" alt="Gallery 2"/></div>
+      <div class="gallery-item" onclick="openLightbox('https://www.developmentcentre.in/images/gallery/img3.webp')"><img src="https://www.developmentcentre.in/images/gallery/img3.webp" alt="Gallery 3"/></div>
+      <div class="gallery-item" onclick="openLightbox('https://www.developmentcentre.in/images/gallery/img4.webp')"><img src="https://www.developmentcentre.in/images/gallery/img4.webp" alt="Gallery 4"/></div>
+      <div class="gallery-item" onclick="openLightbox('https://www.developmentcentre.in/images/gallery/img5.webp')"><img src="https://www.developmentcentre.in/images/gallery/img5.webp" alt="Gallery 5"/></div>
+      <div class="gallery-item" onclick="openLightbox('https://www.developmentcentre.in/images/gallery/img6.webp')"><img src="https://www.developmentcentre.in/images/gallery/img6.webp" alt="Gallery 6"/></div>
+      <div class="gallery-item" onclick="openLightbox('https://www.developmentcentre.in/images/gallery/img7.webp')"><img src="https://www.developmentcentre.in/images/gallery/img7.webp" alt="Gallery 7"/></div>
+      <div class="gallery-item" onclick="openLightbox('https://www.developmentcentre.in/images/gallery/img8.webp')"><img src="https://www.developmentcentre.in/images/gallery/img8.webp" alt="Gallery 8"/></div>
+      <div class="gallery-item" onclick="openLightbox('https://www.developmentcentre.in/images/gallery/img9.webp')"><img src="https://www.developmentcentre.in/images/gallery/img9.webp" alt="Gallery 9"/></div>
+      <div class="gallery-item" onclick="openLightbox('https://www.developmentcentre.in/images/gallery/img10.webp')"><img src="https://www.developmentcentre.in/images/gallery/img10.webp" alt="Gallery 10"/></div>
+      <div class="gallery-item" onclick="openLightbox('https://www.developmentcentre.in/images/gallery/img11.webp')"><img src="https://www.developmentcentre.in/images/gallery/img11.webp" alt="Gallery 11"/></div>
+      <div class="gallery-item" onclick="openLightbox('https://www.developmentcentre.in/images/gallery/img14.webp')"><img src="https://www.developmentcentre.in/images/gallery/img14.webp" alt="Gallery 14"/></div>
+      <div class="gallery-item" onclick="openLightbox('https://www.developmentcentre.in/images/gallery/img15.webp')"><img src="https://www.developmentcentre.in/images/gallery/img15.webp" alt="Gallery 15"/></div>
+      <div class="gallery-item" onclick="openLightbox('https://www.developmentcentre.in/images/gallery/img16.webp')"><img src="https://www.developmentcentre.in/images/gallery/img16.webp" alt="Gallery 16"/></div>
+      <div class="gallery-item" onclick="openLightbox('https://www.developmentcentre.in/images/gallery/img17.webp')"><img src="https://www.developmentcentre.in/images/gallery/img17.webp" alt="Gallery 17"/></div>
+      <div class="gallery-item" onclick="openLightbox('https://www.developmentcentre.in/images/gallery/img18.webp')"><img src="https://www.developmentcentre.in/images/gallery/img18.webp" alt="Gallery 18"/></div>
+      <div class="gallery-item" onclick="openLightbox('https://www.developmentcentre.in/images/gallery/img19.webp')"><img src="https://www.developmentcentre.in/images/gallery/img19.webp" alt="Gallery 19"/></div>
+      <div class="gallery-item" onclick="openLightbox('https://www.developmentcentre.in/images/about1.webp')"><img src="https://www.developmentcentre.in/images/about1.webp" alt="About 1"/></div>
+      <div class="gallery-item" onclick="openLightbox('https://www.developmentcentre.in/images/about3.webp')"><img src="https://www.developmentcentre.in/images/about3.webp" alt="About 3"/></div>
+      <div class="gallery-item" onclick="openLightbox('https://www.developmentcentre.in/images/about2.webp')"><img src="https://www.developmentcentre.in/images/about2.webp" alt="About 2"/></div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Gallery Image"/>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div class="f-brand">
+        <div class="f-brand-name">Creative <span>Development</span> Centre</div>
+        <p>Creative Development Centre is a trusted name in Counselling. We help students and professionals unlock their full potential through expert counselling and personalized support.</p>
+        <div class="f-contact-row"><div class="fc-ic">📍</div><a href="#">Shop No 9, 1st floor, Seasons Harmony, Khadakpada, Kalyan, MH 421301</a></div>
+      </div>
+      <div class="f-col">
+        <h5>Our Services</h5>
+        <ul>
+          <li><a href="#">Children Counseling</a></li>
+          <li><a href="#">Marriage Counseling</a></li>
+          <li><a href="#">Senior Citizen Counseling</a></li>
+          <li><a href="#">Personal Counseling</a></li>
+          <li><a href="#">Relationship Counseling</a></li>
+          <li><a href="#">Financial Counseling</a></li>
+          <li><a href="#">Stress &amp; Anxiety</a></li>
+          <li><a href="#">Depression Support</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="contact.html">Book Appointment</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h5>Contact Us</h5>
+        <ul>
+          <li><a href="tel:+918779292084">📞 +91 8779292084</a></li>
+          <li><a href="tel:+917744896101">📞 +91 7744896101</a></li>
+          <li><a href="mailto:cdcareeracademy@gmail.com">✉ cdcareeracademy@gmail.com</a></li>
+          <li><a href="https://wa.me/918779292084">💬 WhatsApp Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Copyrights © 2025 Creative Development Centre. All Rights Reserved.</p>
+      <p>Designed &amp; Developed by <a href="https://www.webcagetechnologies.in/">WebCage Technologies</a></p>
+    </div>
+  </footer>
+
+  <script>
+    function openMob(){ document.getElementById('mobNav').classList.add('show'); document.body.style.overflow='hidden'; }
+    function closeMob(){ document.getElementById('mobNav').classList.remove('show'); document.body.style.overflow=''; }
+    function openLightbox(src){ document.getElementById('lightbox-img').src=src; document.getElementById('lightbox').classList.add('active'); }
+    function closeLightbox(){ document.getElementById('lightbox').classList.remove('active'); }
+  </script>
+</body>
+</html>
