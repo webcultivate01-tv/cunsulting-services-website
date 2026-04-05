@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Our Services – Creative Development Centre</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#1e2d6b;
+  --navy-dark:#16235a;
+  --red:#e8402a;
+  --blue-strip:#2e3fa0;
+  --white:#fff;
+  --off:#f4f5f8;
+  --text:#333;
+  --text-light:#555;
+  --border:#dde2f0;
+  --shadow:0 4px 20px rgba(30,45,107,0.10);
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Open Sans',sans-serif;color:var(--text);background:#fff;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+
+/* ─── TOP BAR ─── */
+.topbar{
+  background:var(--navy-dark);color:#fff;
+  padding:9px 4vw;
+  display:flex;align-items:center;justify-content:space-between;
+  font-size:0.82rem;font-family:'Poppins',sans-serif;
+  flex-wrap:wrap;gap:6px;
+}
+.tb-left,.tb-right{display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;}
+.tb-left a,.tb-right a{color:#fff;display:flex;align-items:center;gap:7px;transition:opacity .2s;}
+.tb-left a:hover,.tb-right a:hover{opacity:.8;}
+.tb-social{display:flex;gap:8px;}
+.tb-social a{
+  width:26px;height:26px;border-radius:4px;
+  background:rgba(255,255,255,0.12);
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.75rem;color:#fff;transition:background .2s;
+}
+.tb-social a:hover{background:var(--red);}
+
+/* ─── NAVBAR ─── */
+nav{background:#fff;box-shadow:0 2px 12px rgba(30,45,107,0.08);position:sticky;top:0;z-index:999;}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 4vw;height:80px;display:flex;align-items:center;justify-content:space-between;}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.logo-icon{width:56px;height:56px;background:#00bcd4;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;color:#fff;font-weight:800;}
+.logo-text{display:flex;flex-direction:column;line-height:1.2;}
+.logo-text strong{font-family:'Poppins',sans-serif;font-size:18px;color:#1a2e6c;font-weight:800;}
+.logo-text span{font-size:11px;color:#00bcd4;font-weight:600;letter-spacing:0.5px;}
+.nav-center{text-align:center;flex:1;padding:0 2rem;}
+.nav-tagline{font-family:'Poppins',sans-serif;font-size:1rem;font-weight:700;color:#1a2e6c;display:block;margin-bottom:8px;}
+.nav-links{display:flex;align-items:center;justify-content:center;gap:0;list-style:none;}
+.nav-links>li{position:relative;}
+.nav-links>li>a{display:block;padding:4px 16px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;color:#333;letter-spacing:0.5px;text-transform:uppercase;transition:color .2s;white-space:nowrap;text-decoration:none;}
+.nav-links>li>a:hover,.nav-links>li>a.active{color:#00bcd4;}
+.nav-links>li>a.active{border-bottom:2px solid #00bcd4;padding-bottom:2px;}
+.has-drop:hover .drop-menu{display:block;}
+.drop-menu{display:none;position:absolute;top:100%;left:0;background:#fff;min-width:230px;box-shadow:0 8px 30px rgba(0,0,0,0.12);border-top:3px solid #00bcd4;z-index:300;padding:6px 0;border-radius:0 0 8px 8px;}
+.drop-menu a{display:block;padding:10px 20px;font-size:13px;color:#333;font-family:'Poppins',sans-serif;font-weight:400;transition:background .15s,color .15s;}
+.drop-menu a:hover{background:#f0f9fb;color:#00bcd4;}
+.btn-consult{background:#1a2e6c;color:#fff;border:none;cursor:pointer;padding:12px 28px;border-radius:6px;font-family:'Poppins',sans-serif;font-size:14px;font-weight:700;letter-spacing:0.5px;transition:background .2s,transform .15s;text-decoration:none;white-space:nowrap;flex-shrink:0;}
+.btn-consult:hover{background:#00bcd4;transform:translateY(-1px);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.hamburger span{width:26px;height:2px;background:#1a2e6c;border-radius:2px;display:block;}
+.mob-nav{display:none;position:fixed;inset:0;background:#fff;z-index:1000;padding:80px 5vw 40px;overflow-y:auto;}
+.mob-nav.show{display:block;}
+.mob-close{position:absolute;top:22px;right:5vw;font-size:1.5rem;cursor:pointer;color:#1a2e6c;}
+.mob-nav a{display:block;padding:14px 0;font-family:'Poppins',sans-serif;font-size:1rem;font-weight:600;color:#1a2e6c;border-bottom:1px solid #eee;text-decoration:none;}
+.mob-nav a:hover{color:#00bcd4;}
+
+/* ─── PAGE BREADCRUMB ─── */
+.page-banner{
+  background:linear-gradient(135deg,var(--navy) 0%,var(--blue-strip) 100%);
+  padding:40px 4vw;
+  position:relative;overflow:hidden;
+}
+.page-banner::after{
+  content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='30' height='30' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='15' cy='15' r='1' fill='white' fill-opacity='0.06'/%3E%3C/svg%3E");
+}
+.banner-inner{
+  max-width:1200px;margin:0 auto;
+  position:relative;z-index:1;
+}
+.banner-inner h1{
+  font-family:'Poppins',sans-serif;
+  font-size:clamp(1.6rem,3vw,2.4rem);
+  font-weight:700;color:#fff;
+  margin-bottom:8px;
+}
+.breadcrumb{
+  display:flex;align-items:center;gap:8px;
+  font-size:0.85rem;color:rgba(255,255,255,0.7);
+  font-family:'Poppins',sans-serif;
+}
+.breadcrumb a{color:rgba(255,255,255,0.85);}
+.breadcrumb a:hover{color:#fff;}
+.breadcrumb .sep{color:rgba(255,255,255,0.4);}
+.breadcrumb .current{color:#fff;font-weight:500;}
+
+/* ─── MAIN LAYOUT ─── */
+.services-page{
+  max-width:1200px;margin:0 auto;
+  padding:50px 4vw 80px;
+  display:grid;
+  grid-template-columns:320px 1fr;
+  gap:30px;
+  align-items:start;
+}
+
+/* ─── LEFT SIDEBAR ─── */
+.sidebar{
+  position:sticky;top:100px;
+}
+.sidebar-box{
+  background:var(--off);
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 2px 12px rgba(30,45,107,0.07);
+}
+.sidebar-title{
+  background:#fff;
+  padding:20px 24px;
+  font-family:'Poppins',sans-serif;
+  font-size:1.1rem;font-weight:800;
+  color:var(--red);
+  text-transform:uppercase;
+  letter-spacing:0.04em;
+  border-bottom:2px solid var(--border);
+}
+.sidebar-list{list-style:none;}
+.sidebar-list li{border-bottom:1px solid var(--border);}
+.sidebar-list li:last-child{border-bottom:none;}
+.sidebar-list a{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 24px;
+  font-family:'Poppins',sans-serif;
+  font-size:0.9rem;font-weight:500;
+  color:var(--text);
+  transition:background .2s,color .2s,padding-left .2s;
+  background:#fff;
+}
+.sidebar-list a:hover{
+  background:#f0f3ff;color:var(--navy);
+  padding-left:30px;
+}
+.sidebar-list a.active{
+  background:var(--navy);color:#fff;
+  padding-left:24px;
+}
+.sidebar-list a .arrow{
+  font-size:1rem;opacity:0.5;transition:opacity .2s;
+}
+.sidebar-list a:hover .arrow,
+.sidebar-list a.active .arrow{opacity:1;}
+
+/* ─── RIGHT CONTENT ─── */
+.service-content{min-width:0;}
+
+.service-panel{display:none;}
+.service-panel.active{display:block;}
+
+.svc-header{
+  display:flex;gap:28px;
+  align-items:flex-start;
+  margin-bottom:2rem;
+  padding-bottom:2rem;
+  border-bottom:2px solid var(--border);
+  flex-wrap:wrap;
+}
+.svc-img-box{
+  width:320px;flex-shrink:0;
+  border-radius:12px;overflow:hidden;
+  box-shadow:var(--shadow);
+  background:var(--off);
+  height:220px;
+}
+.svc-img-box img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .4s ease;
+}
+.svc-img-box:hover img{transform:scale(1.05);}
+.svc-header-text{flex:1;min-width:200px;}
+.svc-header-text h2{
+  font-family:'Poppins',sans-serif;
+  font-size:clamp(1.5rem,3vw,2rem);
+  font-weight:700;color:var(--navy);
+  margin-bottom:10px;
+  padding-bottom:10px;
+  border-bottom:3px solid var(--navy);
+  display:inline-block;
+}
+.svc-header-text p{
+  font-size:0.93rem;color:var(--text-light);
+  line-height:1.85;margin-top:12px;
+}
+
+.svc-body-text p{
+  font-size:0.93rem;color:var(--text-light);
+  line-height:1.85;margin-bottom:14px;
+}
+.svc-body-text h3{
+  font-family:'Poppins',sans-serif;
+  font-size:1.1rem;font-weight:700;
+  color:var(--text);margin:24px 0 12px;
+}
+.svc-body-text ul{
+  list-style:none;
+  display:flex;flex-direction:column;gap:10px;
+  margin-bottom:20px;
+}
+.svc-body-text ul li{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:0.9rem;color:var(--text-light);
+  line-height:1.6;
+}
+.svc-body-text ul li::before{
+  content:'•';
+  color:var(--navy);font-weight:700;font-size:1.1rem;
+  margin-top:1px;flex-shrink:0;
+}
+.svc-cta-box{
+  background:linear-gradient(135deg,var(--navy),var(--blue-strip));
+  border-radius:12px;padding:28px 32px;
+  margin-top:30px;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:16px;
+}
+.svc-cta-box p{
+  font-family:'Poppins',sans-serif;
+  font-size:1rem;font-weight:600;color:#fff;
+  max-width:400px;
+}
+.svc-cta-box a{
+  background:#fff;color:var(--navy);
+  padding:12px 28px;border-radius:6px;
+  font-family:'Poppins',sans-serif;
+  font-size:0.9rem;font-weight:700;
+  transition:background .2s,color .2s,transform .2s;
+  white-space:nowrap;
+}
+.svc-cta-box a:hover{background:var(--red);color:#fff;transform:translateY(-1px);}
+
+/* ─── FLOAT BTNS ─── */
+.floats{
+  position:fixed;left:18px;bottom:30px;z-index:999;
+  display:flex;flex-direction:column;gap:12px;
+}
+.fl-btn{
+  width:50px;height:50px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;color:#fff;
+  box-shadow:0 4px 16px rgba(0,0,0,0.25);
+  transition:transform .2s;text-decoration:none;
+}
+.fl-btn:hover{transform:scale(1.1);}
+.fl-ph{background:#1a73e8;}
+.fl-wa{background:#25d366;}
+
+/* ─── FOOTER ─── */
+footer{background:#0d1b4b;color:rgba(255,255,255,.7);padding:60px 4vw 0;}
+.footer-grid{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:40px;
+  padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.08);
+}
+.ft-logo{font-family:'Poppins',sans-serif;font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:14px;display:block;}
+.footer-grid>div>p{font-size:0.85rem;line-height:1.8;color:rgba(255,255,255,.7);}
+footer h4{font-family:'Poppins',sans-serif;font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#fff;margin-bottom:1.2rem;padding-bottom:10px;border-bottom:2px solid rgba(122,141,232,0.4);}
+footer ul{list-style:none;display:flex;flex-direction:column;gap:0.6rem;}
+footer ul a{font-size:0.83rem;color:rgba(255,255,255,.55);transition:color .2s;text-decoration:none;}
+footer ul a:hover{color:#fff;}
+footer ul a::before{content:'› ';}
+.footer-contact li{font-size:0.83rem;display:flex;gap:8px;align-items:flex-start;color:rgba(255,255,255,.55);}
+.footer-contact a{color:rgba(255,255,255,.55);text-decoration:none;transition:color .2s;}
+.footer-contact a:hover{color:#fff;}
+.footer-bottom{max-width:1200px;margin:0 auto;padding:20px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem;font-size:0.78rem;color:rgba(255,255,255,.35);}
+.footer-bottom a{color:rgba(122,141,232,.8);}
+
+/* ─── MOBILE NAV ─── */
+.mob-nav{
+  display:none;position:fixed;inset:0;background:#fff;z-index:1000;
+  padding:80px 5vw 40px;overflow-y:auto;
+}
+.mob-nav.show{display:block;}
+.mob-close{position:absolute;top:22px;right:5vw;font-size:1.5rem;cursor:pointer;color:var(--navy);}
+.mob-nav a{
+  display:block;padding:14px 0;
+  font-family:'Poppins',sans-serif;font-size:1rem;font-weight:600;
+  color:var(--navy);border-bottom:1px solid var(--border);
+}
+.mob-nav a:hover{color:var(--red);}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:900px){
+  .services-page{grid-template-columns:1fr;gap:24px;}
+  .sidebar{position:static;}
+  .nav-center{display:none;}
+  .hamburger{display:flex;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .svc-img-box{width:100%;height:200px;}
+  .svc-header{flex-direction:column;}
+}
+@media(max-width:600px){
+  .footer-grid{grid-template-columns:1fr;}
+  .svc-cta-box{flex-direction:column;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- FLOAT BTNS -->
+<div class="floats">
+  <a href="tel:+918779292084" class="fl-btn fl-ph">📞</a>
+  <a href="https://wa.me/918779292084" class="fl-wa fl-btn">💬</a>
+</div>
+
+<!-- MOBILE NAV -->
+<div class="mob-nav" id="mobNav">
+  <span class="mob-close" onclick="closeMob()">✕</span>
+  <a href="index.html">Home</a>
+  <a href="about.html">About Us</a>
+  <a href="#" onclick="showService('children');closeMob()">Children Counseling</a>
+  <a href="#" onclick="showService('marriage');closeMob()">Marriage Counseling</a>
+  <a href="#" onclick="showService('senior');closeMob()">Senior Citizen Counseling</a>
+  <a href="#" onclick="showService('personal');closeMob()">Personal Counseling</a>
+  <a href="#" onclick="showService('relationship');closeMob()">Relationship Counseling</a>
+  <a href="#" onclick="showService('financial');closeMob()">Financial Counseling</a>
+  <a href="#" onclick="showService('stress');closeMob()">Stress &amp; Anxiety Management</a>
+  <a href="#" onclick="showService('depression');closeMob()">Depression Support</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="contact.html">Contact Us</a>
+</div>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-icon">C</div>
+      <div class="logo-text">
+        <strong>CDCA</strong>
+        <span>Together We Achieve</span>
+      </div>
+    </a>
+    <div class="nav-center">
+      <span class="nav-tagline">Find the Right Path with Expert Counselling</span>
+      <ul class="nav-links">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="about.html">ABOUT US</a></li>
+        <li class="has-drop">
+          <a href="services.html" class="active">OUR SERVICES ▾</a>
+          <div class="drop-menu">
+            <a href="#" onclick="showService('children');return false;">Children Counseling</a>
+            <a href="#" onclick="showService('marriage');return false;">Marriage Counseling</a>
+            <a href="#" onclick="showService('senior');return false;">Senior Citizen Counseling</a>
+            <a href="#" onclick="showService('personal');return false;">Personal Counseling</a>
+            <a href="#" onclick="showService('relationship');return false;">Relationship Counseling</a>
+            <a href="#" onclick="showService('financial');return false;">Financial Counseling</a>
+            <a href="#" onclick="showService('stress');return false;">Stress and Anxiety Management</a>
+            <a href="#" onclick="showService('depression');return false;">Depression Support</a>
+          </div>
+        </li>
+        <li><a href="gallery.html">GALLERY</a></li>
+        <li><a href="contact.html">CONTACT US</a></li>
+      </ul>
+    </div>
+    <a href="contact.html" class="btn-consult">Consult Now</a>
+    <div class="hamburger" onclick="openMob()"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- PAGE BANNER -->
+<div class="page-banner">
+  <div class="banner-inner">
+    <h1 id="bannerTitle">Children Counseling</h1>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="sep">›</span>
+      <span>Our Services</span>
+      <span class="sep">›</span>
+      <span class="current" id="bannerCrumb">Children Counseling</span>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES PAGE LAYOUT -->
+<div class="services-page">
+
+  <!-- LEFT SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-box">
+      <div class="sidebar-title">All Services</div>
+      <ul class="sidebar-list">
+        <li><a href="#" class="active" id="tab-children" onclick="showService('children');return false;">Children Counseling <span class="arrow">›</span></a></li>
+        <li><a href="#" id="tab-marriage" onclick="showService('marriage');return false;">Marriage Counseling <span class="arrow">›</span></a></li>
+        <li><a href="#" id="tab-senior" onclick="showService('senior');return false;">Senior Citizen Counseling <span class="arrow">›</span></a></li>
+        <li><a href="#" id="tab-personal" onclick="showService('personal');return false;">Personal Counseling <span class="arrow">›</span></a></li>
+        <li><a href="#" id="tab-relationship" onclick="showService('relationship');return false;">Relationship Counseling <span class="arrow">›</span></a></li>
+        <li><a href="#" id="tab-financial" onclick="showService('financial');return false;">Financial Counseling <span class="arrow">›</span></a></li>
+        <li><a href="#" id="tab-stress" onclick="showService('stress');return false;">Stress and Anxiety Management <span class="arrow">›</span></a></li>
+        <li><a href="#" id="tab-depression" onclick="showService('depression');return false;">Depression Support <span class="arrow">›</span></a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- RIGHT CONTENT -->
+  <div class="service-content">
+
+    <!-- CHILDREN COUNSELING -->
+    <div class="service-panel active" id="panel-children">
+      <div class="svc-header">
+        <div class="svc-img-box"><img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=320&h=220&fit=crop" alt="Children Counseling"/></div>
+        <div class="svc-header-text">
+          <h2>Children Counseling</h2>
+          <p>At Creative Development Centre, we provide a safe, supportive, and child-friendly environment where children can express their thoughts and feelings freely. Our trained counsellors work closely with children to address emotional, behavioral, and academic challenges.</p>
+        </div>
+      </div>
+      <div class="svc-body-text">
+        <p>Children often face a variety of challenges as they grow — from academic pressure and peer conflicts to family changes and emotional struggles. Our children counselling services are designed to help young individuals navigate these challenges with confidence, resilience, and clarity.</p>
+        <p>We use age-appropriate techniques including play therapy, art therapy, and structured conversations to help children express themselves and develop healthy coping mechanisms. Our counsellors work in close collaboration with parents and teachers to ensure a holistic support system for each child.</p>
+        <h3>Key Benefits of Children Counseling:</h3>
+        <ul>
+          <li>Helps children manage emotions like anger, sadness, and anxiety</li>
+          <li>Improves academic performance and concentration</li>
+          <li>Builds self-esteem and social skills</li>
+          <li>Addresses behavioral issues in a compassionate way</li>
+          <li>Supports children through family transitions like divorce or relocation</li>
+          <li>Develops healthy communication and problem-solving skills</li>
+        </ul>
+        <h3>Who Can Benefit?</h3>
+        <p>Our children counselling services are suitable for children aged 4–17 years dealing with school refusal, bullying, learning difficulties, social withdrawal, mood changes, trauma, or any other emotional concerns. Early intervention makes a significant difference in a child's long-term mental health.</p>
+        <div class="svc-cta-box">
+          <p>Ready to support your child's emotional well-being? Book a session today.</p>
+          <a href="#appt">Book Appointment</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MARRIAGE COUNSELING -->
+    <div class="service-panel" id="panel-marriage">
+      <div class="svc-header">
+        <div class="svc-img-box"><img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=320&h=220&fit=crop" alt="Marriage Counseling"/></div>
+        <div class="svc-header-text">
+          <h2>Marriage Counseling</h2>
+          <p>At the Creative Development Centre, we provide supportive and confidential Marriage Counseling services to help couples strengthen their bond. Whether you're facing communication issues, emotional disconnect, or recurring conflicts, our expert counselors guide couples in understanding each other better.</p>
+        </div>
+      </div>
+      <div class="svc-body-text">
+        <p>Our approach helps both partners express their thoughts openly and respectfully in a safe space. Our approach to Marriage Counseling is tailored to each couple's unique needs. By improving emotional connection, conflict resolution skills, and mutual understanding, we aim to restore harmony and intimacy in your relationship.</p>
+        <p>Marriage counseling is not just for relationships in crisis — it's also a proactive step toward a stronger, healthier future together.</p>
+        <h3>Key Benefits of Marriage Counseling:</h3>
+        <ul>
+          <li>Improves communication and emotional understanding</li>
+          <li>Helps resolve ongoing conflicts and misunderstandings</li>
+          <li>Rebuilds trust and strengthens emotional connection</li>
+          <li>Supports couples during life changes or transitions</li>
+          <li>Provides tools for long-term relationship health</li>
+          <li>Creates a safe, neutral space to discuss sensitive issues</li>
+        </ul>
+        <h3>Our Approach:</h3>
+        <p>We use evidence-based methods including Emotionally Focused Therapy (EFT), Cognitive Behavioral Therapy (CBT), and the Gottman Method to help couples build stronger, healthier relationships. Sessions are fully confidential and judgement-free.</p>
+        <div class="svc-cta-box">
+          <p>Take the first step toward a stronger relationship. Book your session now.</p>
+          <a href="#appt">Book Appointment</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SENIOR CITIZEN -->
+    <div class="service-panel" id="panel-senior">
+      <div class="svc-header">
+        <div class="svc-img-box"><img src="https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=320&h=220&fit=crop" alt="Senior Citizen Counseling"/></div>
+        <div class="svc-header-text">
+          <h2>Senior Citizen Counseling</h2>
+          <p>Growing older brings unique life changes — retirement, health challenges, loss of loved ones, and shifting family dynamics. Our Senior Citizen Counseling services provide compassionate emotional support to help elderly individuals navigate these transitions with dignity and peace of mind.</p>
+        </div>
+      </div>
+      <div class="svc-body-text">
+        <p>At Creative Development Centre, we understand that senior citizens often face feelings of loneliness, purposelessness, and anxiety about the future. Our counsellors create a warm, respectful environment where elders can openly share their concerns and receive personalized guidance.</p>
+        <p>We also offer home visit counselling for seniors who have mobility constraints, ensuring that professional support is always accessible regardless of physical limitations.</p>
+        <h3>Key Benefits of Senior Citizen Counseling:</h3>
+        <ul>
+          <li>Addresses loneliness, isolation, and feelings of neglect</li>
+          <li>Helps cope with retirement and loss of purpose</li>
+          <li>Supports grieving over loss of spouse or peers</li>
+          <li>Manages anxiety about health conditions and mortality</li>
+          <li>Improves family relationships and communication</li>
+          <li>Home visits available for those with mobility issues</li>
+        </ul>
+        <div class="svc-cta-box">
+          <p>We care for your elders. Book a session or request a home visit today.</p>
+          <a href="#appt">Book Appointment</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PERSONAL COUNSELING -->
+    <div class="service-panel" id="panel-personal">
+      <div class="svc-header">
+        <div class="svc-img-box"><img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=320&h=220&fit=crop" alt="Personal Counseling"/></div>
+        <div class="svc-header-text">
+          <h2>Personal Counseling</h2>
+          <p>Personal counselling is a one-on-one therapeutic process that focuses on you — your thoughts, feelings, goals, and challenges. At Creative Development Centre, we offer a safe, non-judgmental space where you can explore your inner self and work towards positive personal growth.</p>
+        </div>
+      </div>
+      <div class="svc-body-text">
+        <p>Whether you're dealing with low self-esteem, life transitions, career confusion, grief, or simply feeling stuck — personal counselling provides the clarity and emotional support you need to move forward. Our counsellors help you identify patterns, challenge limiting beliefs, and develop actionable strategies for a more fulfilling life.</p>
+        <h3>Key Benefits of Personal Counseling:</h3>
+        <ul>
+          <li>Builds self-awareness and emotional intelligence</li>
+          <li>Helps overcome personal obstacles and limiting beliefs</li>
+          <li>Provides clarity in career, relationships, and life decisions</li>
+          <li>Supports through life transitions like job change, relocation, or loss</li>
+          <li>Develops healthy coping strategies for everyday stress</li>
+          <li>Improves overall mental and emotional well-being</li>
+        </ul>
+        <div class="svc-cta-box">
+          <p>Your personal growth journey starts here. Book a confidential session today.</p>
+          <a href="#appt">Book Appointment</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RELATIONSHIP COUNSELING -->
+    <div class="service-panel" id="panel-relationship">
+      <div class="svc-header">
+        <div class="svc-img-box"><img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=320&h=220&fit=crop" alt="Relationship Counseling"/></div>
+        <div class="svc-header-text">
+          <h2>Relationship Counseling</h2>
+          <p>Healthy relationships are the foundation of a happy life. At Creative Development Centre, our Relationship Counseling services help individuals and couples understand relationship dynamics, improve communication, and build deeper, more meaningful connections.</p>
+        </div>
+      </div>
+      <div class="svc-body-text">
+        <p>Whether you're dealing with trust issues, communication breakdowns, jealousy, or feeling disconnected from a partner or family member — our experienced counsellors guide you towards healthier patterns of relating. We work with couples, family members, and individuals navigating all types of relationships.</p>
+        <h3>Key Benefits of Relationship Counseling:</h3>
+        <ul>
+          <li>Improves communication and active listening skills</li>
+          <li>Rebuilds trust after conflicts or betrayals</li>
+          <li>Helps set healthy boundaries in relationships</li>
+          <li>Resolves long-standing misunderstandings</li>
+          <li>Supports through breakups, separation, or divorce</li>
+          <li>Strengthens family bonds and parent-child relationships</li>
+        </ul>
+        <div class="svc-cta-box">
+          <p>Build stronger, healthier relationships. Begin your counselling journey today.</p>
+          <a href="#appt">Book Appointment</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- FINANCIAL COUNSELING -->
+    <div class="service-panel" id="panel-financial">
+      <div class="svc-header">
+        <div class="svc-img-box"><img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=320&h=220&fit=crop" alt="Financial Counseling"/></div>
+        <div class="svc-header-text">
+          <h2>Financial Counseling</h2>
+          <p>Money-related stress is one of the most common yet least talked-about sources of anxiety. At Creative Development Centre, our Financial Counseling services help individuals and families manage financial stress, develop healthy money habits, and make informed financial decisions.</p>
+        </div>
+      </div>
+      <div class="svc-body-text">
+        <p>Our counsellors provide a supportive, non-judgmental environment where you can openly discuss your financial concerns — from debt and budgeting to financial conflicts in relationships. We help you create practical plans to improve your financial health while also addressing the emotional aspects of financial stress.</p>
+        <h3>Key Benefits of Financial Counseling:</h3>
+        <ul>
+          <li>Reduces financial stress and anxiety</li>
+          <li>Helps create and stick to a realistic budget</li>
+          <li>Provides guidance on managing debt effectively</li>
+          <li>Addresses financial conflicts between partners or family members</li>
+          <li>Supports better financial decision-making</li>
+          <li>Builds long-term financial confidence and literacy</li>
+        </ul>
+        <div class="svc-cta-box">
+          <p>Take control of your financial well-being. Book a session with our expert today.</p>
+          <a href="#appt">Book Appointment</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- STRESS AND ANXIETY -->
+    <div class="service-panel" id="panel-stress">
+      <div class="svc-header">
+        <div class="svc-img-box"><img src="https://images.unsplash.com/photo-1493836512294-502baa1986e2?w=320&h=220&fit=crop" alt="Stress and Anxiety"/></div>
+        <div class="svc-header-text">
+          <h2>Stress and Anxiety Management</h2>
+          <p>In today's fast-paced world, stress and anxiety have become increasingly common. At Creative Development Centre, we help individuals identify the root causes of their stress and anxiety, and equip them with practical tools to restore emotional balance and mental clarity.</p>
+        </div>
+      </div>
+      <div class="svc-body-text">
+        <p>Unmanaged stress and anxiety can affect every area of your life — work, relationships, health, and daily functioning. Our counsellors use evidence-based techniques including mindfulness, relaxation training, and cognitive restructuring to help you break the cycle of stress and build long-term resilience.</p>
+        <h3>Key Benefits of Stress & Anxiety Management:</h3>
+        <ul>
+          <li>Identifies personal stress triggers and patterns</li>
+          <li>Teaches effective relaxation and breathing techniques</li>
+          <li>Reduces physical symptoms of stress (insomnia, headaches)</li>
+          <li>Improves focus, productivity, and daily functioning</li>
+          <li>Builds long-term emotional resilience</li>
+          <li>Provides tools to prevent anxiety escalation</li>
+        </ul>
+        <h3>Techniques We Use:</h3>
+        <p>Mindfulness-Based Stress Reduction (MBSR), Cognitive Behavioral Therapy (CBT), Progressive Muscle Relaxation, Breathing exercises, and Journaling techniques — all customized to your individual needs.</p>
+        <div class="svc-cta-box">
+          <p>Reclaim your peace of mind. Start your stress management journey today.</p>
+          <a href="#appt">Book Appointment</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- DEPRESSION SUPPORT -->
+    <div class="service-panel" id="panel-depression">
+      <div class="svc-header">
+        <div class="svc-img-box"><img src="https://images.unsplash.com/photo-1541199249251-f713e6145474?w=320&h=220&fit=crop" alt="Depression Support"/></div>
+        <div class="svc-header-text">
+          <h2>Depression Support</h2>
+          <p>Depression is more than just feeling sad — it's a serious condition that affects how you think, feel, and function in daily life. At Creative Development Centre, we offer compassionate, professional support to help individuals understand and manage their depression in a safe, confidential environment.</p>
+        </div>
+      </div>
+      <div class="svc-body-text">
+        <p>Our experienced counsellors work with individuals experiencing mild to moderate depression, helping them identify negative thought patterns, develop coping strategies, and gradually rebuild their sense of purpose and joy. We believe that with the right support, recovery is possible for everyone.</p>
+        <h3>Key Benefits of Depression Support:</h3>
+        <ul>
+          <li>Provides a safe space to openly discuss feelings without judgment</li>
+          <li>Helps identify and challenge negative thought patterns</li>
+          <li>Develops personalized coping strategies for daily challenges</li>
+          <li>Improves motivation, sleep, and energy levels</li>
+          <li>Rebuilds self-worth and sense of purpose</li>
+          <li>Supports gradual return to meaningful activities</li>
+        </ul>
+        <h3>You Are Not Alone:</h3>
+        <p>Depression is highly treatable. Taking the first step to seek help is the most important decision you can make. Our counsellors are trained to provide empathetic, evidence-based support — and we walk this journey with you, one step at a time.</p>
+        <div class="svc-cta-box">
+          <p>You don't have to face depression alone. Reach out to us today.</p>
+          <a href="#appt">Book Appointment</a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end service-content -->
+</div><!-- end services-page -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <span class="ft-logo">CDCA – Creative Development Centre</span>
+      <p>We focus on empowering individuals through personalized guidance, emotional support, and creative skill development. Together we achieve.</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="About.html">About Us</a></li>
+        <li><a href="services.html">Our Services</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Our Services</h4>
+      <ul>
+        <li><a href="#" onclick="showService('children');return false;">Children Counseling</a></li>
+        <li><a href="#" onclick="showService('marriage');return false;">Marriage Counseling</a></li>
+        <li><a href="#" onclick="showService('senior');return false;">Senior Citizen Counseling</a></li>
+        <li><a href="#" onclick="showService('personal');return false;">Personal Counseling</a></li>
+        <li><a href="#" onclick="showService('relationship');return false;">Relationship Counseling</a></li>
+        <li><a href="#" onclick="showService('financial');return false;">Financial Counseling</a></li>
+        <li><a href="#" onclick="showService('stress');return false;">Stress &amp; Anxiety</a></li>
+        <li><a href="#" onclick="showService('depression');return false;">Depression Support</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact Info</h4>
+      <ul class="footer-contact">
+        <li>Shop No 9, 1st floor, Seasons Harmony, Khadakpada, Kalyan, MH 421301</li>
+        <li><a href="tel:+918779292084">+91 8779292084</a></li>
+        <li><a href="tel:+917744896101">+91 7744896101</a></li>
+        <li><a href="mailto:cdcareeracademy@gmail.com">cdcareeracademy@gmail.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>Copyrights &copy; 2025 Creative Development Centre. All Rights Reserved.</p>
+    <p>Designed &amp; Developed by <a href="https://www.webcagetechnologies.in/">WebCage Technologies</a></p>
+  </div>
+</footer>
+
+<script>
+const services = {
+  children:    'Children Counseling',
+  marriage:    'Marriage Counseling',
+  senior:      'Senior Citizen Counseling',
+  personal:    'Personal Counseling',
+  relationship:'Relationship Counseling',
+  financial:   'Financial Counseling',
+  stress:      'Stress and Anxiety Management',
+  depression:  'Depression Support'
+};
+
+function showService(id){
+  // Hide all panels
+  document.querySelectorAll('.service-panel').forEach(p=>p.classList.remove('active'));
+  // Remove active from all sidebar links
+  document.querySelectorAll('.sidebar-list a').forEach(a=>a.classList.remove('active'));
+  // Show selected panel
+  document.getElementById('panel-'+id).classList.add('active');
+  // Activate sidebar tab
+  document.getElementById('tab-'+id).classList.add('active');
+  // Update breadcrumb and banner
+  const name = services[id];
+  document.getElementById('bannerTitle').textContent = name;
+  document.getElementById('bannerCrumb').textContent = name;
+  // Scroll to top of content
+  document.querySelector('.services-page').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function scrollToTop(){
+  document.querySelector('.services-page').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+// Handle URL hash on load (e.g. services.html#marriage)
+window.addEventListener('load',()=>{
+  const hash = window.location.hash.replace('#','');
+  if(hash && services[hash]) showService(hash);
+});
+
+// Mobile nav
+function openMob(){ document.getElementById('mobNav').classList.add('show'); document.body.style.overflow='hidden'; }
+function closeMob(){ document.getElementById('mobNav').classList.remove('show'); document.body.style.overflow=''; }
+</script>
+</body>
+</html>

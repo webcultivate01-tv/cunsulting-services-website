@@ -31,32 +31,33 @@
     /* NAVBAR */
     nav{background:#fff;box-shadow:0 2px 12px rgba(30,45,107,0.08);position:sticky;top:0;z-index:999;}
     .nav-inner{max-width:1280px;margin:0 auto;padding:0 4vw;height:80px;display:flex;align-items:center;justify-content:space-between;}
-    .logo-circle{width:60px;height:60px;border-radius:50%;border:3px solid var(--navy);display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;}
-    .logo-circle .cdca{font-size:0.95rem;font-weight:800;color:var(--navy);letter-spacing:1px;}
-    .logo-circle .together{font-size:0.45rem;color:var(--text-gray);letter-spacing:0.5px;}
-    .logo-emoji{font-size:1.6rem;display:block;line-height:1;}
+    .logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+    .logo-icon{width:56px;height:56px;background:#00bcd4;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;color:#fff;font-weight:800;}
+    .logo-text{display:flex;flex-direction:column;line-height:1.2;}
+    .logo-text strong{font-family:'Poppins',sans-serif;font-size:18px;color:#1a2e6c;font-weight:800;}
+    .logo-text span{font-size:11px;color:#00bcd4;font-weight:600;letter-spacing:0.5px;}
     .nav-center{text-align:center;flex:1;padding:0 2rem;}
-    .nav-tagline{font-family:'Poppins',sans-serif;font-size:1.1rem;font-weight:700;color:var(--navy);display:block;margin-bottom:10px;}
+    .nav-tagline{font-family:'Poppins',sans-serif;font-size:1rem;font-weight:700;color:#1a2e6c;display:block;margin-bottom:8px;}
     .nav-links{display:flex;align-items:center;justify-content:center;gap:0;list-style:none;}
     .nav-links>li{position:relative;}
-    .nav-links>li>a{display:block;padding:4px 18px;font-family:'Poppins',sans-serif;font-size:0.85rem;font-weight:600;color:var(--navy);letter-spacing:0.05em;text-transform:uppercase;transition:color .2s;white-space:nowrap;}
-    .nav-links>li>a:hover,.nav-links>li>a.active{color:var(--red);}
-    .nav-links>li>a.active{border-bottom:2px solid var(--red);padding-bottom:2px;}
+    .nav-links>li>a{display:block;padding:4px 16px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;color:#333;letter-spacing:0.5px;text-transform:uppercase;transition:color .2s;white-space:nowrap;text-decoration:none;}
+    .nav-links>li>a:hover,.nav-links>li>a.active{color:#00bcd4;}
+    .nav-links>li>a.active{border-bottom:2px solid #00bcd4;padding-bottom:2px;}
     .has-drop:hover .drop-menu{display:block;}
-    .drop-menu{display:none;position:absolute;top:100%;left:0;background:#fff;min-width:230px;box-shadow:0 8px 30px rgba(30,45,107,0.15);border-top:3px solid var(--navy);z-index:300;padding:6px 0;border-radius:0 0 8px 8px;}
-    .drop-menu a{display:block;padding:10px 20px;font-size:0.83rem;color:var(--text-gray);font-family:'Poppins',sans-serif;font-weight:400;transition:background .15s,color .15s;}
-    .drop-menu a:hover{background:#f0f3ff;color:var(--navy);}
-    .nav-cta{background:var(--navy);color:#fff;padding:12px 28px;border-radius:6px;font-family:'Poppins',sans-serif;font-size:0.9rem;font-weight:600;transition:background .2s,transform .2s;white-space:nowrap;flex-shrink:0;}
-    .nav-cta:hover{background:var(--red);transform:translateY(-1px);}
+    .drop-menu{display:none;position:absolute;top:100%;left:0;background:#fff;min-width:230px;box-shadow:0 8px 30px rgba(0,0,0,0.12);border-top:3px solid #00bcd4;z-index:300;padding:6px 0;border-radius:0 0 8px 8px;}
+    .drop-menu a{display:block;padding:10px 20px;font-size:13px;color:#333;font-family:'Poppins',sans-serif;font-weight:400;transition:background .15s,color .15s;}
+    .drop-menu a:hover{background:#f0f9fb;color:#00bcd4;}
+    .btn-consult{background:#1a2e6c;color:#fff;border:none;cursor:pointer;padding:12px 28px;border-radius:6px;font-family:'Poppins',sans-serif;font-size:14px;font-weight:700;letter-spacing:0.5px;transition:background .2s,transform .15s;text-decoration:none;white-space:nowrap;flex-shrink:0;}
+    .btn-consult:hover{background:#00bcd4;transform:translateY(-1px);}
     .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
-    .hamburger span{width:26px;height:2px;background:var(--navy);border-radius:2px;display:block;}
+    .hamburger span{width:26px;height:2px;background:#1a2e6c;border-radius:2px;display:block;}
 
     /* MOBILE NAV */
     .mob-nav{display:none;position:fixed;inset:0;background:#fff;z-index:1000;padding:80px 5vw 40px;overflow-y:auto;}
     .mob-nav.show{display:block;}
-    .mob-close{position:absolute;top:22px;right:5vw;font-size:1.5rem;cursor:pointer;color:var(--navy);}
-    .mob-nav a{display:block;padding:14px 0;font-family:'Poppins',sans-serif;font-size:1rem;font-weight:600;color:var(--navy);border-bottom:1px solid var(--border);}
-    .mob-nav a:hover{color:var(--red);}
+    .mob-close{position:absolute;top:22px;right:5vw;font-size:1.5rem;cursor:pointer;color:#1a2e6c;}
+    .mob-nav a{display:block;padding:14px 0;font-family:'Poppins',sans-serif;font-size:1rem;font-weight:600;color:#1a2e6c;border-bottom:1px solid #eee;text-decoration:none;}
+    .mob-nav a:hover{color:#00bcd4;}
 
     /* FLOAT BTNS */
     .floats{position:fixed;left:18px;bottom:30px;z-index:999;display:flex;flex-direction:column;gap:12px;}
@@ -85,22 +86,20 @@
     .lightbox img{max-width:90vw;max-height:90vh;border-radius:8px;}
 
     /* FOOTER */
-    footer{background:#12183a;color:#fff;padding:60px 4vw 0;}
-    .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.7fr 1fr 1fr 1.3fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,0.08);}
-    .f-brand-name{font-family:'Poppins',sans-serif;font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:1rem;}
-    .f-brand-name span{color:#7a8de8;}
-    .f-brand p{font-size:0.85rem;color:rgba(255,255,255,0.55);line-height:1.8;max-width:280px;}
-    .f-contact-row{display:flex;align-items:flex-start;gap:10px;margin-top:1.2rem;}
-    .f-contact-row a{color:rgba(255,255,255,0.7);font-size:0.82rem;}
-    .f-contact-row a:hover{color:#fff;}
-    .fc-ic{width:30px;height:30px;flex-shrink:0;background:rgba(30,45,107,0.5);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:0.85rem;}
-    .f-col h5{font-family:'Poppins',sans-serif;font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#fff;margin-bottom:1.2rem;padding-bottom:10px;border-bottom:2px solid rgba(122,141,232,0.4);}
-    .f-col ul{list-style:none;display:flex;flex-direction:column;gap:0.6rem;}
-    .f-col a{font-size:0.83rem;color:rgba(255,255,255,0.55);transition:color .2s;}
-    .f-col a:hover{color:#fff;}
-    .f-col a::before{content:'›  ';}
-    .footer-bottom{max-width:1200px;margin:0 auto;padding:20px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.8rem;font-size:0.78rem;color:rgba(255,255,255,0.35);}
-    .footer-bottom a{color:rgba(122,141,232,0.8);}
+    footer{background:#0d1b4b;color:rgba(255,255,255,.7);padding:60px 4vw 0;}
+    .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.08);}
+    .ft-logo{font-family:'Poppins',sans-serif;font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:14px;display:block;}
+    .footer-grid>div>p{font-size:0.85rem;line-height:1.8;}
+    footer h4{font-family:'Poppins',sans-serif;font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#fff;margin-bottom:1.2rem;padding-bottom:10px;border-bottom:2px solid rgba(122,141,232,0.4);}
+    footer ul{list-style:none;display:flex;flex-direction:column;gap:0.6rem;}
+    footer ul a{font-size:0.83rem;color:rgba(255,255,255,.55);transition:color .2s;text-decoration:none;}
+    footer ul a:hover{color:#fff;}
+    footer ul a::before{content:'› ';}
+    .footer-contact li{font-size:0.83rem;display:flex;gap:8px;align-items:flex-start;color:rgba(255,255,255,.55);}
+    .footer-contact a{color:rgba(255,255,255,.55);text-decoration:none;transition:color .2s;}
+    .footer-contact a:hover{color:#fff;}
+    .footer-bottom{max-width:1200px;margin:0 auto;padding:20px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem;font-size:0.78rem;color:rgba(255,255,255,.35);}
+    .footer-bottom a{color:rgba(122,141,232,.8);}
 
     /* RESPONSIVE */
     @media(max-width:860px){
@@ -167,18 +166,18 @@
         <span class="nav-tagline">Find the Right Path with Expert Counselling</span>
         <ul class="nav-links">
           <li><a href="index.html">HOME</a></li>
-          <li><a href="#">ABOUT US</a></li>
+          <li><a href="About.html">ABOUT US</a></li>
           <li class="has-drop">
-            <a href="#">OUR SERVICES ▾</a>
+            <a href="services.html">OUR SERVICES ▾</a>
             <div class="drop-menu">
-              <a href="#">Children Counseling</a>
-              <a href="#">Marriage Counseling</a>
-              <a href="#">Senior Citizen Counseling</a>
-              <a href="#">Personal Counseling</a>
-              <a href="#">Relationship Counseling</a>
-              <a href="#">Financial Counseling</a>
-              <a href="#">Stress and Anxiety Management</a>
-              <a href="#">Depression Support</a>
+              <a href="services.html#children">Children Counseling</a>
+              <a href="services.html#marriage">Marriage Counseling</a>
+              <a href="services.html#senior">Senior Citizen Counseling</a>
+              <a href="services.html#personal">Personal Counseling</a>
+              <a href="services.html#relationship">Relationship Counseling</a>
+              <a href="services.html#financial">Financial Counseling</a>
+              <a href="services.html#stress">Stress and Anxiety Management</a>
+              <a href="services.html#depression">Depression Support</a>
             </div>
           </li>
           <li><a href="gallery.html" class="active">GALLERY</a></li>
@@ -236,46 +235,45 @@
   <!-- Footer -->
   <footer>
     <div class="footer-grid">
-      <div class="f-brand">
-        <div class="f-brand-name">Creative <span>Development</span> Centre</div>
-        <p>Creative Development Centre is a trusted name in Counselling. We help students and professionals unlock their full potential through expert counselling and personalized support.</p>
-        <div class="f-contact-row"><div class="fc-ic">📍</div><a href="#">Shop No 9, 1st floor, Seasons Harmony, Khadakpada, Kalyan, MH 421301</a></div>
+      <div class="footer-brand">
+        <div class="ft-logo">CDCA – Creative Development Centre</div>
+        <p>We focus on empowering individuals through personalized guidance, emotional support, and creative skill development. Together we achieve.</p>
       </div>
-      <div class="f-col">
-        <h5>Our Services</h5>
-        <ul>
-          <li><a href="#">Children Counseling</a></li>
-          <li><a href="#">Marriage Counseling</a></li>
-          <li><a href="#">Senior Citizen Counseling</a></li>
-          <li><a href="#">Personal Counseling</a></li>
-          <li><a href="#">Relationship Counseling</a></li>
-          <li><a href="#">Financial Counseling</a></li>
-          <li><a href="#">Stress &amp; Anxiety</a></li>
-          <li><a href="#">Depression Support</a></li>
-        </ul>
-      </div>
-      <div class="f-col">
-        <h5>Quick Links</h5>
+      <div>
+        <h4>Quick Links</h4>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="#">About Us</a></li>
+          <li><a href="About.html">About Us</a></li>
+          <li><a href="services.html">Our Services</a></li>
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="contact.html">Contact Us</a></li>
-          <li><a href="contact.html">Book Appointment</a></li>
         </ul>
       </div>
-      <div class="f-col">
-        <h5>Contact Us</h5>
+      <div>
+        <h4>Our Services</h4>
         <ul>
-          <li><a href="tel:+918779292084">📞 +91 8779292084</a></li>
-          <li><a href="tel:+917744896101">📞 +91 7744896101</a></li>
-          <li><a href="mailto:cdcareeracademy@gmail.com">✉ cdcareeracademy@gmail.com</a></li>
-          <li><a href="https://wa.me/918779292084">💬 WhatsApp Us</a></li>
+          <li><a href="services.html#children">Children Counseling</a></li>
+          <li><a href="services.html#marriage">Marriage Counseling</a></li>
+          <li><a href="services.html#senior">Senior Citizen Counseling</a></li>
+          <li><a href="services.html#personal">Personal Counseling</a></li>
+          <li><a href="services.html#relationship">Relationship Counseling</a></li>
+          <li><a href="services.html#financial">Financial Counseling</a></li>
+          <li><a href="services.html#stress">Stress &amp; Anxiety</a></li>
+          <li><a href="services.html#depression">Depression Support</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact Info</h4>
+        <ul class="footer-contact">
+          <li>Shop No 9, 1st floor, Seasons Harmony, Khadakpada, Kalyan, MH 421301</li>
+          <li><a href="tel:+918779292084">+91 8779292084</a></li>
+          <li><a href="tel:+917744896101">+91 7744896101</a></li>
+          <li><a href="mailto:cdcareeracademy@gmail.com">cdcareeracademy@gmail.com</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>Copyrights © 2025 Creative Development Centre. All Rights Reserved.</p>
+      <p>Copyrights &copy; 2025 Creative Development Centre. All Rights Reserved.</p>
       <p>Designed &amp; Developed by <a href="https://www.webcagetechnologies.in/">WebCage Technologies</a></p>
     </div>
   </footer>

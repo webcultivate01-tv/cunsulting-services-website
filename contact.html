@@ -100,22 +100,20 @@
     #thank-you-msg.show{display:block;animation:fadeInUp 0.6s ease;}
 
     /* FOOTER */
-    footer{background:#12183a;color:#fff;padding:60px 4vw 0;}
-    .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.7fr 1fr 1fr 1.3fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,0.08);}
-    .f-brand-name{font-family:'Poppins',sans-serif;font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:1rem;}
-    .f-brand-name span{color:#7a8de8;}
-    .f-brand p{font-size:0.85rem;color:rgba(255,255,255,0.55);line-height:1.8;max-width:280px;}
-    .f-contact-row{display:flex;align-items:flex-start;gap:10px;margin-top:1.2rem;}
-    .f-contact-row a{color:rgba(255,255,255,0.7);font-size:0.82rem;}
-    .f-contact-row a:hover{color:#fff;}
-    .fc-ic{width:30px;height:30px;flex-shrink:0;background:rgba(30,45,107,0.5);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:0.85rem;}
-    .f-col h5{font-family:'Poppins',sans-serif;font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#fff;margin-bottom:1.2rem;padding-bottom:10px;border-bottom:2px solid rgba(122,141,232,0.4);}
-    .f-col ul{list-style:none;display:flex;flex-direction:column;gap:0.6rem;}
-    .f-col a{font-size:0.83rem;color:rgba(255,255,255,0.55);transition:color .2s;}
-    .f-col a:hover{color:#fff;}
-    .f-col a::before{content:'›  ';}
-    .footer-bottom{max-width:1200px;margin:0 auto;padding:20px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.8rem;font-size:0.78rem;color:rgba(255,255,255,0.35);}
-    .footer-bottom a{color:rgba(122,141,232,0.8);}
+    footer{background:#0d1b4b;color:rgba(255,255,255,.7);padding:60px 4vw 0;}
+    .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.08);}
+    .ft-logo{font-family:'Poppins',sans-serif;font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:14px;display:block;}
+    .footer-grid>div>p{font-size:0.85rem;line-height:1.8;}
+    footer h4{font-family:'Poppins',sans-serif;font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#fff;margin-bottom:1.2rem;padding-bottom:10px;border-bottom:2px solid rgba(122,141,232,0.4);}
+    footer ul{list-style:none;display:flex;flex-direction:column;gap:0.6rem;}
+    footer ul a{font-size:0.83rem;color:rgba(255,255,255,.55);transition:color .2s;text-decoration:none;}
+    footer ul a:hover{color:#fff;}
+    footer ul a::before{content:'› ';}
+    .footer-contact li{font-size:0.83rem;display:flex;gap:8px;align-items:flex-start;color:rgba(255,255,255,.55);}
+    .footer-contact a{color:rgba(255,255,255,.55);text-decoration:none;transition:color .2s;}
+    .footer-contact a:hover{color:#fff;}
+    .footer-bottom{max-width:1200px;margin:0 auto;padding:20px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem;font-size:0.78rem;color:rgba(255,255,255,.35);}
+    .footer-bottom a{color:rgba(122,141,232,.8);}
 
     /* RESPONSIVE */
     @media(max-width:860px){
@@ -182,18 +180,18 @@
         <span class="nav-tagline">Find the Right Path with Expert Counselling</span>
         <ul class="nav-links">
           <li><a href="index.html">HOME</a></li>
-          <li><a href="#">ABOUT US</a></li>
+          <li><a href="About.html">ABOUT US</a></li>
           <li class="has-drop">
-            <a href="#">OUR SERVICES ▾</a>
+            <a href="services.html">OUR SERVICES ▾</a>
             <div class="drop-menu">
-              <a href="#">Children Counseling</a>
-              <a href="#">Marriage Counseling</a>
-              <a href="#">Senior Citizen Counseling</a>
-              <a href="#">Personal Counseling</a>
-              <a href="#">Relationship Counseling</a>
-              <a href="#">Financial Counseling</a>
-              <a href="#">Stress and Anxiety Management</a>
-              <a href="#">Depression Support</a>
+              <a href="services.html#children">Children Counseling</a>
+              <a href="services.html#marriage">Marriage Counseling</a>
+              <a href="services.html#senior">Senior Citizen Counseling</a>
+              <a href="services.html#personal">Personal Counseling</a>
+              <a href="services.html#relationship">Relationship Counseling</a>
+              <a href="services.html#financial">Financial Counseling</a>
+              <a href="services.html#stress">Stress and Anxiety Management</a>
+              <a href="services.html#depression">Depression Support</a>
             </div>
           </li>
           <li><a href="gallery.html">GALLERY</a></li>
@@ -307,46 +305,45 @@
   <!-- Footer -->
   <footer>
     <div class="footer-grid">
-      <div class="f-brand">
-        <div class="f-brand-name">Creative <span>Development</span> Centre</div>
-        <p>Creative Development Centre is a trusted name in Counselling. We help students and professionals unlock their full potential through expert counselling and personalized support.</p>
-        <div class="f-contact-row"><div class="fc-ic">📍</div><a href="#">Shop No 9, 1st floor, Seasons Harmony, Khadakpada, Kalyan, MH 421301</a></div>
+      <div class="footer-brand">
+        <div class="ft-logo">CDCA – Creative Development Centre</div>
+        <p>We focus on empowering individuals through personalized guidance, emotional support, and creative skill development. Together we achieve.</p>
       </div>
-      <div class="f-col">
-        <h5>Our Services</h5>
-        <ul>
-          <li><a href="#">Children Counseling</a></li>
-          <li><a href="#">Marriage Counseling</a></li>
-          <li><a href="#">Senior Citizen Counseling</a></li>
-          <li><a href="#">Personal Counseling</a></li>
-          <li><a href="#">Relationship Counseling</a></li>
-          <li><a href="#">Financial Counseling</a></li>
-          <li><a href="#">Stress &amp; Anxiety</a></li>
-          <li><a href="#">Depression Support</a></li>
-        </ul>
-      </div>
-      <div class="f-col">
-        <h5>Quick Links</h5>
+      <div>
+        <h4>Quick Links</h4>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="#">About Us</a></li>
+          <li><a href="About.html">About Us</a></li>
+          <li><a href="services.html">Our Services</a></li>
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="contact.html">Contact Us</a></li>
-          <li><a href="contact.html">Book Appointment</a></li>
         </ul>
       </div>
-      <div class="f-col">
-        <h5>Contact Us</h5>
+      <div>
+        <h4>Our Services</h4>
         <ul>
-          <li><a href="tel:+918779292084">📞 +91 8779292084</a></li>
-          <li><a href="tel:+917744896101">📞 +91 7744896101</a></li>
-          <li><a href="mailto:cdcareeracademy@gmail.com">✉ cdcareeracademy@gmail.com</a></li>
-          <li><a href="https://wa.me/918779292084">💬 WhatsApp Us</a></li>
+          <li><a href="services.html#children">Children Counseling</a></li>
+          <li><a href="services.html#marriage">Marriage Counseling</a></li>
+          <li><a href="services.html#senior">Senior Citizen Counseling</a></li>
+          <li><a href="services.html#personal">Personal Counseling</a></li>
+          <li><a href="services.html#relationship">Relationship Counseling</a></li>
+          <li><a href="services.html#financial">Financial Counseling</a></li>
+          <li><a href="services.html#stress">Stress &amp; Anxiety</a></li>
+          <li><a href="services.html#depression">Depression Support</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact Info</h4>
+        <ul class="footer-contact">
+          <li>Shop No 9, 1st floor, Seasons Harmony, Khadakpada, Kalyan, MH 421301</li>
+          <li><a href="tel:+918779292084">+91 8779292084</a></li>
+          <li><a href="tel:+917744896101">+91 7744896101</a></li>
+          <li><a href="mailto:cdcareeracademy@gmail.com">cdcareeracademy@gmail.com</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>Copyrights © 2025 Creative Development Centre. All Rights Reserved.</p>
+      <p>Copyrights &copy; 2025 Creative Development Centre. All Rights Reserved.</p>
       <p>Designed &amp; Developed by <a href="https://www.webcagetechnologies.in/">WebCage Technologies</a></p>
     </div>
   </footer>

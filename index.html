@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Creative Development Centre – CDCA</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
@@ -57,76 +58,61 @@ nav{
 }
 .nav-inner{
   max-width:1280px;margin:0 auto;
-  padding:0 4vw;
-  height:80px;
+  padding:0 4vw;height:80px;
   display:flex;align-items:center;justify-content:space-between;
 }
-.nav-logo img{height:60px;width:auto;}
-.nav-logo-placeholder{
-  display:flex;align-items:center;gap:10px;
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.logo-icon{
+  width:56px;height:56px;background:#00bcd4;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;color:#fff;font-weight:800;
 }
-.logo-circle{
-  width:60px;height:60px;border-radius:50%;
-  border:3px solid var(--navy);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  font-family:'Poppins',sans-serif;
-}
-.logo-circle .cdca{font-size:0.95rem;font-weight:800;color:var(--navy);letter-spacing:1px;}
-.logo-circle .together{font-size:0.45rem;color:var(--text-gray);letter-spacing:0.5px;}
-.logo-emoji{font-size:1.6rem;display:block;line-height:1;}
-
-.nav-center{
-  text-align:center;flex:1;padding:0 2rem;
-}
-.nav-tagline{
-  font-family:'Poppins',sans-serif;
-  font-size:1.1rem;font-weight:700;
-  color:var(--navy);
-  display:block;margin-bottom:10px;
-}
-.nav-links{
-  display:flex;align-items:center;justify-content:center;gap:0;
-  list-style:none;
-}
+.logo-text{display:flex;flex-direction:column;line-height:1.2;}
+.logo-text strong{font-family:'Poppins',sans-serif;font-size:18px;color:#1a2e6c;font-weight:800;}
+.logo-text span{font-size:11px;color:#00bcd4;font-weight:600;letter-spacing:0.5px;}
+.nav-center{text-align:center;flex:1;padding:0 2rem;}
+.nav-tagline{font-family:'Poppins',sans-serif;font-size:1rem;font-weight:700;color:#1a2e6c;display:block;margin-bottom:8px;}
+.nav-links{display:flex;align-items:center;justify-content:center;gap:0;list-style:none;}
 .nav-links>li{position:relative;}
 .nav-links>li>a{
-  display:block;padding:4px 18px;
-  font-family:'Poppins',sans-serif;
-  font-size:0.85rem;font-weight:600;
-  color:var(--navy);letter-spacing:0.05em;
-  text-transform:uppercase;
-  transition:color .2s;
-  white-space:nowrap;
+  display:block;padding:4px 16px;
+  font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;
+  color:#333;letter-spacing:0.5px;text-transform:uppercase;
+  transition:color .2s;white-space:nowrap;text-decoration:none;
 }
-.nav-links>li>a:hover,.nav-links>li>a.active{color:var(--red);}
-.nav-links>li>a.active{border-bottom:2px solid var(--red);padding-bottom:2px;}
+.nav-links>li>a:hover,.nav-links>li>a.active{color:#00bcd4;}
+.nav-links>li>a.active{border-bottom:2px solid #00bcd4;padding-bottom:2px;}
 .has-drop:hover .drop-menu{display:block;}
 .drop-menu{
-  display:none;
-  position:absolute;top:100%;left:0;
+  display:none;position:absolute;top:100%;left:0;
   background:#fff;min-width:230px;
-  box-shadow:0 8px 30px rgba(30,45,107,0.15);
-  border-top:3px solid var(--navy);
+  box-shadow:0 8px 30px rgba(0,0,0,0.12);
+  border-top:3px solid #00bcd4;
   z-index:300;padding:6px 0;border-radius:0 0 8px 8px;
 }
 .drop-menu a{
   display:block;padding:10px 20px;
-  font-size:0.83rem;color:var(--text-gray);
+  font-size:13px;color:#333;
   font-family:'Poppins',sans-serif;font-weight:400;
   transition:background .15s,color .15s;
 }
-.drop-menu a:hover{background:#f0f3ff;color:var(--navy);}
-
-.nav-cta{
-  background:var(--navy);color:#fff;
+.drop-menu a:hover{background:#f0f9fb;color:#00bcd4;}
+.btn-consult{
+  background:#1a2e6c;color:#fff;
+  border:none;cursor:pointer;
   padding:12px 28px;border-radius:6px;
-  font-family:'Poppins',sans-serif;
-  font-size:0.9rem;font-weight:600;
-  transition:background .2s,transform .2s;
-  white-space:nowrap;flex-shrink:0;
+  font-family:'Poppins',sans-serif;font-size:14px;font-weight:700;
+  letter-spacing:0.5px;transition:background .2s,transform .15s;
+  text-decoration:none;white-space:nowrap;flex-shrink:0;
 }
-.nav-cta:hover{background:var(--red);transform:translateY(-1px);}
-
+.btn-consult:hover{background:#00bcd4;transform:translateY(-1px);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.hamburger span{width:26px;height:2px;background:#1a2e6c;border-radius:2px;display:block;}
+.mob-nav{display:none;position:fixed;inset:0;background:#fff;z-index:1000;padding:80px 5vw 40px;overflow-y:auto;}
+.mob-nav.show{display:block;}
+.mob-close{position:absolute;top:22px;right:5vw;font-size:1.5rem;cursor:pointer;color:#1a2e6c;}
+.mob-nav a{display:block;padding:14px 0;font-family:'Poppins',sans-serif;font-size:1rem;font-weight:600;color:#1a2e6c;border-bottom:1px solid #eee;text-decoration:none;}
+.mob-nav a:hover{color:#00bcd4;}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
 .hamburger span{width:26px;height:2px;background:var(--navy);border-radius:2px;display:block;}
 
@@ -250,14 +236,6 @@ nav{
 .hero-img-wrap img{
   width:100%;height:100%;object-fit:cover;
 }
-.hero-img-placeholder{
-  width:100%;height:100%;
-  display:flex;align-items:center;justify-content:center;
-  flex-direction:column;gap:12px;
-  background:linear-gradient(135deg,rgba(255,255,255,0.15),rgba(255,255,255,0.05));
-}
-.hero-img-placeholder .big-icon{font-size:5rem;}
-.hero-img-placeholder p{color:rgba(255,255,255,0.7);font-size:0.8rem;text-align:center;padding:0 20px;}
 
 /* slide arrow */
 .slide-arr{
@@ -339,22 +317,56 @@ nav{
   display:grid;grid-template-columns:1fr 1fr;
   gap:60px;align-items:center;
 }
-.about-imgs-wrap{
-  display:grid;grid-template-columns:1fr 1fr;
-  grid-template-rows:1fr 1fr;
-  gap:12px;
-  height:440px;
+/* About Image Slider */
+.about-slider{
+  position:relative;
+  border-radius:16px;
+  overflow:hidden;
+  height:460px;
+  box-shadow:0 8px 40px rgba(30,45,107,0.18);
 }
-.about-img-box{
-  border-radius:10px;overflow:hidden;
-  background:var(--off);
-  display:flex;align-items:center;justify-content:center;
-  font-size:3.5rem;
-  box-shadow:var(--shadow);
+.about-slide{
+  position:absolute;inset:0;
+  opacity:0;
+  transition:opacity 0.8s ease;
 }
-.about-img-box.big{grid-column:1;grid-row:1/3;}
-.about-img-box.sm1{grid-column:2;grid-row:1;}
-.about-img-box.sm2{grid-column:2;grid-row:2;}
+.about-slide.active{opacity:1;}
+.about-slide img{
+  width:100%;height:100%;object-fit:cover;
+}
+.about-slide-caption{
+  position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(transparent,rgba(30,45,107,0.75));
+  color:#fff;
+  padding:30px 20px 16px;
+  font-family:'Poppins',sans-serif;
+  font-size:0.9rem;font-weight:600;
+}
+.about-slider-dots{
+  position:absolute;bottom:14px;right:16px;
+  display:flex;gap:7px;z-index:5;
+}
+.about-sdot{
+  width:9px;height:9px;border-radius:50%;
+  background:rgba(255,255,255,0.5);cursor:pointer;
+  transition:background .2s,transform .2s;
+  border:none;padding:0;
+}
+.about-sdot.active{background:#fff;transform:scale(1.3);}
+.about-slider-btn{
+  position:absolute;top:50%;transform:translateY(-50%);
+  z-index:5;
+  width:36px;height:36px;
+  background:rgba(255,255,255,0.2);
+  border:1px solid rgba(255,255,255,0.4);
+  border-radius:50%;
+  color:#fff;font-size:1rem;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:background .2s;
+}
+.about-slider-btn:hover{background:var(--red);}
+.about-slider-btn.prev{left:10px;}
+.about-slider-btn.next{right:10px;}
 
 .about-label{
   font-family:'Poppins',sans-serif;
@@ -424,13 +436,11 @@ nav{
 .svc-card:hover{transform:translateY(-6px) scale(1.03);box-shadow:0 16px 40px rgba(30,45,107,0.22);}
 .svc-img{
   height:190px;
-  background:var(--off);
-  display:flex;align-items:center;justify-content:center;
-  font-size:4rem;
   overflow:hidden;
   position:relative;
 }
-.svc-img img{width:100%;height:100%;object-fit:cover;}
+.svc-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease;}
+.svc-card:hover .svc-img img{transform:scale(1.07);}
 .svc-body{padding:20px 18px 24px;}
 .svc-body h4{
   font-family:'Poppins',sans-serif;
@@ -534,12 +544,12 @@ nav{
 }
 .why-img-box{
   border-radius:16px;overflow:hidden;
-  background:linear-gradient(135deg,#e8ecff,#d0d8ff);
   height:430px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:8rem;
   box-shadow:var(--shadow);
   position:relative;
+}
+.why-img-box img{
+  width:100%;height:100%;object-fit:cover;
 }
 .why-stats{
   position:absolute;bottom:20px;left:20px;right:20px;
@@ -614,30 +624,31 @@ nav{
   font-size:0.85rem;font-weight:600;font-family:'Poppins',sans-serif;
   margin-top:16px;
 }
-.gstar{color:#fbbc04;font-size:1rem;letter-spacing:1px;}
-.test-grid{
-  max-width:1200px;margin:0 auto;
-  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
-}
+.gstar{color:#fbbc04;font-size:1rem;}
+.review-slider-wrap{max-width:1200px;margin:0 auto;position:relative;}
+.review-track-outer{overflow:hidden;}
+.review-track{display:flex;transition:transform .5s ease;}
 .tcard{
   background:#fff;border:1px solid var(--border);
   border-radius:12px;padding:1.8rem;
-  transition:transform .25s,box-shadow .25s;
+  flex:0 0 calc(33.333% - 14px);
+  margin-right:20px;
   position:relative;
+  transition:box-shadow .25s;
 }
-.tcard:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(30,45,107,0.12);}
+.tcard:hover{box-shadow:0 12px 30px rgba(30,45,107,0.12);}
 .tcard::before{
   content:'\201C';
   position:absolute;top:10px;right:18px;
   font-size:4.5rem;color:#e8ecff;
   font-family:Georgia,serif;line-height:1;
 }
-.tcard-stars{color:#fbbc04;font-size:0.9rem;letter-spacing:1px;margin-bottom:10px;}
+.tcard-stars{color:#fbbc04;font-size:0.9rem;margin-bottom:10px;}
 .tcard p{font-size:0.875rem;color:var(--text-gray);line-height:1.75;margin-bottom:1.2rem;}
 .tcard-author{display:flex;align-items:center;gap:12px;}
 .tav{
   width:42px;height:42px;border-radius:50%;
-  background:#e8ecff;
+  background:#e8ecff;flex-shrink:0;
   display:flex;align-items:center;justify-content:center;
   font-size:0.95rem;font-weight:700;font-family:'Poppins',sans-serif;
   color:var(--navy);border:2px solid rgba(30,45,107,0.15);
@@ -645,50 +656,38 @@ nav{
 .tname{font-family:'Poppins',sans-serif;font-size:0.875rem;font-weight:700;color:var(--navy);}
 .tdate{font-size:0.75rem;color:#999;}
 .g-icon{font-size:0.8rem;margin-left:auto;color:#4285f4;font-weight:700;font-family:'Poppins',sans-serif;}
+.review-nav{
+  display:flex;justify-content:center;align-items:center;
+  gap:16px;margin-top:30px;
+}
+.rev-btn{
+  width:44px;height:44px;border-radius:50%;
+  background:var(--navy);color:#fff;
+  border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;transition:background .2s,transform .2s;
+}
+.rev-btn:hover{background:var(--red);transform:scale(1.1);}
+.rev-dots{display:flex;gap:8px;}
+.rev-dot{
+  width:9px;height:9px;border-radius:50%;
+  background:var(--border);cursor:pointer;
+  border:none;padding:0;
+  transition:background .2s,transform .2s;
+}
+.rev-dot.active{background:var(--navy);transform:scale(1.3);}
 
 /* ─── FOOTER ─── */
-footer{background:#12183a;color:#fff;padding:60px 4vw 0;}
-.footer-grid{
-  max-width:1200px;margin:0 auto;
-  display:grid;grid-template-columns:1.7fr 1fr 1fr 1.3fr;gap:3rem;
-  padding-bottom:3rem;
-  border-bottom:1px solid rgba(255,255,255,0.08);
-}
-.f-brand-name{
-  font-family:'Poppins',sans-serif;
-  font-size:1.2rem;font-weight:700;color:#fff;
-  margin-bottom:1rem;
-}
-.f-brand-name span{color:#7a8de8;}
-.f-brand p{font-size:0.85rem;color:rgba(255,255,255,0.55);line-height:1.8;max-width:280px;}
-.f-contact-row{display:flex;align-items:flex-start;gap:10px;margin-top:1.2rem;}
-.f-contact-row a{color:rgba(255,255,255,0.7);font-size:0.82rem;}
-.f-contact-row a:hover{color:#fff;}
-.fc-ic{
-  width:30px;height:30px;flex-shrink:0;
-  background:rgba(30,45,107,0.5);
-  border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:0.85rem;
-}
-.f-col h5{
-  font-family:'Poppins',sans-serif;
-  font-size:0.82rem;font-weight:700;
-  text-transform:uppercase;letter-spacing:0.08em;
-  color:#fff;margin-bottom:1.2rem;
-  padding-bottom:10px;
-  border-bottom:2px solid rgba(122,141,232,0.4);
-}
-.f-col ul{list-style:none;display:flex;flex-direction:column;gap:0.6rem;}
-.f-col a{font-size:0.83rem;color:rgba(255,255,255,0.55);transition:color .2s;}
-.f-col a:hover{color:#fff;}
-.f-col a::before{content:'›  ';}
-.footer-bottom{
-  max-width:1200px;margin:0 auto;
-  padding:20px 0;
-  display:flex;justify-content:space-between;align-items:center;
-  flex-wrap:wrap;gap:0.8rem;
-  font-size:0.78rem;color:rgba(255,255,255,0.35);
-}
-.footer-bottom a{color:rgba(122,141,232,0.8);}
+footer{background:#0d1b4b;color:rgba(255,255,255,.7);padding:60px 60px 30px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:40px;margin-bottom:40px;}
+.footer-brand .ft-logo{font-family:'Poppins',sans-serif;font-size:22px;font-weight:800;color:#fff;margin-bottom:14px;}
+.footer-brand p{font-size:13px;line-height:1.8;}
+footer h4{font-family:'Poppins',sans-serif;font-size:15px;font-weight:700;color:#fff;margin-bottom:16px;}
+footer ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+footer ul a{color:rgba(255,255,255,.7);text-decoration:none;font-size:13px;transition:color 0.2s;}
+footer ul a:hover{color:#00bcd4;}
+.footer-contact li{font-size:13px;display:flex;gap:10px;align-items:flex-start;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:22px;text-align:center;font-size:12px;color:rgba(255,255,255,.4);}
 
 /* ─── FLOAT BTNS ─── */
 .floats{
@@ -705,6 +704,8 @@ footer{background:#12183a;color:#fff;padding:60px 4vw 0;}
 .fl-btn:hover{transform:scale(1.1);}
 .fl-ph{background:#1a73e8;}
 .fl-wa{background:#25d366;}
+.fl-ph::before{content:'';display:block;width:22px;height:22px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z'/%3E%3C/svg%3E") center/contain no-repeat;}
+.fl-wa::before{content:'';display:block;width:22px;height:22px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z'/%3E%3C/svg%3E") center/contain no-repeat;}
 
 /* ─── RESPONSIVE ─── */
 @media(max-width:1024px){
@@ -758,26 +759,25 @@ footer{background:#12183a;color:#fff;padding:60px 4vw 0;}
     <!--------------------------- Kanishka-section ----------------------->
 <!-- FLOAT BTNS -->
 <div class="floats">
-  <a href="tel:+918779292084" class="fl-btn fl-ph">📞</a>
-  <a href="https://wa.me/918779292084" class="fl-btn fl-wa">💬</a>
+  <a href="tel:+918779292084" class="fl-btn fl-ph" aria-label="Call us"></a>
+  <a href="https://wa.me/918779292084" class="fl-btn fl-wa" aria-label="WhatsApp us"></a>
 </div>
 
 <!-- MOBILE NAV -->
 <div class="mob-nav" id="mobNav">
   <span class="mob-close" onclick="closeMob()">✕</span>
-  <a href="#">Home</a>
-  <a href="#">About Us</a>
-  <a href="#">Children Counseling</a>
-  <a href="#">Marriage Counseling</a>
-  <a href="#">Senior Citizen Counseling</a>
-  <a href="#">Personal Counseling</a>
-  <a href="#">Relationship Counseling</a>
-  <a href="#">Financial Counseling</a>
-  <a href="#">Stress & Anxiety Management</a>
-  <a href="#">Depression Support</a>
-  <a href="#">Gallery</a>
-  <a href="#">Contact Us</a>
-  <a href="#appt" style="color:var(--navy);background:#f0f3ff;padding:12px;border-radius:6px;margin-top:1rem;border:none;">➜ Consult Now</a>
+  <a href="index.html">Home</a>
+  <a href="about.html">About Us</a>
+  <a href="services.html#children">Children Counseling</a>
+  <a href="services.html#marriage">Marriage Counseling</a>
+  <a href="services.html#senior">Senior Citizen Counseling</a>
+  <a href="services.html#personal">Personal Counseling</a>
+  <a href="services.html#relationship">Relationship Counseling</a>
+  <a href="services.html#financial">Financial Counseling</a>
+  <a href="services.html#stress">Stress &amp; Anxiety Management</a>
+  <a href="services.html#depression">Depression Support</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="contact.html">Contact Us</a>
 </div>
 
 <!-- TOP BAR -->
@@ -797,40 +797,36 @@ footer{background:#12183a;color:#fff;padding:60px 4vw 0;}
 <!-- NAVBAR -->
 <nav>
   <div class="nav-inner">
-    <!-- Logo -->
-    <div class="nav-logo-placeholder">
-      <div class="logo-circle">
-        <span class="logo-emoji">🤝</span>
-        <span class="cdca">CDCA</span>
-        <span class="together">Together we achieve</span>
+    <a href="index.html" class="logo">
+      <div class="logo-icon">C</div>
+      <div class="logo-text">
+        <strong>CDCA</strong>
+        <span>Together We Achieve</span>
       </div>
-    </div>
-
-    <!-- Center: tagline + links -->
+    </a>
     <div class="nav-center">
       <span class="nav-tagline">Find the Right Path with Expert Counselling</span>
       <ul class="nav-links">
-        <li><a href="#" class="active">HOME</a></li>
-        <li><a href="#about">ABOUT US</a></li>
+        <li><a href="index.html" class="active">HOME</a></li>
+        <li><a href="about.html">ABOUT US</a></li>
         <li class="has-drop">
-          <a href="#">OUR SERVICES ▾</a>
+          <a href="services.html">OUR SERVICES ▾</a>
           <div class="drop-menu">
-            <a href="#">Children Counseling</a>
-            <a href="#">Marriage Counseling</a>
-            <a href="#">Senior Citizen Counseling</a>
-            <a href="#">Personal Counseling</a>
-            <a href="#">Relationship Counseling</a>
-            <a href="#">Financial Counseling</a>
-            <a href="#">Stress and Anxiety Management</a>
-            <a href="#">Depression Support</a>
+            <a href="services.html#children">Children Counseling</a>
+            <a href="services.html#marriage">Marriage Counseling</a>
+            <a href="services.html#senior">Senior Citizen Counseling</a>
+            <a href="services.html#personal">Personal Counseling</a>
+            <a href="services.html#relationship">Relationship Counseling</a>
+            <a href="services.html#financial">Financial Counseling</a>
+            <a href="services.html#stress">Stress and Anxiety Management</a>
+            <a href="services.html#depression">Depression Support</a>
           </div>
         </li>
-        <li><a href="#">GALLERY</a></li>
-        <li><a href="#">CONTACT US</a></li>
+        <li><a href="gallery.html">GALLERY</a></li>
+        <li><a href="contact.html">CONTACT US</a></li>
       </ul>
     </div>
-
-    <a href="#appt" class="nav-cta">Consult Now</a>
+    <a href="contact.html" class="btn-consult">Consult Now</a>
     <div class="hamburger" onclick="openMob()"><span></span><span></span><span></span></div>
   </div>
 </nav>
@@ -860,10 +856,7 @@ footer{background:#12183a;color:#fff;padding:60px 4vw 0;}
     <div class="slide-right">
       <div class="slide-right-bg"></div>
       <div class="hero-img-wrap">
-        <div class="hero-img-placeholder">
-          <span class="big-icon">👥</span>
-          <p>Counselling Session</p>
-        </div>
+        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=320&h=320&fit=crop" alt="Counselling Session"/>
       </div>
       <div class="slide-arr" onclick="nextSlide()">›</div>
     </div>
@@ -891,10 +884,7 @@ footer{background:#12183a;color:#fff;padding:60px 4vw 0;}
     <div class="slide-right">
       <div class="slide-right-bg"></div>
       <div class="hero-img-wrap">
-        <div class="hero-img-placeholder">
-          <span class="big-icon">🧠</span>
-          <p>Mental Wellness</p>
-        </div>
+        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=320&h=320&fit=crop" alt="Mental Wellness"/>
       </div>
       <div class="slide-arr" onclick="nextSlide()">›</div>
     </div>
@@ -922,10 +912,7 @@ footer{background:#12183a;color:#fff;padding:60px 4vw 0;}
     <div class="slide-right">
       <div class="slide-right-bg"></div>
       <div class="hero-img-wrap">
-        <div class="hero-img-placeholder">
-          <span class="big-icon">🏠</span>
-          <p>Home Visit Counselling</p>
-        </div>
+        <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=320&h=320&fit=crop" alt="Home Visit Counselling"/>
       </div>
       <div class="slide-arr" onclick="nextSlide()">›</div>
     </div>
@@ -972,10 +959,31 @@ footer{background:#12183a;color:#fff;padding:60px 4vw 0;}
 <!-- ══ ABOUT ══ -->
 <section class="about-section" id="about">
   <div class="about-inner">
-    <div class="about-imgs-wrap reveal">
-      <div class="about-img-box big">🏢</div>
-      <div class="about-img-box sm1">🤝</div>
-      <div class="about-img-box sm2">📚</div>
+    <div class="about-slider reveal">
+      <div class="about-slide active">
+        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&h=460&fit=crop" alt="Counselling Session"/>
+        <div class="about-slide-caption">Professional Counselling Sessions</div>
+      </div>
+      <div class="about-slide">
+        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=600&h=460&fit=crop" alt="Expert Team"/>
+        <div class="about-slide-caption">Our Expert Counselling Team</div>
+      </div>
+      <div class="about-slide">
+        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&h=460&fit=crop" alt="Group Session"/>
+        <div class="about-slide-caption">Group &amp; Family Sessions</div>
+      </div>
+      <div class="about-slide">
+        <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=460&fit=crop" alt="Home Visit"/>
+        <div class="about-slide-caption">Home Visit Counselling Available</div>
+      </div>
+      <button class="about-slider-btn prev" onclick="aboutSlide(-1)">‹</button>
+      <button class="about-slider-btn next" onclick="aboutSlide(1)">›</button>
+      <div class="about-slider-dots">
+        <button class="about-sdot active" onclick="aboutGoTo(0)"></button>
+        <button class="about-sdot" onclick="aboutGoTo(1)"></button>
+        <button class="about-sdot" onclick="aboutGoTo(2)"></button>
+        <button class="about-sdot" onclick="aboutGoTo(3)"></button>
+      </div>
     </div>
     <div class="about-text">
       <p class="about-label">About Us</p>
@@ -1000,56 +1008,56 @@ footer{background:#12183a;color:#fff;padding:60px 4vw 0;}
   </div>
   <div class="services-grid">
     <div class="svc-card reveal">
-      <div class="svc-img">👶</div>
+      <div class="svc-img"><img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400&h=190&fit=crop" alt="Children Counseling"/></div>
       <div class="svc-body">
         <h4>Children Counseling</h4>
         <p>Helps children cope with emotional, behavioral, and academic challenges through a safe, understanding space.</p>
       </div>
     </div>
     <div class="svc-card reveal">
-      <div class="svc-img">💑</div>
+      <div class="svc-img"><img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=400&h=190&fit=crop" alt="Marriage Counseling"/></div>
       <div class="svc-body">
         <h4>Marriage Counseling</h4>
         <p>Supports couples in resolving conflicts, improving communication, and strengthening their relationship.</p>
       </div>
     </div>
     <div class="svc-card reveal">
-      <div class="svc-img">👴</div>
+      <div class="svc-img"><img src="https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=400&h=190&fit=crop" alt="Senior Citizen"/></div>
       <div class="svc-body">
         <h4>Senior citizen</h4>
         <p>Assists elderly individuals in managing loneliness, health changes, retirement, and emotional well-being.</p>
       </div>
     </div>
     <div class="svc-card reveal">
-      <div class="svc-img">🧠</div>
+      <div class="svc-img"><img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=400&h=190&fit=crop" alt="Personal Counseling"/></div>
       <div class="svc-body">
         <h4>Personal Counseling</h4>
         <p>Focuses on self-growth, emotional clarity, and handling everyday personal struggles and decisions.</p>
       </div>
     </div>
     <div class="svc-card reveal">
-      <div class="svc-img">🤝</div>
+      <div class="svc-img"><img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&h=190&fit=crop" alt="Relationship Counseling"/></div>
       <div class="svc-body">
         <h4>Relationship Counseling</h4>
         <p>Guides individuals or couples to build healthier, more fulfilling relationships with better understanding.</p>
       </div>
     </div>
     <div class="svc-card reveal">
-      <div class="svc-img">💰</div>
+      <div class="svc-img"><img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=190&fit=crop" alt="Financial Counseling"/></div>
       <div class="svc-body">
         <h4>Financial Counseling</h4>
         <p>Provides advice on managing money, budgeting, reducing debt, and making smart financial decisions.</p>
       </div>
     </div>
     <div class="svc-card reveal">
-      <div class="svc-img">😌</div>
+      <div class="svc-img"><img src="https://images.unsplash.com/photo-1493836512294-502baa1986e2?w=400&h=190&fit=crop" alt="Stress and Anxiety"/></div>
       <div class="svc-body">
         <h4>Stress and Anxiety</h4>
         <p>Teaches techniques to handle pressure, reduce anxiety, and restore emotional balance in daily life.</p>
       </div>
     </div>
     <div class="svc-card reveal">
-      <div class="svc-img">💙</div>
+      <div class="svc-img"><img src="https://images.unsplash.com/photo-1541199249251-f713e6145474?w=400&h=190&fit=crop" alt="Depression Support"/></div>
       <div class="svc-body">
         <h4>Depression Support</h4>
         <p>Offers emotional support and coping strategies to manage symptoms and promote mental well-being.</p>
@@ -1068,14 +1076,14 @@ footer{background:#12183a;color:#fff;padding:60px 4vw 0;}
       <p class="appt-sub">Appointment</p>
       <h2 class="appt-title">Book Your Consultation with Our Expert Today</h2>
       <div class="contact-row reveal">
-        <div class="c-icon">📍</div>
+        <div class="c-icon"><i class="fa-solid fa-location-dot"></i></div>
         <div class="c-info">
           <h5>Address</h5>
           <p>Shop No 9, 1st floor, Seasons Harmony, behind Ahir Auto, Khadakpada, Kalyan, Maharashtra 421301</p>
         </div>
       </div>
       <div class="contact-row reveal">
-        <div class="c-icon">📞</div>
+        <div class="c-icon"><i class="fa-solid fa-phone"></i></div>
         <div class="c-info">
           <h5>Call Us Now</h5>
           <a href="tel:+918779292084">+91 8779292084</a><br/>
@@ -1083,7 +1091,7 @@ footer{background:#12183a;color:#fff;padding:60px 4vw 0;}
         </div>
       </div>
       <div class="contact-row reveal">
-        <div class="c-icon">✉</div>
+        <div class="c-icon"><i class="fa-solid fa-envelope"></i></div>
         <div class="c-info">
           <h5>Mail Us Now</h5>
           <a href="mailto:cdcareeracademy@gmail.com">cdcareeracademy@gmail.com</a>
@@ -1130,7 +1138,7 @@ footer{background:#12183a;color:#fff;padding:60px 4vw 0;}
 <section class="why-section" id="why">
   <div class="why-inner">
     <div class="why-img-box reveal">
-      🧘
+      <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=600&h=430&fit=crop" alt="Why Choose Us"/>
       <div class="why-stats">
         <div class="wstat"><div class="n">150+</div><div class="l">Happy Clients</div></div>
         <div class="wstat"><div class="n">84</div><div class="l">Google Reviews</div></div>
@@ -1175,78 +1183,45 @@ footer{background:#12183a;color:#fff;padding:60px 4vw 0;}
       </div>
     </div>
   </div>
-  <div class="test-grid">
-    <div class="tcard reveal">
-      <div class="tcard-stars">★★★★★</div>
-      <p>In my view this is the best English speaking class in Ambernath. Teachers and staffs are really good and very supportive. For working person, flexible of time is so good. Special in Sunday class, Yogesh sir give his personal attention in group discussion and presentation for personality development.</p>
-      <div class="tcard-author">
-        <div class="tav">MJ</div>
-        <div>
-          <div class="tname">Mamta Jha</div>
-          <div class="tdate">2023-10-01</div>
+  <div class="review-slider-wrap">
+    <div class="review-track-outer">
+      <div class="review-track" id="reviewTrack">
+        <div class="tcard">
+          <div class="tcard-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p>In my view this is the best English speaking class in Ambernath. Teachers and staffs are really good and very supportive. For working person, flexible of time is so good.</p>
+          <div class="tcard-author"><div class="tav">MJ</div><div><div class="tname">Mamta Jha</div><div class="tdate">2023-10-01</div></div><span class="g-icon">G</span></div>
         </div>
-        <span class="g-icon">G</span>
+        <div class="tcard">
+          <div class="tcard-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p>CDCA class is best class. Before I never know to speak English. Now I am able to speak fluent English &amp; also give presentations in front of many people.</p>
+          <div class="tcard-author"><div class="tav">SB</div><div><div class="tname">Surbhi Bhalerao</div><div class="tdate">2023-09-30</div></div><span class="g-icon">G</span></div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p>Before joining the class I couldn't understand complicated words. After joining, I understand the words and sentences. Every Saturday we give presentation, it helps improve our confidence.</p>
+          <div class="tcard-author"><div class="tav">NB</div><div><div class="tname">Nitish Bharti</div><div class="tdate">2025-01-30</div></div><span class="g-icon">G</span></div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p>CDCA class is very nice. I can now understand and speak in English. My teacher is also nice. I recommend you all to join this Centre.</p>
+          <div class="tcard-author"><div class="tav">ML</div><div><div class="tname">Monu Lulla</div><div class="tdate">2021-09-28</div></div><span class="g-icon">G</span></div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p>I was looking for English speaking class having flexible hours. In one month I gained lot of confidence in speaking. The teachers are well experienced and helpful.</p>
+          <div class="tcard-author"><div class="tav">PI</div><div><div class="tname">Poonam Ingle</div><div class="tdate">2021-09-28</div></div><span class="g-icon">G</span></div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p>The counselling sessions have been truly life-changing. The team at CDC is professional, empathetic, and genuinely invested in your well-being. Highly recommend!</p>
+          <div class="tcard-author"><div class="tav">RK</div><div><div class="tname">Rahul Kulkarni</div><div class="tdate">2024-03-15</div></div><span class="g-icon">G</span></div>
+        </div>
       </div>
     </div>
-    <div class="tcard reveal">
-      <div class="tcard-stars">★★★★★</div>
-      <p>CDCA class is best class. Before I never know to speak English. Then I think to join CDCA class, now I am able to speak fluent English &amp; also give presentations in front of many people. I thank to teacher &amp; I also recommend to join this class.</p>
-      <div class="tcard-author">
-        <div class="tav">SB</div>
-        <div>
-          <div class="tname">Surbhi Bhalerao</div>
-          <div class="tdate">2023-09-30</div>
-        </div>
-        <span class="g-icon">G</span>
-      </div>
-    </div>
-    <div class="tcard reveal">
-      <div class="tcard-stars">★★★★★</div>
-      <p>Before joining the class I couldn't understand complicated words and advance English. But, after joining the class I understand the words and sentences. Every Saturday we give presentation, it helps us improve our confidence.</p>
-      <div class="tcard-author">
-        <div class="tav">NB</div>
-        <div>
-          <div class="tname">Nitish Bharti</div>
-          <div class="tdate">2025-01-30</div>
-        </div>
-        <span class="g-icon">G</span>
-      </div>
-    </div>
-    <div class="tcard reveal">
-      <div class="tcard-stars">★★★★★</div>
-      <p>CDCA class is very nice. I can now understand and speak in English. My teacher is also nice. I thank to my teacher and I also recommend you all to join this Centre.</p>
-      <div class="tcard-author">
-        <div class="tav">ML</div>
-        <div>
-          <div class="tname">Monu Lulla</div>
-          <div class="tdate">2021-09-28</div>
-        </div>
-        <span class="g-icon">G</span>
-      </div>
-    </div>
-    <div class="tcard reveal">
-      <div class="tcard-stars">★★★★★</div>
-      <p>I was looking for English speaking class having flexible hours of learning. I joined this class last month. In this one month I gained lot of confidence in speaking. The teachers are well experienced and helpful in nature.</p>
-      <div class="tcard-author">
-        <div class="tav">PI</div>
-        <div>
-          <div class="tname">Poonam Ingle</div>
-          <div class="tdate">2021-09-28</div>
-        </div>
-        <span class="g-icon">G</span>
-      </div>
-    </div>
-    <div class="tcard reveal">
-      <div class="tcard-stars">★★★★★</div>
-      <p>The counselling sessions have been truly life-changing. The team at CDC is professional, empathetic, and genuinely invested in your well-being. I highly recommend Creative Development Centre to everyone.</p>
-      <div class="tcard-author">
-        <div class="tav">RK</div>
-        <div>
-          <div class="tname">Rahul Kulkarni</div>
-          <div class="tdate">2024-03-15</div>
-        </div>
-        <span class="g-icon">G</span>
-      </div>
+    <div class="review-nav">
+      <button class="rev-btn" onclick="revSlide(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+      <div class="rev-dots" id="revDots"></div>
+      <button class="rev-btn" onclick="revSlide(1)"><i class="fa-solid fa-chevron-right"></i></button>
     </div>
   </div>
 </section>
@@ -1254,53 +1229,92 @@ footer{background:#12183a;color:#fff;padding:60px 4vw 0;}
 <!-- ══ FOOTER ══ -->
 <footer>
   <div class="footer-grid">
-    <div class="f-brand">
-      <div class="f-brand-name">Creative <span>Development</span> Centre</div>
-      <p>Creative Development Centre is a trusted name in Counselling. We help students and professionals unlock their full potential through expert counselling and personalized support.</p>
-      <div class="f-contact-row"><div class="fc-ic">📍</div><a href="#">Shop No 9, 1st floor, Seasons Harmony, Khadakpada, Kalyan, MH 421301</a></div>
+    <div class="footer-brand">
+      <div class="ft-logo">CDCA – Creative Development Centre</div>
+      <p>We focus on empowering individuals through personalized guidance, emotional support, and creative skill development. Together we achieve.</p>
     </div>
-    <div class="f-col">
-      <h5>Our Services</h5>
+    <div>
+      <h4>Quick Links</h4>
       <ul>
-        <li><a href="#">Children Counseling</a></li>
-        <li><a href="#">Marriage Counseling</a></li>
-        <li><a href="#">Senior Citizen Counseling</a></li>
-        <li><a href="#">Personal Counseling</a></li>
-        <li><a href="#">Relationship Counseling</a></li>
-        <li><a href="#">Financial Counseling</a></li>
-        <li><a href="#">Stress &amp; Anxiety</a></li>
-        <li><a href="#">Depression Support</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Our Services</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
       </ul>
     </div>
-    <div class="f-col">
-      <h5>Quick Links</h5>
+    <div>
+      <h4>Our Services</h4>
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Gallery</a></li>
-        <li><a href="#">Contact Us</a></li>
-        <li><a href="#appt">Book Appointment</a></li>
+        <li><a href="services.html#children">Children Counseling</a></li>
+        <li><a href="services.html#marriage">Marriage Counseling</a></li>
+        <li><a href="services.html#senior">Senior Citizen Counseling</a></li>
+        <li><a href="services.html#personal">Personal Counseling</a></li>
+        <li><a href="services.html#relationship">Relationship Counseling</a></li>
+        <li><a href="services.html#financial">Financial Counseling</a></li>
+        <li><a href="services.html#stress">Stress &amp; Anxiety</a></li>
+        <li><a href="services.html#depression">Depression Support</a></li>
       </ul>
     </div>
-    <div class="f-col">
-      <h5>Contact Us</h5>
-      <ul>
-        <li><a href="tel:+918779292084">📞 +91 8779292084</a></li>
-        <li><a href="tel:+917744896101">📞 +91 7744896101</a></li>
-        <li><a href="mailto:cdcareeracademy@gmail.com">✉ cdcareeracademy@gmail.com</a></li>
-        <li><a href="https://wa.me/918779292084">💬 WhatsApp Us</a></li>
+    <div>
+      <h4>Contact Info</h4>
+      <ul class="footer-contact">
+        <li>Shop No 9, 1st floor, Seasons Harmony, Khadakpada, Kalyan, MH 421301</li>
+        <li><a href="tel:+918779292084">+91 8779292084</a></li>
+        <li><a href="tel:+917744896101">+91 7744896101</a></li>
+        <li><a href="mailto:cdcareeracademy@gmail.com">cdcareeracademy@gmail.com</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>Copyrights © 2025 Creative Development Centre. All Rights Reserved.</p>
-    <p>Designed &amp; Developed by <a href="#">WebCage Technologies</a></p>
+    &copy; 2026 Creative Development Centre. All rights reserved.
   </div>
 </footer>
 
 <!------------------------------------ Sakshi-section-end --------------------------------->
 
 <script>
+// ── REVIEW SLIDER ──
+const revTrack = document.getElementById('reviewTrack');
+const revCards = revTrack.querySelectorAll('.tcard');
+const revDotsWrap = document.getElementById('revDots');
+let revCur = 0;
+function revVisible(){ return window.innerWidth < 700 ? 1 : window.innerWidth < 1024 ? 2 : 3; }
+function revTotal(){ return Math.ceil(revCards.length / revVisible()); }
+function buildRevDots(){
+  revDotsWrap.innerHTML = '';
+  for(let i = 0; i < revTotal(); i++){
+    const d = document.createElement('button');
+    d.className = 'rev-dot' + (i === revCur ? ' active' : '');
+    d.onclick = () => revGoTo(i);
+    revDotsWrap.appendChild(d);
+  }
+}
+function revGoTo(n){
+  revCur = ((n % revTotal()) + revTotal()) % revTotal();
+  const cardW = revCards[0].offsetWidth + 20;
+  revTrack.style.transform = `translateX(-${revCur * revVisible() * cardW}px)`;
+  revDotsWrap.querySelectorAll('.rev-dot').forEach((d,i) => d.classList.toggle('active', i === revCur));
+}
+function revSlide(dir){ revGoTo(revCur + dir); }
+buildRevDots();
+setInterval(() => revSlide(1), 4000);
+window.addEventListener('resize', () => { buildRevDots(); revGoTo(0); });
+
+// ── ABOUT SLIDER ──
+let aCur = 0;
+const aSlides = document.querySelectorAll('.about-slide');
+const aDots = document.querySelectorAll('.about-sdot');
+function aboutGoTo(n){
+  aSlides[aCur].classList.remove('active');
+  aDots[aCur].classList.remove('active');
+  aCur = ((n % aSlides.length) + aSlides.length) % aSlides.length;
+  aSlides[aCur].classList.add('active');
+  aDots[aCur].classList.add('active');
+}
+function aboutSlide(dir){ aboutGoTo(aCur + dir); }
+setInterval(()=>aboutSlide(1), 3500);
+
 // ── SLIDER ──
 let cur = 0;
 const slides = document.querySelectorAll('.slide');
