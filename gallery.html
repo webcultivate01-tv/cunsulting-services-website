@@ -67,18 +67,95 @@
     .fl-wa{background:#25d366;}
 
     /* BREADCRUMB */
-    .breadcrumb-banner{background:var(--off);padding:40px 4vw;border-bottom:1px solid var(--border);}
-    .breadcrumb-banner h1{font-family:'Poppins',sans-serif;font-size:2rem;font-weight:700;color:var(--navy);margin-bottom:8px;}
-    .breadcrumb-nav{font-size:0.85rem;color:var(--text-gray);}
-    .breadcrumb-nav a:hover{color:var(--red);}
-    .breadcrumb-nav .current{color:var(--red);font-weight:600;}
+    .breadcrumb-banner{
+      background: linear-gradient(120deg, #1e2d6b 0%, #2e3fa0 50%, #1a73c8 100%);
+      padding:60px 4vw;
+      position:relative;overflow:hidden;min-height:200px;
+      display:flex;align-items:center;
+    }
+    /* decorative circles */
+    .breadcrumb-banner::before{
+      content:'';position:absolute;
+      width:300px;height:300px;border-radius:50%;
+      background:rgba(255,255,255,0.05);
+      top:-80px;right:200px;
+    }
+    .breadcrumb-banner::after{
+      content:'';position:absolute;
+      width:180px;height:180px;border-radius:50%;
+      background:rgba(255,255,255,0.06);
+      bottom:-60px;left:100px;
+    }
+    .breadcrumb-inner{max-width:1200px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between;}
+    .breadcrumb-text{z-index:2;}
+    .breadcrumb-page-label{
+      display:inline-block;
+      background:rgba(255,255,255,0.15);
+      color:rgba(255,255,255,0.9);
+      font-family:'Poppins',sans-serif;
+      font-size:0.72rem;font-weight:700;
+      letter-spacing:0.15em;text-transform:uppercase;
+      padding:5px 14px;border-radius:20px;
+      border:1px solid rgba(255,255,255,0.25);
+      margin-bottom:14px;
+    }
+    .breadcrumb-banner h1{
+      font-family:'Poppins',sans-serif;
+      font-size:2.6rem;font-weight:800;
+      color:#fff;
+      letter-spacing:0.04em;
+      text-transform:uppercase;
+      margin-bottom:16px;
+      text-shadow:0 2px 12px rgba(0,0,0,0.2);
+    }
+    .breadcrumb-nav{
+      display:inline-flex;align-items:center;gap:8px;
+      background:rgba(255,255,255,0.12);
+      border:1px solid rgba(255,255,255,0.2);
+      backdrop-filter:blur(6px);
+      padding:8px 18px;border-radius:30px;
+      font-size:0.83rem;font-family:'Poppins',sans-serif;
+    }
+    .breadcrumb-nav a{color:rgba(255,255,255,0.8);font-weight:500;transition:color .2s;}
+    .breadcrumb-nav a:hover{color:#fff;}
+    .breadcrumb-nav .home-icon{font-size:0.9rem;}
+    .breadcrumb-nav .current{color:#fff;font-weight:700;}
+    .breadcrumb-nav .sep{color:rgba(255,255,255,0.5);font-size:0.75rem;}
+
+    /* COLLAGE on right */
+    .breadcrumb-collage{
+      position:relative;width:340px;height:170px;flex-shrink:0;z-index:2;
+    }
+    .collage-img{
+      position:absolute;border-radius:8px;overflow:hidden;
+      box-shadow:0 6px 18px rgba(0,0,0,0.3);
+      border:2px solid rgba(255,255,255,0.3);
+    }
+    .collage-img img{width:100%;height:100%;object-fit:cover;display:block;}
+    .ci1{width:105px;height:78px;top:0;left:0;}
+    .ci2{width:105px;height:78px;top:0;left:115px;}
+    .ci3{width:105px;height:78px;top:0;left:230px;}
+    .ci4{width:105px;height:78px;top:86px;left:0;}
+    .ci5{width:105px;height:78px;top:86px;left:115px;}
+    .ci6{width:105px;height:78px;top:86px;left:230px;}
+    @media(max-width:860px){.breadcrumb-collage{display:none;}}
+    @media(max-width:600px){
+      .breadcrumb-banner h1{font-size:1.8rem;}
+    }
 
     /* GALLERY */
-    .gallery-section{padding:70px 4vw;background:#fff;}
+    .gallery-section{padding:60px 4vw;background:#fff;}
     .gallery-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
-    .gallery-item{overflow:hidden;border-radius:10px;box-shadow:var(--shadow);cursor:pointer;}
-    .gallery-item img{width:100%;height:200px;object-fit:cover;transition:transform 0.3s ease;display:block;}
-    .gallery-item:hover img{transform:scale(1.05);}
+    .gallery-item{
+      overflow:hidden;border-radius:8px;
+      box-shadow:0 2px 10px rgba(30,45,107,0.10);
+      cursor:pointer;background:#f0f3ff;
+      border:2px solid transparent;
+      transition:border-color .25s,box-shadow .25s,transform .25s;
+    }
+    .gallery-item:hover{border-color:var(--navy);box-shadow:0 8px 24px rgba(30,45,107,0.18);transform:translateY(-4px);}
+    .gallery-item img{width:100%;height:200px;object-fit:cover;display:block;transition:transform 0.3s ease;}
+    .gallery-item:hover img{transform:scale(1.06);}
 
     /* LIGHTBOX */
     .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:9999;align-items:center;justify-content:center;}
@@ -193,13 +270,25 @@
 
   <!-- Breadcrumb Banner -->
   <section class="breadcrumb-banner">
-    <div style="max-width:1200px;margin:0 auto;">
-      <h1>OUR GALLERY</h1>
-      <nav class="breadcrumb-nav">
-        <a href="index.html">Home</a>
-        <span style="margin:0 8px;">›</span>
-        <span class="current">OUR GALLERY</span>
-      </nav>
+    <div class="breadcrumb-inner">
+      <div class="breadcrumb-text">
+        <div class="breadcrumb-page-label">📸 Our Work</div>
+        <h1>OUR GALLERY</h1>
+        <nav class="breadcrumb-nav">
+          <span class="home-icon">🏠</span>
+          <a href="index.html">Home</a>
+          <span class="sep">›</span>
+          <span class="current">OUR GALLERY</span>
+        </nav>
+      </div>
+      <div class="breadcrumb-collage">
+        <div class="collage-img ci1"><img src="https://www.developmentcentre.in/images/gallery/img1.webp" alt=""/></div>
+        <div class="collage-img ci2"><img src="https://www.developmentcentre.in/images/gallery/img2.webp" alt=""/></div>
+        <div class="collage-img ci3"><img src="https://www.developmentcentre.in/images/gallery/img3.webp" alt=""/></div>
+        <div class="collage-img ci4"><img src="https://www.developmentcentre.in/images/gallery/img4.webp" alt=""/></div>
+        <div class="collage-img ci5"><img src="https://www.developmentcentre.in/images/gallery/img5.webp" alt=""/></div>
+        <div class="collage-img ci6"><img src="https://www.developmentcentre.in/images/gallery/img6.webp" alt=""/></div>
+      </div>
     </div>
   </section>
 
