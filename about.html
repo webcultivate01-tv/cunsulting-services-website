@@ -83,32 +83,46 @@
     .fl-btn i{font-size:1.2rem;}
 
     /* ── HERO BANNER ── */
-    .hero {
-      background: var(--teal);
-      min-height: 200px;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 34px 60px 0;
-      overflow: hidden;
-      position: relative;
+    .hero{
+      position:relative;
+      min-height:380px;
+      display:flex;align-items:center;
+      overflow:hidden;
+      background:#0b1740;
     }
-    .hero-left { z-index: 2; }
-    .hero-left h1 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 42px; font-weight: 800;
-      color: var(--navy);
-      letter-spacing: 2px;
-      margin-bottom: 12px;
+    .hero-bg{
+      position:absolute;inset:0;
+      background-image:url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=1400&q=80');
+      background-size:cover;background-position:center;
+      filter:brightness(0.25) saturate(0.6);
     }
-    .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 14px; }
-    .breadcrumb a { color: var(--navy); text-decoration: none; font-weight: 600; }
-    .breadcrumb span { color: var(--navy); font-weight: 600; }
-    .breadcrumb .sep { color: var(--navy); }
-
-    .hero-figure {
-      position: relative; z-index: 2;
-      height: 220px; display: flex; align-items: flex-end;
+    .hero-overlay{
+      position:absolute;inset:0;
+      background:linear-gradient(135deg,rgba(14,27,72,0.92) 0%,rgba(30,45,107,0.85) 50%,rgba(26,74,138,0.75) 100%);
     }
-    .hero-figure svg { height: 210px; width: auto; }
+    .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.022) 1px,transparent 1px);background-size:55px 55px;}
+    .hc{position:absolute;border-radius:50%;pointer-events:none;}
+    .hc1{width:500px;height:500px;border:1px solid rgba(0,188,212,0.1);top:-180px;right:-120px;animation:spin 25s linear infinite;}
+    .hc2{width:300px;height:300px;border:1px solid rgba(255,255,255,0.06);bottom:-100px;left:-60px;animation:spin 18s linear infinite reverse;}
+    @keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+    .hero-inner{
+      position:relative;z-index:5;
+      max-width:1200px;margin:0 auto;
+      padding:80px 4vw;
+      width:100%;
+      text-align:center;
+      display:flex;flex-direction:column;align-items:center;
+    }
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,188,212,0.18);border:1px solid rgba(0,188,212,0.38);border-radius:30px;padding:6px 16px;font-family:'Poppins',sans-serif;font-size:0.71rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#00bcd4;margin-bottom:18px;animation:slideUp .6s ease both;}
+    .hero h1{font-family:'Poppins',sans-serif;font-size:clamp(2.1rem,4.5vw,3.2rem);font-weight:900;color:#fff;text-transform:uppercase;letter-spacing:0.04em;line-height:1.08;margin-bottom:14px;text-shadow:0 2px 24px rgba(0,0,0,0.4);animation:slideUp .6s ease 0.1s both;}
+    .hero h1 span{color:#00bcd4;}
+    .hero-sub{font-size:0.95rem;color:rgba(255,255,255,0.7);max-width:520px;line-height:1.78;margin-bottom:24px;animation:slideUp .6s ease 0.2s both;}
+    .hero-bc{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.16);backdrop-filter:blur(8px);padding:8px 18px;border-radius:30px;font-size:0.8rem;font-family:'Poppins',sans-serif;animation:slideUp .6s ease 0.3s both;}
+    .hero-bc a{color:rgba(255,255,255,0.75);font-weight:500;text-decoration:none;}
+    .hero-bc a:hover{color:#fff;}
+    .hero-bc .sep{color:rgba(255,255,255,0.3);}
+    .hero-bc .cur{color:#fff;font-weight:700;}
+    @keyframes slideUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
 
     /* ── ABOUT SECTION ── */
     .about-section {
@@ -160,48 +174,17 @@
     }
 
     /* ── INFO BAR ── */
-    .info-bar {
-      background: var(--navy);
-    }
-    .info-bar-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      max-width: 1280px;
-      margin: 0 auto;
-    }
-    .info-block {
-      padding: 40px 36px;
-      display: flex; align-items: flex-start; gap: 18px;
-      border-right: 1px solid rgba(255,255,255,.12);
-    }
-    .info-block:last-child { border-right: none; }
-    .info-icon {
-      font-size: 38px; flex-shrink: 0;
-      margin-top: 4px;
-    }
-    .info-block h3 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 18px; font-weight: 700;
-      color: #fff; margin-bottom: 8px;
-    }
-    .info-block p, .info-block a {
-      font-size: 14px; color: rgba(255,255,255,.8);
-      line-height: 1.7; text-decoration: none;
-    }
-    .info-block a:hover { color: var(--teal); }
-    .btn-book {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 24px;
-      border: 2px solid rgba(255,255,255,.5);
-      color: #fff;
-      border-radius: 6px;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600; font-size: 13px;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-    .btn-book:hover { background: var(--teal); border-color: var(--teal); }
+    .info-bar{background:var(--navy);}
+    .info-bar-inner{display:grid;grid-template-columns:1fr 1fr 1fr;max-width:1280px;margin:0 auto;}
+    .info-block{padding:20px 28px;display:flex;align-items:center;gap:14px;border-right:1px solid rgba(255,255,255,.12);}
+    .info-block:last-child{border-right:none;}
+    .info-icon{flex-shrink:0;}
+    .info-icon svg{width:28px;height:28px;}
+    .info-block h3{font-family:'Poppins',sans-serif;font-size:0.9rem;font-weight:700;color:#fff;margin-bottom:5px;}
+    .info-block p,.info-block a{font-size:0.8rem;color:rgba(255,255,255,.8);line-height:1.6;text-decoration:none;}
+    .info-block a:hover{color:var(--teal);}
+    .btn-book{display:inline-block;margin-top:7px;padding:6px 16px;border:2px solid rgba(255,255,255,.5);color:#fff;border-radius:6px;font-family:'Poppins',sans-serif;font-weight:600;font-size:0.75rem;text-decoration:none;transition:all .2s;}
+    .btn-book:hover{background:var(--teal);border-color:var(--teal);}
 
     /* ── WHY CHOOSE US ── */
     .why-section {
@@ -473,16 +456,21 @@
 
 <!-- HERO BANNER -->
 <section class="hero">
-  <div class="hero-left">
-    <div class="breadcrumb">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-grid"></div>
+  <div class="hc hc1"></div>
+  <div class="hc hc2"></div>
+  <div class="hero-inner">
+    <div class="hero-badge"><i class="fa-solid fa-building-columns"></i>&nbsp; Creative Development Centre</div>
+    <h1>About <span>Us</span></h1>
+    <p class="hero-sub">We are a team of certified, compassionate counsellors dedicated to helping individuals, couples, and families navigate life's challenges with confidence and care.</p>
+    <div class="hero-bc">
+      <i class="fa-solid fa-house" style="color:rgba(255,255,255,0.5);font-size:0.73rem;"></i>
       <a href="index.html">Home</a>
-      <span class="sep">/</span>
-      <span>ABOUT US</span>
+      <span class="sep">›</span>
+      <span class="cur">About Us</span>
     </div>
-    <h1>ABOUT US</h1>
-  </div>
-  <div class="hero-figure">
-    <img src="https://www.developmentcentre.in/images/about1.webp" alt="About CDCA" style="height:210px;width:auto;object-fit:cover;border-radius:8px;"/>
   </div>
 </section>
 
@@ -496,14 +484,20 @@
     <h2>Best Centre for Creative Development</h2>
     <div class="divider"></div>
     <p>
-      At the Best Centre for Creative Development, we focus on empowering individuals through personalized guidance, emotional support, and creative skill development. We believe that everyone has the potential to grow personally and professionally with the right support system in place.
+      Welcome to <strong>Creative Development Centre (CDCA)</strong> — where every journey toward growth, healing, and clarity begins. We are a team of certified, compassionate counsellors dedicated to helping individuals, couples, and families navigate life's most challenging moments with confidence and care.
     </p>
     <p>
-      Our Centre provides a safe, nurturing environment for people of all age groups to explore their strengths and overcome their challenges. Whether you are a student seeking career clarity, a professional looking to upskill, a couple seeking harmony, or a senior citizen in need of emotional care, our team is here to guide you with compassion and expertise.
+      Whether you're a student feeling lost, a couple facing conflict, a professional battling burnout, or a senior seeking emotional support — <strong>we are here for you.</strong> Our approach is warm, personalized, and completely confidential.
     </p>
     <p>
-      We offer a wide range of services including career counselling, psychological support, skill development workshops, and creative arts programs — all designed to help you unlock your true potential and live a more fulfilling life.
+      From our centre in Kalyan to your doorstep through <strong>home visit counselling</strong>, we make professional support accessible to everyone — regardless of age, background, or circumstance.
     </p>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;">
+      <div style="display:flex;align-items:center;gap:8px;background:#f0f9fb;border-left:3px solid #00bcd4;padding:8px 14px;border-radius:6px;font-family:'Poppins',sans-serif;font-size:0.82rem;font-weight:600;color:#1a2e6c;">✓ Home Visit Available</div>
+      <div style="display:flex;align-items:center;gap:8px;background:#f0f9fb;border-left:3px solid #00bcd4;padding:8px 14px;border-radius:6px;font-family:'Poppins',sans-serif;font-size:0.82rem;font-weight:600;color:#1a2e6c;">✓ Certified Counsellors</div>
+      <div style="display:flex;align-items:center;gap:8px;background:#f0f9fb;border-left:3px solid #00bcd4;padding:8px 14px;border-radius:6px;font-family:'Poppins',sans-serif;font-size:0.82rem;font-weight:600;color:#1a2e6c;">✓ 100% Confidential</div>
+      <div style="display:flex;align-items:center;gap:8px;background:#f0f9fb;border-left:3px solid #00bcd4;padding:8px 14px;border-radius:6px;font-family:'Poppins',sans-serif;font-size:0.82rem;font-weight:600;color:#1a2e6c;">✓ All Age Groups</div>
+    </div>
   </div>
   </div>
 </section>
@@ -593,27 +587,6 @@
   </div>
 </section>
 
-<!-- STATS -->
-<div class="stats-bar">
-  <div class="stats-bar-inner">
-  <div class="stat">
-    <div class="num">500+</div>
-    <div class="lbl">Happy Clients</div>
-  </div>
-  <div class="stat">
-    <div class="num">10+</div>
-    <div class="lbl">Years Experience</div>
-  </div>
-  <div class="stat">
-    <div class="num">15+</div>
-    <div class="lbl">Expert Counsellors</div>
-  </div>
-  <div class="stat">
-    <div class="num">20+</div>
-    <div class="lbl">Programs Offered</div>
-  </div>
-  </div>
-</div>
 
 <!-- TEAM -->
 <section class="team-section">
