@@ -5,11 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact Us – Creative Development Centre</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     :root{
       --navy:#1e2d6b;--navy-dark:#16235a;--navy-light:#2d3e8e;
-      --red:#e8402a;--off:#f4f5f8;--text-gray:#555;
+      --red:#e8402a;--cyan:#00bcd4;
+      --off:#f4f5f8;--text-gray:#555;
       --border:#dde2f0;--shadow:0 4px 24px rgba(30,45,107,0.10);
     }
     html{scroll-behavior:smooth;}
@@ -17,431 +19,565 @@
     a{text-decoration:none;color:inherit;}
     img{max-width:100%;display:block;}
 
-    .topbar{background:var(--navy-dark);color:#fff;padding:6px 4vw;display:flex;align-items:center;justify-content:space-between;font-size:0.72rem;font-family:'Poppins',sans-serif;flex-wrap:wrap;gap:6px;}
+    /* ===== TOP BAR ===== */
+    .topbar{background:var(--navy-dark);color:#fff;padding:1px 4vw;display:flex;align-items:center;justify-content:space-between;font-size:0.72rem;font-family:'Poppins',sans-serif;flex-wrap:wrap;gap:6px;}
     .tb-left,.tb-right{display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;}
     .tb-left a,.tb-right a{color:#fff;display:flex;align-items:center;gap:7px;transition:opacity .2s;}
     .tb-left a:hover,.tb-right a:hover{opacity:.8;}
-    .tb-icon{font-size:0.95rem;}
-    .tb-social{display:flex;gap:10px;}
-    .tb-social a{width:28px;height:28px;border-radius:4px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;font-size:0.8rem;color:#fff;transition:background .2s;}
+    .tb-social{display:flex;gap:8px;}
+    .tb-social a{width:28px;height:28px;border-radius:5px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;font-size:0.78rem;color:#fff;transition:background .2s;}
     .tb-social a:hover{background:var(--red);}
 
+    /* ===== NAVBAR ===== */
     nav{background:#fff;box-shadow:0 2px 12px rgba(30,45,107,0.08);position:sticky;top:0;z-index:999;}
-    .nav-inner{max-width:1280px;margin:0 auto;padding:0 4vw;height:72px;display:flex;align-items:center;justify-content:space-between;}
-    .logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
-    .logo-icon{width:50px;height:50px;background:#00bcd4;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;font-weight:800;}
+    .nav-inner{max-width:1280px;margin:0 auto;padding:0 4vw;height:72px;display:flex;align-items:center;justify-content:space-between;gap:12px;}
+    .logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;}
+    .logo-icon{width:48px;height:48px;background:var(--cyan);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;color:#fff;font-weight:800;}
     .logo-text{display:flex;flex-direction:column;line-height:1.2;}
-    .logo-text strong{font-family:'Poppins',sans-serif;font-size:17px;color:#1a2e6c;font-weight:800;}
-    .logo-text span{font-size:11px;color:#00bcd4;font-weight:600;letter-spacing:0.5px;}
-    .nav-center{text-align:center;flex:1;padding:0 2rem;}
-    .nav-tagline{font-family:'Poppins',sans-serif;font-size:0.9rem;font-weight:700;color:#1a2e6c;display:block;margin-bottom:6px;}
-    .nav-links{display:flex;align-items:center;justify-content:center;gap:0;list-style:none;}
+    .logo-text strong{font-family:'Poppins',sans-serif;font-size:16px;color:#1a2e6c;font-weight:800;}
+    .logo-text span{font-size:10px;color:var(--cyan);font-weight:600;letter-spacing:0.5px;}
+    .nav-center{text-align:center;flex:1;padding:0 1rem;min-width:0;}
+    .nav-tagline{font-family:'Poppins',sans-serif;font-size:0.82rem;font-weight:700;color:#1a2e6c;display:block;margin-bottom:5px;white-space:nowrap;}
+    .nav-links{display:flex;align-items:center;justify-content:center;list-style:none;gap:0;}
     .nav-links>li{position:relative;}
-    .nav-links>li>a{display:block;padding:4px 14px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;color:#333;letter-spacing:0.5px;text-transform:uppercase;transition:color .2s;white-space:nowrap;}
-    .nav-links>li>a:hover,.nav-links>li>a.active{color:#00bcd4;}
-    .nav-links>li>a.active{border-bottom:2px solid #00bcd4;padding-bottom:2px;}
+    .nav-links>li>a{display:block;padding:4px 11px;font-family:'Poppins',sans-serif;font-size:12px;font-weight:600;color:#333;letter-spacing:0.4px;text-transform:uppercase;transition:color .2s;white-space:nowrap;}
+    .nav-links>li>a:hover,.nav-links>li>a.active{color:var(--cyan);}
+    .nav-links>li>a.active{border-bottom:2px solid var(--cyan);}
     .has-drop:hover .drop-menu{display:block;}
-    .drop-menu{display:none;position:absolute;top:100%;left:0;background:#fff;min-width:230px;box-shadow:0 8px 30px rgba(0,0,0,0.12);border-top:3px solid #00bcd4;z-index:300;padding:6px 0;border-radius:0 0 8px 8px;}
-    .drop-menu a{display:block;padding:10px 20px;font-size:13px;color:#333;font-family:'Poppins',sans-serif;font-weight:400;transition:background .15s,color .15s;}
-    .drop-menu a:hover{background:#f0f9fb;color:#00bcd4;}
-    .btn-consult{background:#1a2e6c;color:#fff;border:none;cursor:pointer;padding:10px 20px;border-radius:6px;font-family:'Poppins',sans-serif;font-size:14px;font-weight:700;letter-spacing:0.5px;transition:background .2s,transform .15s;text-decoration:none;white-space:nowrap;flex-shrink:0;}
-    .btn-consult:hover{background:#00bcd4;transform:translateY(-1px);}
-    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
-    .hamburger span{width:26px;height:2px;background:#1a2e6c;border-radius:2px;display:block;}
+    .drop-menu{display:none;position:absolute;top:100%;left:0;background:#fff;min-width:230px;box-shadow:0 8px 30px rgba(0,0,0,0.12);border-top:3px solid var(--cyan);z-index:300;padding:6px 0;border-radius:0 0 8px 8px;}
+    .drop-menu a{display:block;padding:10px 20px;font-size:13px;color:#333;font-family:'Poppins',sans-serif;transition:background .15s,color .15s;}
+    .drop-menu a:hover{background:#f0f9fb;color:var(--cyan);}
+    .btn-consult{background:var(--navy);color:#fff;padding:10px 18px;border-radius:6px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;transition:background .2s,transform .15s;white-space:nowrap;flex-shrink:0;}
+    .btn-consult:hover{background:var(--cyan);transform:translateY(-1px);}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;flex-shrink:0;}
+    .hamburger span{width:26px;height:2px;background:var(--navy);border-radius:2px;display:block;}
     .mob-nav{display:none;position:fixed;inset:0;background:#fff;z-index:1000;padding:80px 5vw 40px;overflow-y:auto;}
     .mob-nav.show{display:block;}
-    .mob-close{position:absolute;top:22px;right:5vw;font-size:1.5rem;cursor:pointer;color:#1a2e6c;}
-    .mob-nav a{display:block;padding:14px 0;font-family:'Poppins',sans-serif;font-size:1rem;font-weight:600;color:#1a2e6c;border-bottom:1px solid #eee;text-decoration:none;}
-    .mob-nav a:hover{color:#00bcd4;}
+    .mob-close{position:absolute;top:22px;right:5vw;font-size:1.5rem;cursor:pointer;color:var(--navy);}
+    .mob-nav a{display:block;padding:14px 0;font-family:'Poppins',sans-serif;font-size:1rem;font-weight:600;color:var(--navy);border-bottom:1px solid #eee;}
+    .mob-nav a:hover{color:var(--cyan);}
 
+    /* ===== FLOATS ===== */
     .floats{position:fixed;left:18px;bottom:30px;z-index:999;display:flex;flex-direction:column;gap:12px;}
-    .fl-btn{width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:#fff;box-shadow:0 4px 16px rgba(0,0,0,0.25);transition:transform .2s;}
-    .fl-btn:hover{transform:scale(1.1);}
-    .fl-ph{background:#1a73e8;}
-    .fl-wa{background:#25d366;}
-    .fl-ph::before{content:'';display:block;width:22px;height:22px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z'/%3E%3C/svg%3E") center/contain no-repeat;}
-    .fl-wa::before{content:'';display:block;width:22px;height:22px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z'/%3E%3C/svg%3E") center/contain no-repeat;}
+    .fl-btn{width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 4px 16px rgba(0,0,0,0.25);transition:transform .2s;}
+    .fl-btn:hover{transform:scale(1.12);}
+    .fl-ph{background:#1a73e8;} .fl-wa{background:#25d366;}
+    .fl-btn i{font-size:1.2rem;}
 
-    .contact-hero{background:linear-gradient(120deg,#1e2d6b 0%,#2e3fa0 55%,#1a73c8 100%);padding:58px 4vw;position:relative;overflow:hidden;}
-    .contact-hero::before{content:'';position:absolute;width:400px;height:400px;border-radius:50%;background:rgba(255,255,255,0.04);top:-120px;right:-80px;}
-    .contact-hero::after{content:'';position:absolute;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,0.05);bottom:-60px;left:60px;}
-    .hero-inner{max-width:1200px;margin:0 auto;position:relative;z-index:2;}
-    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.22);border-radius:30px;padding:6px 16px;font-family:'Poppins',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.9);margin-bottom:16px;}
-    .contact-hero h1{font-family:'Poppins',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:12px;text-shadow:0 2px 16px rgba(0,0,0,0.2);}
-    .hero-sub{font-size:0.95rem;color:rgba(255,255,255,0.75);max-width:500px;line-height:1.7;margin-bottom:22px;}
-    .hero-breadcrumb{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.18);backdrop-filter:blur(6px);padding:8px 18px;border-radius:30px;font-size:0.82rem;font-family:'Poppins',sans-serif;}
-    .hero-breadcrumb a{color:rgba(255,255,255,0.8);font-weight:500;}
-    .hero-breadcrumb a:hover{color:#fff;}
-    .hero-breadcrumb .sep{color:rgba(255,255,255,0.4);}
-    .hero-breadcrumb .cur{color:#fff;font-weight:700;}
+    /* ===== CONTACT HERO ===== */
+    .contact-hero{
+      position:relative;
+      min-height:460px;
+      display:flex;align-items:center;
+      overflow:hidden;
+      background:#0b1740;
+    }
+    /* Background image with overlay */
+    .hero-bg{
+      position:absolute;inset:0;
+      background-image:url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=1400&q=80');
+      background-size:cover;background-position:center;
+      filter:brightness(0.25) saturate(0.6);
+    }
+    /* Gradient overlay on top */
+    .hero-overlay{
+      position:absolute;inset:0;
+      background:linear-gradient(135deg,rgba(14,27,72,0.92) 0%,rgba(30,45,107,0.85) 50%,rgba(26,74,138,0.75) 100%);
+    }
+    /* Grid texture */
+    .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.022) 1px,transparent 1px);background-size:55px 55px;}
+    /* Floating circles */
+    .hc{position:absolute;border-radius:50%;pointer-events:none;}
+    .hc1{width:500px;height:500px;border:1px solid rgba(0,188,212,0.1);top:-180px;right:-120px;animation:spin 25s linear infinite;}
+    .hc2{width:300px;height:300px;border:1px solid rgba(255,255,255,0.06);bottom:-100px;left:-60px;animation:spin 18s linear infinite reverse;}
+    @keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
 
-    .stats-strip{background:var(--navy);padding:0;}
-    .stats-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);}
-    .stat-item{padding:22px 28px;display:flex;align-items:center;gap:14px;border-right:1px solid rgba(255,255,255,0.1);transition:background .2s;}
+    /* Floating info cards right side */
+    .hero-cards{position:absolute;right:5vw;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:14px;z-index:6;}
+    @media(max-width:900px){.hero-cards{display:none;}}
+    .hcard{
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.15);
+      backdrop-filter:blur(12px);
+      border-radius:14px;padding:14px 18px;
+      display:flex;align-items:center;gap:12px;
+      min-width:210px;max-width:240px;
+      animation:slideInR .7s ease both;
+    }
+    .hcard:nth-child(1){animation-delay:.35s;}.hcard:nth-child(2){animation-delay:.5s;}.hcard:nth-child(3){animation-delay:.65s;}
+    @keyframes slideInR{from{opacity:0;transform:translateX(28px);}to{opacity:1;transform:translateX(0);}}
+    .hcard-ic{width:40px;height:40px;border-radius:10px;background:rgba(0,188,212,0.22);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .hcard-ic i{color:var(--cyan);font-size:1rem;}
+    .hcard-txt .t1{font-family:'Poppins',sans-serif;font-size:0.76rem;font-weight:700;color:#fff;line-height:1.3;}
+    .hcard-txt .t2{font-size:0.69rem;color:rgba(255,255,255,0.55);font-family:'Poppins',sans-serif;margin-top:1px;}
+
+    .hero-inner{position:relative;z-index:5;max-width:1200px;margin:0 auto;padding:80px 4vw;width:100%;}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,188,212,0.18);border:1px solid rgba(0,188,212,0.38);border-radius:30px;padding:6px 16px;font-family:'Poppins',sans-serif;font-size:0.71rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--cyan);margin-bottom:18px;animation:slideUp .6s ease both;}
+    .contact-hero h1{font-family:'Poppins',sans-serif;font-size:clamp(2.1rem,4.5vw,3.5rem);font-weight:900;color:#fff;text-transform:uppercase;letter-spacing:0.04em;line-height:1.08;margin-bottom:14px;text-shadow:0 2px 24px rgba(0,0,0,0.4);animation:slideUp .6s ease 0.1s both;}
+    .contact-hero h1 span{color:var(--cyan);}
+    .hero-sub{font-size:.96rem;color:rgba(255,255,255,0.7);max-width:500px;line-height:1.78;margin-bottom:26px;animation:slideUp .6s ease 0.2s both;}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:26px;animation:slideUp .6s ease 0.3s both;}
+    .hact{display:inline-flex;align-items:center;gap:8px;border-radius:8px;padding:10px 18px;font-family:'Poppins',sans-serif;font-size:0.8rem;font-weight:700;transition:all .22s;cursor:pointer;}
+    .hact-primary{background:var(--cyan);color:#fff;box-shadow:0 4px 14px rgba(0,188,212,0.4);}
+    .hact-primary:hover{background:#00a5bc;transform:translateY(-2px);}
+    .hact-outline{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.22);color:#fff;}
+    .hact-outline:hover{background:rgba(255,255,255,0.18);transform:translateY(-2px);}
+    .hact i{font-size:0.9rem;}
+    .hero-bc{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.16);backdrop-filter:blur(8px);padding:8px 18px;border-radius:30px;font-size:0.8rem;font-family:'Poppins',sans-serif;animation:slideUp .6s ease 0.4s both;}
+    .hero-bc a{color:rgba(255,255,255,0.75);font-weight:500;}
+    .hero-bc a:hover{color:#fff;}
+    .hero-bc .sep{color:rgba(255,255,255,0.3);}
+    .hero-bc .cur{color:#fff;font-weight:700;}
+    @keyframes slideUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+
+    /* ===== STATS STRIP ===== */
+    .stats-strip{background:var(--navy);}
+    .stats-inner{max-width:100%;margin:0;display:grid;grid-template-columns:repeat(3,1fr);}
+    .stat-item{padding:20px 24px;display:flex;align-items:center;gap:14px;border-right:1px solid rgba(255,255,255,0.1);transition:background .2s;}
     .stat-item:last-child{border-right:none;}
     .stat-item:hover{background:rgba(255,255,255,0.05);}
-    .stat-icon{width:50px;height:50px;flex-shrink:0;border-radius:50%;background:rgba(255,255,255,0.1);border:2px solid rgba(255,255,255,0.18);display:flex;align-items:center;justify-content:center;font-size:1.4rem;}
-    .stat-body .n{font-family:'Poppins',sans-serif;font-size:1.4rem;font-weight:800;color:#fff;}
-    .stat-body .l{font-size:0.78rem;color:rgba(255,255,255,0.6);font-family:'Poppins',sans-serif;}
+    .stat-ic{width:46px;height:46px;flex-shrink:0;border-radius:50%;background:rgba(255,255,255,0.1);border:2px solid rgba(255,255,255,0.16);display:flex;align-items:center;justify-content:center;color:var(--cyan);font-size:1.1rem;}
+    .stat-body .n{font-family:'Poppins',sans-serif;font-size:1.3rem;font-weight:800;color:#fff;}
+    .stat-body .l{font-size:0.74rem;color:rgba(255,255,255,0.52);font-family:'Poppins',sans-serif;}
 
-    .contact-section{padding:80px 4vw;background:var(--off);}
-    .contact-inner{max-width:1200px;margin:0 auto;}
-    .sec-label{font-family:'Poppins',sans-serif;font-size:0.72rem;font-weight:700;color:var(--red);letter-spacing:0.14em;text-transform:uppercase;text-align:center;margin-bottom:8px;}
-    .sec-title{font-family:'Poppins',sans-serif;font-size:clamp(1.6rem,3vw,2.3rem);font-weight:700;color:var(--navy);text-align:center;margin-bottom:6px;}
-    .sec-divider{width:60px;height:4px;background:var(--navy);border-radius:2px;margin:0 auto 50px;}
-    .contact-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:40px;align-items:start;}
-    .info-cards{display:flex;flex-direction:column;gap:16px;}
-    .info-card{display:flex;align-items:flex-start;gap:16px;background:#fff;border-radius:14px;padding:22px 20px;box-shadow:var(--shadow);border-left:4px solid var(--navy);transition:transform .25s,box-shadow .25s,border-color .25s;}
-    .info-card:hover{transform:translateX(6px);box-shadow:0 8px 32px rgba(30,45,107,0.15);border-color:var(--red);}
-    .info-icon-wrap{width:52px;height:52px;flex-shrink:0;background:linear-gradient(135deg,var(--navy),var(--navy-light));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:#fff;box-shadow:0 4px 12px rgba(30,45,107,0.25);}
-    .info-card-body h5{font-family:'Poppins',sans-serif;font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--red);margin-bottom:5px;}
-    .info-card-body p,.info-card-body a{font-size:0.88rem;color:var(--text-gray);line-height:1.6;}
-    .info-card-body a:hover{color:var(--navy);}
-    .hours-card{background:#fff;border-radius:14px;padding:22px 20px;box-shadow:var(--shadow);border-left:4px solid var(--navy);margin-top:16px;}
-    .hours-card h5{font-family:'Poppins',sans-serif;font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--red);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
-    .hours-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--border);font-size:0.84rem;gap:12px;}
-    .hours-row:last-child{border-bottom:none;}
-    .hours-row .day{color:var(--navy);font-weight:600;font-family:'Poppins',sans-serif;}
-    .hours-row .time{color:var(--text-gray);}
-    .open-badge{background:#e8f5e9;color:#2e7d32;font-size:0.68rem;font-weight:700;padding:2px 8px;border-radius:10px;font-family:'Poppins',sans-serif;}
-    .map-wrap{border-radius:14px;overflow:hidden;box-shadow:var(--shadow);margin-top:16px;}
+    /* ===== CONTACT SECTION ===== */
+    .contact-section{padding:44px 4vw 56px;background:var(--off);}
+    .contact-inner{max-width:1100px;margin:0 auto;}
+    .sec-label{font-family:'Poppins',sans-serif;font-size:0.68rem;font-weight:700;color:var(--red);letter-spacing:0.14em;text-transform:uppercase;text-align:center;margin-bottom:6px;}
+    .sec-title{font-family:'Poppins',sans-serif;font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:700;color:var(--navy);text-align:center;margin-bottom:5px;}
+    .sec-div{width:50px;height:3px;background:var(--navy);border-radius:2px;margin:0 auto 30px;}
 
-    .form-card{background:#fff;border-radius:18px;box-shadow:0 8px 40px rgba(30,45,107,0.12);overflow:hidden;}
-    .form-header{background:linear-gradient(120deg,var(--navy),var(--navy-light));padding:28px 32px;}
-    .form-header h3{font-family:'Poppins',sans-serif;font-size:1.25rem;font-weight:700;color:#fff;margin-bottom:4px;}
-    .form-header p{font-size:0.83rem;color:rgba(255,255,255,0.7);}
-    .form-body{padding:32px;}
-    .f-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-    .f-group{margin-bottom:16px;}
-    .f-group label{display:flex;align-items:center;gap:6px;font-family:'Poppins',sans-serif;font-size:0.78rem;font-weight:600;color:var(--navy);margin-bottom:6px;}
-    .f-group input,.f-group select{width:100%;padding:12px 16px;border:1.5px solid var(--border);border-radius:9px;font-family:'Open Sans',sans-serif;font-size:0.88rem;color:var(--text-gray);outline:none;background:#fafbff;transition:border-color .2s,box-shadow .2s;}
-    .f-group input:focus,.f-group select:focus{border-color:var(--navy);box-shadow:0 0 0 3px rgba(30,45,107,0.08);background:#fff;}
-    .f-group input::placeholder{color:#bbb;}
-    .f-submit{width:100%;background:linear-gradient(120deg,var(--navy),var(--navy-light));color:#fff;padding:15px;border:none;border-radius:10px;font-family:'Poppins',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;transition:all .25s;margin-top:4px;letter-spacing:0.03em;box-shadow:0 4px 16px rgba(30,45,107,0.25);}
-    .f-submit:hover{background:linear-gradient(120deg,var(--red),#c0321e);transform:translateY(-2px);box-shadow:0 8px 24px rgba(232,64,42,0.3);}
+    .contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:24px;align-items:start;}
 
-    #thank-you-msg{display:none;text-align:center;padding:3rem 1rem;}
-    @keyframes fadeInUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
-    #thank-you-msg.show{display:block;animation:fadeInUp 0.6s ease;}
-    .ty-circle{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#e8f5e9,#c8e6c9);display:flex;align-items:center;justify-content:center;font-size:2.5rem;margin:0 auto 1.2rem;}
-    .ty-title{font-family:'Poppins',sans-serif;font-size:1.5rem;font-weight:700;color:var(--navy);margin-bottom:8px;}
-    .ty-sub{font-size:0.88rem;color:var(--text-gray);line-height:1.7;}
+    /* info cards */
+    .info-cards{display:flex;flex-direction:column;gap:8px;}
+    .info-card{display:flex;align-items:center;gap:12px;background:#fff;border-radius:10px;padding:12px 14px;box-shadow:var(--shadow);border-left:3px solid var(--navy);transition:transform .25s,box-shadow .25s,border-color .25s;opacity:0;transform:translateX(-14px);}
+    .info-card.reveal{opacity:1;transform:translateX(0);}
+    .info-card:hover{transform:translateX(5px)!important;box-shadow:0 6px 20px rgba(30,45,107,0.13);border-color:var(--red);}
+    .info-ic{width:36px;height:36px;flex-shrink:0;background:linear-gradient(135deg,var(--navy),var(--navy-light));border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.85rem;}
+    .info-body h5{font-family:'Poppins',sans-serif;font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--red);margin-bottom:2px;}
+    .info-body p,.info-body a{font-size:0.8rem;color:var(--text-gray);line-height:1.5;}
+    .info-body a:hover{color:var(--navy);}
 
+    /* hours */
+    .hours-card{background:#fff;border-radius:10px;padding:12px 14px;box-shadow:var(--shadow);border-left:3px solid var(--navy);margin-top:8px;}
+    .hours-card h5{font-family:'Poppins',sans-serif;font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--red);margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+    .hr-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid var(--border);font-size:0.78rem;gap:8px;}
+    .hr-row:last-child{border-bottom:none;}
+    .hr-row .day{color:var(--navy);font-weight:600;font-family:'Poppins',sans-serif;}
+    .hr-row .time{color:var(--text-gray);}
+    .open-badge{background:#e8f5e9;color:#2e7d32;font-size:0.6rem;font-weight:700;padding:2px 7px;border-radius:8px;font-family:'Poppins',sans-serif;}
+
+    /* social row */
+    .social-card{background:#fff;border-radius:10px;padding:12px 14px;box-shadow:var(--shadow);margin-top:8px;}
+    .social-card h5{font-family:'Poppins',sans-serif;font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--red);margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+    .social-icons{display:flex;gap:8px;flex-wrap:wrap;}
+    .soc{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.9rem;color:#fff;transition:transform .2s,box-shadow .2s;}
+    .soc:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.18);}
+    .s-fb{background:#1877f2;}.s-ig{background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285aeb 90%);}
+    .s-wa{background:#25d366;}.s-yt{background:#ff0000;}.s-li{background:#0077b5;}
+
+    /* map */
+    .map-wrap{border-radius:10px;overflow:hidden;box-shadow:var(--shadow);margin-top:8px;}
+    .map-wrap iframe{width:100%;height:160px;border:0;display:block;}
+
+    /* FORM */
+    .form-card{background:#fff;border-radius:14px;box-shadow:0 6px 30px rgba(30,45,107,0.10);overflow:hidden;}
+    .form-header{background:linear-gradient(120deg,var(--navy),var(--navy-light));padding:18px 22px;position:relative;overflow:hidden;}
+    .form-header::before{content:'';position:absolute;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,0.05);top:-60px;right:-40px;}
+    .form-header h3{font-family:'Poppins',sans-serif;font-size:1rem;font-weight:700;color:#fff;margin-bottom:2px;position:relative;z-index:1;}
+    .form-header p{font-size:0.75rem;color:rgba(255,255,255,0.65);position:relative;z-index:1;}
+    .form-body{padding:18px 20px;}
+    .f-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+    .f-group{margin-bottom:10px;}
+    .f-group label{display:flex;align-items:center;gap:6px;font-family:'Poppins',sans-serif;font-size:0.72rem;font-weight:600;color:var(--navy);margin-bottom:4px;}
+    .f-group label i{font-size:0.72rem;color:var(--cyan);}
+    .f-group input,
+    .f-group select,
+    .f-group textarea{
+      width:100%;padding:9px 12px;
+      border:1.5px solid var(--border);border-radius:7px;
+      font-family:'Open Sans',sans-serif;font-size:0.82rem;
+      color:var(--text-gray);outline:none;background:#fafbff;
+      transition:border-color .2s,box-shadow .2s;
+    }
+    .f-group input:focus,.f-group select:focus,.f-group textarea:focus{border-color:var(--navy);box-shadow:0 0 0 3px rgba(30,45,107,0.07);background:#fff;}
+    .f-group input::placeholder,.f-group textarea::placeholder{color:#bbb;}
+    .f-group textarea{resize:vertical;min-height:64px;}
+    .f-submit{
+      width:100%;background:linear-gradient(120deg,var(--navy),var(--navy-light));
+      color:#fff;padding:11px;border:none;border-radius:8px;
+      font-family:'Poppins',sans-serif;font-size:0.88rem;font-weight:700;
+      cursor:pointer;transition:all .25s;margin-top:2px;
+      letter-spacing:0.03em;box-shadow:0 4px 14px rgba(30,45,107,0.22);
+      display:flex;align-items:center;justify-content:center;gap:8px;
+    }
+    .f-submit:hover{background:linear-gradient(120deg,var(--red),#c0321e);transform:translateY(-2px);box-shadow:0 6px 20px rgba(232,64,42,0.28);}
+
+    /* thank you */
+    #thank-you-msg{display:none;text-align:center;padding:2rem 1rem;}
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+    #thank-you-msg.show{display:block;animation:fadeInUp 0.5s ease;}
+    .ty-circle{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#e8f5e9,#c8e6c9);display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 1rem;}
+    .ty-title{font-family:'Poppins',sans-serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:6px;}
+    .ty-sub{font-size:0.82rem;color:var(--text-gray);line-height:1.6;}
+
+    /* ===== FOOTER ===== */
     footer{background:#12183a;color:#fff;padding:60px 4vw 0;}
     .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.7fr 1fr 1fr 1.3fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,0.08);}
-    .f-brand-name{font-family:'Poppins',sans-serif;font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:1rem;}
+    .f-brand-name{font-family:'Poppins',sans-serif;font-size:1.12rem;font-weight:700;color:#fff;margin-bottom:1rem;}
     .f-brand-name span{color:#7a8de8;}
-    .f-brand p{font-size:0.85rem;color:rgba(255,255,255,0.55);line-height:1.8;max-width:280px;}
-    .f-contact-row{display:flex;align-items:flex-start;gap:10px;margin-top:1.2rem;}
-    .f-contact-row a{color:rgba(255,255,255,0.7);font-size:0.82rem;}
+    .f-brand p{font-size:0.82rem;color:rgba(255,255,255,0.48);line-height:1.8;max-width:280px;}
+    .f-contact-row{display:flex;align-items:flex-start;gap:10px;margin-top:1rem;}
+    .f-contact-row a{color:rgba(255,255,255,0.62);font-size:0.8rem;}
     .f-contact-row a:hover{color:#fff;}
-    .fc-ic{width:30px;height:30px;flex-shrink:0;background:rgba(30,45,107,0.5);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:0.85rem;}
-    .f-col h5{font-family:'Poppins',sans-serif;font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#fff;margin-bottom:1.2rem;padding-bottom:10px;border-bottom:2px solid rgba(122,141,232,0.4);}
-    .f-col ul{list-style:none;display:flex;flex-direction:column;gap:0.6rem;}
-    .f-col a{font-size:0.83rem;color:rgba(255,255,255,0.55);transition:color .2s;}
+    .fc-ic{width:30px;height:30px;flex-shrink:0;background:rgba(30,45,107,0.5);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--cyan);font-size:0.82rem;}
+    .f-col h5{font-family:'Poppins',sans-serif;font-size:0.79rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#fff;margin-bottom:1.1rem;padding-bottom:9px;border-bottom:2px solid rgba(0,188,212,0.35);}
+    .f-col ul{list-style:none;display:flex;flex-direction:column;gap:0.55rem;}
+    .f-col a{font-size:0.81rem;color:rgba(255,255,255,0.48);transition:color .2s;display:flex;align-items:center;gap:5px;}
+    .f-col a i{font-size:0.58rem;color:var(--cyan);}
     .f-col a:hover{color:#fff;}
-    .f-col a::before{content:'›  ';}
-    .footer-bottom{max-width:1200px;margin:0 auto;padding:20px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.8rem;font-size:0.78rem;color:rgba(255,255,255,0.35);}
-    .footer-bottom a{color:rgba(122,141,232,0.8);}
+    .footer-bottom{max-width:1200px;margin:0 auto;padding:18px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem;font-size:0.75rem;color:rgba(255,255,255,0.3);}
+    .footer-bottom a{color:rgba(0,188,212,0.75);}
 
+    /* ===== RESPONSIVE ===== */
     @media(max-width:860px){
-      .nav-center{display:none;}
-      .hamburger{display:flex;}
+      .nav-center{display:none;}.hamburger{display:flex;}
       .contact-grid{grid-template-columns:1fr;}
       .stats-inner{grid-template-columns:1fr;}
       .stat-item{border-right:none;border-bottom:1px solid rgba(255,255,255,0.1);}
+      .stat-item:last-child{border-bottom:none;}
       .footer-grid{grid-template-columns:1fr 1fr;}
     }
     @media(max-width:600px){
       .f-row{grid-template-columns:1fr;}
       .footer-grid{grid-template-columns:1fr;}
-      .form-body{padding:20px;}
+      .form-body{padding:14px 12px;}
+      .contact-hero h1{font-size:1.95rem;}
+      .hero-actions{gap:8px;}
+      .hact{font-size:0.76rem;padding:9px 14px;}
+      .tb-left a:last-child{display:none;}
+      .contact-section{padding:30px 4vw 40px;}
     }
   </style>
 </head>
 <body>
 
-  <div class="floats">
-    <a href="tel:+918779292084" class="fl-btn fl-ph" aria-label="Call us"></a>
-    <a href="https://wa.me/918779292084" class="fl-btn fl-wa" aria-label="WhatsApp us"></a>
+<!-- FLOATING BTNS -->
+<div class="floats">
+  <a href="tel:+918779292084" class="fl-btn fl-ph"><i class="fa-solid fa-phone"></i></a>
+  <a href="https://wa.me/918779292084" class="fl-btn fl-wa"><i class="fa-brands fa-whatsapp"></i></a>
+</div>
+
+<!-- MOBILE NAV -->
+<div class="mob-nav" id="mobNav">
+  <span class="mob-close" onclick="closeMob()">✕</span>
+  <a href="index.html">Home</a>
+  <a href="about.html">About Us</a>
+  <a href="services.html#children">Children Counseling</a>
+  <a href="services.html#marriage">Marriage Counseling</a>
+  <a href="services.html#senior">Senior Citizen Counseling</a>
+  <a href="services.html#personal">Personal Counseling</a>
+  <a href="services.html#relationship">Relationship Counseling</a>
+  <a href="services.html#financial">Financial Counseling</a>
+  <a href="services.html#stress">Stress &amp; Anxiety Management</a>
+  <a href="services.html#depression">Depression Support</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="contact.html">Contact Us</a>
+</div>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="tb-left">
+    <a href="tel:+918779292084"><i class="fa-solid fa-phone"></i> +91 8779292084 / +91 7744896101</a>
+    <a href="mailto:cdcareeracademy@gmail.com"><i class="fa-solid fa-envelope"></i> cdcareeracademy@gmail.com</a>
   </div>
-
-  <div class="mob-nav" id="mobNav">
-    <span class="mob-close" onclick="closeMob()">✕</span>
-    <a href="index.html">Home</a>
-    <a href="about.html">About Us</a>
-    <a href="services.html#children">Children Counseling</a>
-    <a href="services.html#marriage">Marriage Counseling</a>
-    <a href="services.html#senior">Senior Citizen Counseling</a>
-    <a href="services.html#personal">Personal Counseling</a>
-    <a href="services.html#relationship">Relationship Counseling</a>
-    <a href="services.html#financial">Financial Counseling</a>
-    <a href="services.html#stress">Stress &amp; Anxiety Management</a>
-    <a href="services.html#depression">Depression Support</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="contact.html">Contact Us</a>
-  </div>
-
-  <div class="topbar">
-    <div class="tb-left">
-      <a href="tel:+918779292084"><span class="tb-icon">📞</span> +91 8779292084 / +91 7744896101</a>
-      <a href="mailto:cdcareeracademy@gmail.com"><span class="tb-icon">✉</span> cdcareeracademy@gmail.com</a>
-    </div>
-    <div class="tb-right">
-      <div class="tb-social">
-        <a href="#" title="Facebook">f</a>
-        <a href="#" title="Instagram">📷</a>
-      </div>
-    </div>
-  </div>
-
-  <nav>
-    <div class="nav-inner">
-      <a href="index.html" class="logo">
-        <div class="logo-icon">C</div>
-        <div class="logo-text">
-          <strong>CDCA</strong>
-          <span>Together We Achieve</span>
-        </div>
-      </a>
-      <div class="nav-center">
-        <span class="nav-tagline">Find the Right Path with Expert Counselling</span>
-        <ul class="nav-links">
-          <li><a href="index.html">HOME</a></li>
-          <li><a href="about.html">ABOUT US</a></li>
-          <li class="has-drop">
-            <a href="services.html">OUR SERVICES ▾</a>
-            <div class="drop-menu">
-              <a href="services.html#children">Children Counseling</a>
-              <a href="services.html#marriage">Marriage Counseling</a>
-              <a href="services.html#senior">Senior Citizen Counseling</a>
-              <a href="services.html#personal">Personal Counseling</a>
-              <a href="services.html#relationship">Relationship Counseling</a>
-              <a href="services.html#financial">Financial Counseling</a>
-              <a href="services.html#stress">Stress and Anxiety Management</a>
-              <a href="services.html#depression">Depression Support</a>
-            </div>
-          </li>
-          <li><a href="gallery.html">GALLERY</a></li>
-          <li><a href="contact.html" class="active">CONTACT US</a></li>
-        </ul>
-      </div>
-      <a href="contact.html" class="btn-consult">Consult Now</a>
-      <div class="hamburger" onclick="openMob()"><span></span><span></span><span></span></div>
-    </div>
-  </nav>
-
-  <section class="contact-hero">
-    <div class="hero-inner">
-      <div class="hero-badge">📬 Get In Touch</div>
-      <h1>Contact Us</h1>
-      <p class="hero-sub">We're here to help you take the first step. Reach out to us and our expert counsellors will guide you toward a better tomorrow.</p>
-      <div class="hero-breadcrumb">
-        <span>🏠</span>
-        <a href="index.html">Home</a>
-        <span class="sep">›</span>
-        <span class="cur">Contact Us</span>
-      </div>
-    </div>
-  </section>
-
-  <div class="stats-strip">
-    <div class="stats-inner">
-      <div class="stat-item">
-        <div class="stat-icon">👥</div>
-        <div class="stat-body">
-          <div class="n">150+</div>
-          <div class="l">Happy Clients</div>
-        </div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-icon">⭐</div>
-        <div class="stat-body">
-          <div class="n">84 Reviews</div>
-          <div class="l">5★ Google Rating</div>
-        </div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-icon">🏆</div>
-        <div class="stat-body">
-          <div class="n">8+ Years</div>
-          <div class="l">Of Experience</div>
-        </div>
-      </div>
+  <div class="tb-right">
+    <div class="tb-social">
+      <a href="https://facebook.com/" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="https://instagram.com/" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://wa.me/918779292084" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      <a href="https://youtube.com/" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
     </div>
   </div>
+</div>
 
-  <section class="contact-section">
-    <div class="contact-inner">
-      <p class="sec-label">Reach Out</p>
-      <h2 class="sec-title">Book Your Consultation Today</h2>
-      <div class="sec-divider"></div>
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-icon">C</div>
+      <div class="logo-text"><strong>CDCA</strong><span>Together We Achieve</span></div>
+    </a>
+    <div class="nav-center">
+      <span class="nav-tagline">Find the Right Path with Expert Counselling</span>
+      <ul class="nav-links">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="about.html">ABOUT US</a></li>
+        <li class="has-drop">
+          <a href="services.html">OUR SERVICES ▾</a>
+          <div class="drop-menu">
+            <a href="services.html#children">Children Counseling</a>
+            <a href="services.html#marriage">Marriage Counseling</a>
+            <a href="services.html#senior">Senior Citizen Counseling</a>
+            <a href="services.html#personal">Personal Counseling</a>
+            <a href="services.html#relationship">Relationship Counseling</a>
+            <a href="services.html#financial">Financial Counseling</a>
+            <a href="services.html#stress">Stress and Anxiety Management</a>
+            <a href="services.html#depression">Depression Support</a>
+          </div>
+        </li>
+        <li><a href="gallery.html">GALLERY</a></li>
+        <li><a href="contact.html" class="active">CONTACT US</a></li>
+      </ul>
+    </div>
+    <a href="contact.html" class="btn-consult">Consult Now</a>
+    <div class="hamburger" onclick="openMob()"><span></span><span></span><span></span></div>
+  </div>
+</nav>
 
-      <div class="contact-grid">
-        <div>
-          <div class="info-cards">
-            <div class="info-card">
-              <div class="info-icon-wrap">📍</div>
-              <div class="info-card-body">
-                <h5>Our Address</h5>
-                <a href="https://maps.app.goo.gl/5kj2HM3q5ac1B6Pa9" target="_blank">Shop No 9, 1st floor, Seasons Harmony, behind Ahir Auto, Khadakpada, Kalyan, Maharashtra 421301</a>
-              </div>
-            </div>
-            <div class="info-card">
-              <div class="info-icon-wrap">📞</div>
-              <div class="info-card-body">
-                <h5>Call Us Now</h5>
-                <p><a href="tel:+918779292084">+91 8779292084</a> &nbsp;/&nbsp; <a href="tel:+917744896101">+91 7744896101</a></p>
-              </div>
-            </div>
-            <div class="info-card">
-              <div class="info-icon-wrap">✉</div>
-              <div class="info-card-body">
-                <h5>Email Us</h5>
-                <a href="mailto:cdcareeracademy@gmail.com">cdcareeracademy@gmail.com</a>
-              </div>
-            </div>
-            <div class="info-card">
-              <div class="info-icon-wrap">💬</div>
-              <div class="info-card-body">
-                <h5>WhatsApp</h5>
-                <a href="https://wa.me/918779292084" target="_blank">Chat with us on WhatsApp</a>
-              </div>
+<!-- ===== HERO ===== -->
+<section class="contact-hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-grid"></div>
+  <div class="hc hc1"></div>
+  <div class="hc hc2"></div>
+
+  <div class="hero-inner">
+    <div class="hero-badge"><i class="fa-solid fa-paper-plane"></i>&nbsp; Get In Touch</div>
+    <h1>Let's <span>Talk &amp;</span><br>Heal Together</h1>
+    <p class="hero-sub">Our expert counsellors are just one message away. Take the first step — reach out today and let us guide you toward a happier, healthier tomorrow.</p>
+    <div class="hero-bc">
+      <i class="fa-solid fa-house" style="color:rgba(255,255,255,0.5);font-size:0.73rem;"></i>
+      <a href="index.html">Home</a>
+      <span class="sep">›</span>
+      <span class="cur">Contact Us</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT SECTION ===== -->
+<section class="contact-section">
+  <div class="contact-inner">
+    <p class="sec-label">Reach Out</p>
+    <h2 class="sec-title">Book Your Consultation Today</h2>
+    <div class="sec-div"></div>
+
+    <div class="contact-grid">
+
+      <!-- LEFT -->
+      <div>
+        <div class="info-cards">
+          <div class="info-card">
+            <div class="info-ic"><i class="fa-solid fa-location-dot"></i></div>
+            <div class="info-body">
+              <h5>Our Address</h5>
+              <a href="https://maps.app.goo.gl/5kj2HM3q5ac1B6Pa9" target="_blank">Shop No 9, 1st floor, Seasons Harmony, behind Ahir Auto, Khadakpada, Kalyan, Maharashtra 421301</a>
             </div>
           </div>
-
-          <div class="hours-card">
-            <h5>🕐 Working Hours</h5>
-            <div class="hours-row"><span class="day">Mon – Sat</span><span class="time">8:30 AM – 9:30 PM</span><span class="open-badge">Open</span></div>
-            <div class="hours-row"><span class="day">Sunday</span><span class="time">10:00 AM – 8:00 PM</span><span class="open-badge">Open</span></div>
+          <div class="info-card">
+            <div class="info-ic"><i class="fa-solid fa-phone"></i></div>
+            <div class="info-body">
+              <h5>Call Us Now</h5>
+              <p><a href="tel:+918779292084">+91 8779292084</a> &nbsp;/&nbsp; <a href="tel:+917744896101">+91 7744896101</a></p>
+            </div>
           </div>
-
-          <div class="map-wrap">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.8!2d73.143156!3d19.2554937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be79380541c6db1%3A0x59b3e3f65741ef3!2sCreative%20Development%20Center!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin" width="100%" height="230" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          <div class="info-card">
+            <div class="info-ic"><i class="fa-solid fa-envelope"></i></div>
+            <div class="info-body">
+              <h5>Email Us</h5>
+              <a href="mailto:info@developmentcentre.in">info@developmentcentre.in</a>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-ic"><i class="fa-brands fa-whatsapp"></i></div>
+            <div class="info-body">
+              <h5>WhatsApp</h5>
+              <a href="https://wa.me/918779292084" target="_blank">Chat with us on WhatsApp</a>
+            </div>
           </div>
         </div>
 
-        <div class="form-card">
-          <div class="form-header">
-            <h3>📅 Book an Appointment</h3>
-            <p>Fill in the details below and we'll get back to you shortly.</p>
+        <div class="hours-card">
+          <h5><i class="fa-regular fa-clock" style="color:var(--red);"></i> Working Hours</h5>
+          <div class="hr-row">
+            <span class="day">Mon – Sat</span>
+            <span class="time">8:30 AM – 9:30 PM</span>
+            <span class="open-badge">Open</span>
           </div>
-          <div class="form-body">
-            <div id="booking-form">
-              <div class="f-row">
-                <div class="f-group">
-                  <label>👤 Full Name</label>
-                  <input type="text" id="name" placeholder="Your full name"/>
-                </div>
-                <div class="f-group">
-                  <label>📞 Phone Number</label>
-                  <input type="tel" id="phone" placeholder="+91 XXXXX XXXXX"/>
-                </div>
-              </div>
-              <div class="f-group">
-                <label>✉ Email Address</label>
-                <input type="email" id="email" placeholder="email@example.com"/>
-              </div>
-              <div class="f-group">
-                <label>🩺 Select Service</label>
-                <select id="service">
-                  <option value="" disabled selected>Choose a service...</option>
-                  <option>Children Counseling</option>
-                  <option>Marriage Counseling</option>
-                  <option>Senior Citizen Counseling</option>
-                  <option>Personal Counseling</option>
-                  <option>Relationship Counseling</option>
-                  <option>Financial Counseling</option>
-                  <option>Stress and Anxiety Management</option>
-                  <option>Depression Support</option>
-                </select>
-              </div>
-              <div class="f-group">
-                <label>📌 Appointment Type</label>
-                <select id="type">
-                  <option value="" disabled selected>Choose appointment type...</option>
-                  <option>Home Visit</option>
-                  <option>School &amp; College Visit</option>
-                  <option>Office Visit</option>
-                  <option>Centre Visit</option>
-                </select>
-              </div>
-              <div class="f-group">
-                <label>💬 Message (Optional)</label>
-                <input type="text" id="message" placeholder="Any specific concern or message..."/>
-              </div>
-              <button class="f-submit" onclick="submitForm()">✔ Book Appointment Now</button>
-            </div>
+          <div class="hr-row">
+            <span class="day">Sunday</span>
+            <span class="time">10:00 AM – 8:00 PM</span>
+            <span class="open-badge">Open</span>
+          </div>
+        </div>
 
-            <div id="thank-you-msg">
-              <div class="ty-circle">🙏</div>
-              <div class="ty-title">Thank You!</div>
-              <p class="ty-sub">Your appointment request has been received.<br/>Our team will contact you within 24 hours.</p>
+        <div class="social-card">
+          <h5><i class="fa-solid fa-share-nodes" style="color:var(--red);"></i> Follow Us</h5>
+          <div class="social-icons">
+            <a href="https://facebook.com/" target="_blank" class="soc s-fb" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://instagram.com/" target="_blank" class="soc s-ig" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://youtube.com/" target="_blank" class="soc s-yt" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://linkedin.com/" target="_blank" class="soc s-li" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <div class="map-wrap" style="display:none;">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.8!2d73.143156!3d19.2554937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be79380541c6db1%3A0x59b3e3f65741ef3!2sCreative%20Development%20Center!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <!-- RIGHT: FORM -->
+      <div class="form-card">
+        <div class="form-header">
+          <h3><i class="fa-regular fa-calendar-check" style="margin-right:8px;"></i>Book an Appointment</h3>
+          <p>Fill in the details below — we'll contact you within 24 hours.</p>
+        </div>
+        <div class="form-body">
+          <div id="booking-form">
+            <div class="f-row">
+              <div class="f-group">
+                <label><i class="fa-solid fa-user"></i> Full Name</label>
+                <input type="text" id="name" placeholder="Your full name"/>
+              </div>
+              <div class="f-group">
+                <label><i class="fa-solid fa-phone"></i> Phone Number</label>
+                <input type="tel" id="phone" placeholder="+91 XXXXX XXXXX"/>
+              </div>
             </div>
+            <div class="f-group">
+              <label><i class="fa-solid fa-envelope"></i> Email Address</label>
+              <input type="email" id="email" placeholder="email@example.com"/>
+            </div>
+            <div class="f-group">
+              <label><i class="fa-solid fa-hand-holding-heart"></i> Select Service</label>
+              <select id="service">
+                <option value="" disabled selected>Choose a service...</option>
+                <option>Children Counseling</option>
+                <option>Marriage Counseling</option>
+                <option>Senior Citizen Counseling</option>
+                <option>Personal Counseling</option>
+                <option>Relationship Counseling</option>
+                <option>Financial Counseling</option>
+                <option>Stress and Anxiety Management</option>
+                <option>Depression Support</option>
+              </select>
+            </div>
+            <div class="f-group">
+              <label><i class="fa-solid fa-location-pin"></i> Appointment Type</label>
+              <select id="type">
+                <option value="" disabled selected>Choose appointment type...</option>
+                <option>Home Visit</option>
+                <option>School &amp; College Visit</option>
+                <option>Office Visit</option>
+                <option>Centre Visit</option>
+              </select>
+            </div>
+            <div class="f-group">
+              <label><i class="fa-solid fa-comment-dots"></i> Message (Optional)</label>
+              <textarea id="message" placeholder="Any specific concern or message..."></textarea>
+            </div>
+            <button class="f-submit" onclick="submitForm()">
+              <i class="fa-solid fa-paper-plane"></i> Book Appointment Now
+            </button>
+          </div>
+          <div id="thank-you-msg">
+            <div class="ty-circle">🙏</div>
+            <div class="ty-title">Thank You!</div>
+            <p class="ty-sub">Your appointment request has been received.<br/>Our team will contact you within 24 hours.</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <footer>
-    <div class="footer-grid">
-      <div class="f-brand">
-        <div class="f-brand-name">Creative <span>Development</span> Centre</div>
-        <p>A trusted name in counselling. We help individuals unlock their full potential through expert guidance and personalized support.</p>
-        <div class="f-contact-row"><div class="fc-ic">📍</div><a href="#">Shop No 9, 1st floor, Seasons Harmony, Khadakpada, Kalyan, MH 421301</a></div>
-      </div>
-      <div class="f-col">
-        <h5>Our Services</h5>
-        <ul>
-          <li><a href="services.html#children">Children Counseling</a></li>
-          <li><a href="services.html#marriage">Marriage Counseling</a></li>
-          <li><a href="services.html#senior">Senior Citizen Counseling</a></li>
-          <li><a href="services.html#personal">Personal Counseling</a></li>
-          <li><a href="services.html#relationship">Relationship Counseling</a></li>
-          <li><a href="services.html#financial">Financial Counseling</a></li>
-          <li><a href="services.html#stress">Stress &amp; Anxiety</a></li>
-          <li><a href="services.html#depression">Depression Support</a></li>
-        </ul>
-      </div>
-      <div class="f-col">
-        <h5>Quick Links</h5>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-          <li><a href="contact.html">Book Appointment</a></li>
-        </ul>
-      </div>
-      <div class="f-col">
-        <h5>Contact Us</h5>
-        <ul>
-          <li><a href="tel:+918779292084">📞 +91 8779292084</a></li>
-          <li><a href="tel:+917744896101">📞 +91 7744896101</a></li>
-          <li><a href="mailto:cdcareeracademy@gmail.com">✉ cdcareeracademy@gmail.com</a></li>
-          <li><a href="https://wa.me/918779292084">💬 WhatsApp Us</a></li>
-        </ul>
-      </div>
     </div>
-    <div class="footer-bottom">
-      <p>Copyrights © 2025 Creative Development Centre. All Rights Reserved.</p>
-      <p>Designed &amp; Developed by <a href="https://www.webcagetechnologies.in/">WebCage Technologies</a></p>
-    </div>
-  </footer>
+  </div>
+</section>
 
-  <script>
-    function openMob(){ document.getElementById('mobNav').classList.add('show'); document.body.style.overflow='hidden'; }
-    function closeMob(){ document.getElementById('mobNav').classList.remove('show'); document.body.style.overflow=''; }
-    function submitForm(){
-      const name = document.getElementById('name').value.trim();
-      const phone = document.getElementById('phone').value.trim();
-      const service = document.getElementById('service').value;
-      const type = document.getElementById('type').value;
-      if(!name || !phone || !service || !type){ alert('Please fill in all required fields.'); return; }
-      document.getElementById('booking-form').style.display='none';
-      document.getElementById('thank-you-msg').classList.add('show');
-    }
-  </script>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="f-brand">
+      <div class="f-brand-name">Creative <span>Development</span> Centre</div>
+      <p>A trusted name in counselling. We help individuals unlock their full potential through expert guidance and personalized support.</p>
+      <div class="f-contact-row">
+        <div class="fc-ic"><i class="fa-solid fa-location-dot"></i></div>
+        <a href="https://maps.app.goo.gl/5kj2HM3q5ac1B6Pa9" target="_blank">Shop No 9, 1st floor, Seasons Harmony, Khadakpada, Kalyan, MH 421301</a>
+      </div>
+    </div>
+    <div class="f-col">
+      <h5>Our Services</h5>
+      <ul>
+        <li><a href="services.html#children"><i class="fa-solid fa-chevron-right"></i>Children Counseling</a></li>
+        <li><a href="services.html#marriage"><i class="fa-solid fa-chevron-right"></i>Marriage Counseling</a></li>
+        <li><a href="services.html#senior"><i class="fa-solid fa-chevron-right"></i>Senior Citizen Counseling</a></li>
+        <li><a href="services.html#personal"><i class="fa-solid fa-chevron-right"></i>Personal Counseling</a></li>
+        <li><a href="services.html#relationship"><i class="fa-solid fa-chevron-right"></i>Relationship Counseling</a></li>
+        <li><a href="services.html#financial"><i class="fa-solid fa-chevron-right"></i>Financial Counseling</a></li>
+        <li><a href="services.html#stress"><i class="fa-solid fa-chevron-right"></i>Stress &amp; Anxiety</a></li>
+        <li><a href="services.html#depression"><i class="fa-solid fa-chevron-right"></i>Depression Support</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h5>Quick Links</h5>
+      <ul>
+        <li><a href="index.html"><i class="fa-solid fa-chevron-right"></i>Home</a></li>
+        <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i>About Us</a></li>
+        <li><a href="gallery.html"><i class="fa-solid fa-chevron-right"></i>Gallery</a></li>
+        <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i>Contact Us</a></li>
+        <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i>Book Appointment</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h5>Contact Us</h5>
+      <ul>
+        <li><a href="tel:+918779292084"><i class="fa-solid fa-phone"></i>+91 8779292084</a></li>
+        <li><a href="tel:+917744896101"><i class="fa-solid fa-phone"></i>+91 7744896101</a></li>
+        <li><a href="mailto:cdcareeracademy@gmail.com"><i class="fa-solid fa-envelope"></i>cdcareeracademy@gmail.com</a></li>
+        <li><a href="https://wa.me/918779292084" target="_blank"><i class="fa-brands fa-whatsapp"></i>WhatsApp Us</a></li>
+      </ul>
+      <div style="margin-top:16px;border-radius:10px;overflow:hidden;">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.8!2d73.143156!3d19.2554937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be79380541c6db1%3A0x59b3e3f65741ef3!2sCreative%20Development%20Center!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin"
+          width="100%" height="140" style="border:0;display:block;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>Copyrights &copy; 2026 Creative Development Centre. All Rights Reserved.</p>
+    <p>Designed &amp; Developed by <a href="#" target="_blank">WebCultivate Software Solution</a></p>
+  </div>
+</footer>
+
+<script>
+  function openMob(){ document.getElementById('mobNav').classList.add('show'); document.body.style.overflow='hidden'; }
+  function closeMob(){ document.getElementById('mobNav').classList.remove('show'); document.body.style.overflow=''; }
+
+  function submitForm(){
+    const name=document.getElementById('name').value.trim();
+    const phone=document.getElementById('phone').value.trim();
+    const service=document.getElementById('service').value;
+    if(!name){ alert('Please enter your full name.'); return; }
+    if(!phone){ alert('Please enter your phone number.'); return; }
+    if(!service){ alert('Please select a service.'); return; }
+    document.getElementById('booking-form').style.display='none';
+    document.getElementById('thank-you-msg').classList.add('show');
+  }
+
+  // Scroll reveal for info cards
+  const revObs=new IntersectionObserver(entries=>{
+    entries.forEach((en,i)=>{
+      if(en.isIntersecting){
+        setTimeout(()=>{
+          en.target.style.transition=`opacity .5s ease, transform .5s ease, box-shadow .25s, border-color .25s`;
+          en.target.classList.add('reveal');
+        }, 0);
+      }
+    });
+  },{threshold:0.1});
+  document.querySelectorAll('.info-card').forEach((el,i)=>{
+    el.style.transitionDelay=`${i*0.1}s`;
+    revObs.observe(el);
+  });
+</script>
 </body>
 </html>

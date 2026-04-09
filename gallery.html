@@ -1,384 +1,582 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>OUR GALLERY - Creative Development Centre</title>
+  <title>Gallery – Creative Development Centre</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     :root{
-      --navy:#1e2d6b;--navy-dark:#16235a;
-      --red:#e8402a;
-      --off:#f4f5f8;--text-gray:#444;
-      --border:#dde2f0;--shadow:0 4px 20px rgba(30,45,107,0.10);
+      --navy:#1e2d6b;--navy-dark:#16235a;--navy-light:#2d3e8e;
+      --red:#e8402a;--cyan:#00bcd4;
+      --off:#f4f5f8;--text-gray:#555;
+      --border:#dde2f0;--shadow:0 4px 24px rgba(30,45,107,0.10);
     }
     html{scroll-behavior:smooth;}
     body{font-family:'Open Sans',sans-serif;color:var(--text-gray);background:#fff;overflow-x:hidden;}
     a{text-decoration:none;color:inherit;}
     img{max-width:100%;display:block;}
 
-    /* TOP BAR */
-    .topbar{background:var(--navy-dark);color:#fff;padding:6px 4vw;display:flex;align-items:center;justify-content:space-between;font-size:0.72rem;font-family:'Poppins',sans-serif;flex-wrap:wrap;gap:6px;}
+    /* ===== TOP BAR ===== */
+    .topbar{background:var(--navy-dark);color:#fff;padding:1px 4vw;display:flex;align-items:center;justify-content:space-between;font-size:0.72rem;font-family:'Poppins',sans-serif;flex-wrap:wrap;gap:6px;}
     .tb-left,.tb-right{display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;}
     .tb-left a,.tb-right a{color:#fff;display:flex;align-items:center;gap:7px;transition:opacity .2s;}
     .tb-left a:hover,.tb-right a:hover{opacity:.8;}
-    .tb-icon{font-size:0.95rem;}
-    .tb-social{display:flex;gap:10px;}
-    .tb-social a{width:28px;height:28px;border-radius:4px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;font-size:0.8rem;color:#fff;transition:background .2s;}
+    .tb-social{display:flex;gap:8px;}
+    .tb-social a{width:28px;height:28px;border-radius:5px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;font-size:0.78rem;color:#fff;transition:background .2s;}
     .tb-social a:hover{background:var(--red);}
 
-    /* NAVBAR */
+    /* ===== NAVBAR ===== */
     nav{background:#fff;box-shadow:0 2px 12px rgba(30,45,107,0.08);position:sticky;top:0;z-index:999;}
-    .nav-inner{max-width:1280px;margin:0 auto;padding:0 4vw;height:72px;display:flex;align-items:center;justify-content:space-between;}
-    .logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
-    .logo-icon{width:50px;height:50px;background:#00bcd4;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;font-weight:800;}
+    .nav-inner{max-width:1280px;margin:0 auto;padding:0 4vw;height:72px;display:flex;align-items:center;justify-content:space-between;gap:12px;}
+    .logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;}
+    .logo-icon{width:48px;height:48px;background:var(--cyan);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;color:#fff;font-weight:800;}
     .logo-text{display:flex;flex-direction:column;line-height:1.2;}
-    .logo-text strong{font-family:'Poppins',sans-serif;font-size:17px;color:#1a2e6c;font-weight:800;}
-    .logo-text span{font-size:11px;color:#00bcd4;font-weight:600;letter-spacing:0.5px;}
-    .nav-center{text-align:center;flex:1;padding:0 2rem;}
-    .nav-tagline{font-family:'Poppins',sans-serif;font-size:0.9rem;font-weight:700;color:#1a2e6c;display:block;margin-bottom:6px;}
-    .nav-links{display:flex;align-items:center;justify-content:center;gap:0;list-style:none;}
+    .logo-text strong{font-family:'Poppins',sans-serif;font-size:16px;color:#1a2e6c;font-weight:800;}
+    .logo-text span{font-size:10px;color:var(--cyan);font-weight:600;letter-spacing:0.5px;}
+    .nav-center{text-align:center;flex:1;padding:0 1rem;min-width:0;}
+    .nav-tagline{font-family:'Poppins',sans-serif;font-size:0.82rem;font-weight:700;color:#1a2e6c;display:block;margin-bottom:5px;white-space:nowrap;}
+    .nav-links{display:flex;align-items:center;justify-content:center;list-style:none;gap:0;}
     .nav-links>li{position:relative;}
-    .nav-links>li>a{display:block;padding:4px 14px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;color:#333;letter-spacing:0.5px;text-transform:uppercase;transition:color .2s;white-space:nowrap;text-decoration:none;}
-    .nav-links>li>a:hover,.nav-links>li>a.active{color:#00bcd4;}
-    .nav-links>li>a.active{border-bottom:2px solid #00bcd4;padding-bottom:2px;}
+    .nav-links>li>a{display:block;padding:4px 11px;font-family:'Poppins',sans-serif;font-size:12px;font-weight:600;color:#333;letter-spacing:0.4px;text-transform:uppercase;transition:color .2s;white-space:nowrap;}
+    .nav-links>li>a:hover,.nav-links>li>a.active{color:var(--cyan);}
+    .nav-links>li>a.active{border-bottom:2px solid var(--cyan);}
     .has-drop:hover .drop-menu{display:block;}
-    .drop-menu{display:none;position:absolute;top:100%;left:0;background:#fff;min-width:230px;box-shadow:0 8px 30px rgba(0,0,0,0.12);border-top:3px solid #00bcd4;z-index:300;padding:6px 0;border-radius:0 0 8px 8px;}
-    .drop-menu a{display:block;padding:10px 20px;font-size:13px;color:#333;font-family:'Poppins',sans-serif;font-weight:400;transition:background .15s,color .15s;}
-    .drop-menu a:hover{background:#f0f9fb;color:#00bcd4;}
-    .btn-consult{background:#1a2e6c;color:#fff;border:none;cursor:pointer;padding:10px 20px;border-radius:6px;font-family:'Poppins',sans-serif;font-size:14px;font-weight:700;letter-spacing:0.5px;transition:background .2s,transform .15s;text-decoration:none;white-space:nowrap;flex-shrink:0;}
-    .btn-consult:hover{background:#00bcd4;transform:translateY(-1px);}
-    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
-    .hamburger span{width:26px;height:2px;background:#1a2e6c;border-radius:2px;display:block;}
+    .drop-menu{display:none;position:absolute;top:100%;left:0;background:#fff;min-width:230px;box-shadow:0 8px 30px rgba(0,0,0,0.12);border-top:3px solid var(--cyan);z-index:300;padding:6px 0;border-radius:0 0 8px 8px;}
+    .drop-menu a{display:block;padding:10px 20px;font-size:13px;color:#333;font-family:'Poppins',sans-serif;transition:background .15s,color .15s;}
+    .drop-menu a:hover{background:#f0f9fb;color:var(--cyan);}
+    .btn-consult{background:var(--navy);color:#fff;padding:10px 18px;border-radius:6px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;transition:background .2s,transform .15s;white-space:nowrap;flex-shrink:0;}
+    .btn-consult:hover{background:var(--cyan);transform:translateY(-1px);}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;flex-shrink:0;}
+    .hamburger span{width:26px;height:2px;background:var(--navy);border-radius:2px;display:block;}
 
-    /* MOBILE NAV */
+    /* ===== MOBILE NAV ===== */
     .mob-nav{display:none;position:fixed;inset:0;background:#fff;z-index:1000;padding:80px 5vw 40px;overflow-y:auto;}
     .mob-nav.show{display:block;}
-    .mob-close{position:absolute;top:22px;right:5vw;font-size:1.5rem;cursor:pointer;color:#1a2e6c;}
-    .mob-nav a{display:block;padding:14px 0;font-family:'Poppins',sans-serif;font-size:1rem;font-weight:600;color:#1a2e6c;border-bottom:1px solid #eee;text-decoration:none;}
-    .mob-nav a:hover{color:#00bcd4;}
+    .mob-close{position:absolute;top:22px;right:5vw;font-size:1.5rem;cursor:pointer;color:var(--navy);}
+    .mob-nav>.mob-link{display:block;padding:14px 0;font-family:'Poppins',sans-serif;font-size:1rem;font-weight:600;color:var(--navy);border-bottom:1px solid #eee;}
+    .mob-nav>.mob-link:hover{color:var(--cyan);}
+    .mob-services-toggle{display:flex;align-items:center;justify-content:space-between;padding:14px 0;font-family:'Poppins',sans-serif;font-size:1rem;font-weight:600;color:var(--navy);border-bottom:1px solid #eee;cursor:pointer;user-select:none;}
+    .mob-services-toggle:hover{color:var(--cyan);}
+    .mob-arrow{transition:transform .3s;font-size:0.85rem;}
+    .mob-arrow.open{transform:rotate(180deg);}
+    .mob-sub{display:none;overflow:hidden;}
+    .mob-sub.open{display:block;}
+    .mob-sub a{display:block;padding:10px 0 10px 18px;font-family:'Poppins',sans-serif;font-size:0.88rem;font-weight:500;color:#555;border-bottom:1px solid #f5f5f5;}
+    .mob-sub a:hover{color:var(--cyan);}
 
-    /* FLOAT BTNS */
+    /* ===== FLOATS ===== */
     .floats{position:fixed;left:18px;bottom:30px;z-index:999;display:flex;flex-direction:column;gap:12px;}
-    .fl-btn{width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:#fff;box-shadow:0 4px 16px rgba(0,0,0,0.25);transition:transform .2s;text-decoration:none;}
-    .fl-btn:hover{transform:scale(1.1);}
-    .fl-ph{background:#1a73e8;}
-    .fl-wa{background:#25d366;}
+    .fl-btn{width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 4px 16px rgba(0,0,0,0.25);transition:transform .2s;}
+    .fl-btn:hover{transform:scale(1.12);}
+    .fl-ph{background:#1a73e8;}.fl-wa{background:#25d366;}
+    .fl-btn i{font-size:1.2rem;}
 
-    /* BREADCRUMB */
-    .breadcrumb-banner{
-      background: linear-gradient(120deg, #1e2d6b 0%, #2e3fa0 50%, #1a73c8 100%);
-      padding:60px 4vw;
-      position:relative;overflow:hidden;min-height:200px;
-      display:flex;align-items:center;
+    /* ===== GALLERY HERO ===== */
+    .gallery-hero{
+      position:relative;min-height:420px;
+      display:flex;align-items:center;overflow:hidden;
+      background:#0b1740;
     }
-    /* decorative circles */
-    .breadcrumb-banner::before{
-      content:'';position:absolute;
-      width:300px;height:300px;border-radius:50%;
-      background:rgba(255,255,255,0.05);
-      top:-80px;right:200px;
-    }
-    .breadcrumb-banner::after{
-      content:'';position:absolute;
-      width:180px;height:180px;border-radius:50%;
-      background:rgba(255,255,255,0.06);
-      bottom:-60px;left:100px;
-    }
-    .breadcrumb-inner{max-width:1200px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between;}
-    .breadcrumb-text{z-index:2;}
-    .breadcrumb-page-label{
-      display:inline-block;
+    .hero-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=1400&q=80');background-size:cover;background-position:center;filter:brightness(0.22) saturate(0.5);}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(14,27,72,0.93) 0%,rgba(30,45,107,0.86) 50%,rgba(26,74,138,0.76) 100%);}
+    .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.022) 1px,transparent 1px);background-size:55px 55px;}
+    .hc{position:absolute;border-radius:50%;pointer-events:none;}
+    .hc1{width:500px;height:500px;border:1px solid rgba(0,188,212,0.1);top:-180px;right:-120px;animation:spin 25s linear infinite;}
+    .hc2{width:300px;height:300px;border:1px solid rgba(255,255,255,0.06);bottom:-100px;left:-60px;animation:spin 18s linear infinite reverse;}
+    @keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+    .hero-inner{position:relative;z-index:5;max-width:1200px;margin:0 auto;padding:80px 4vw;width:100%;}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,188,212,0.18);border:1px solid rgba(0,188,212,0.38);border-radius:30px;padding:6px 16px;font-family:'Poppins',sans-serif;font-size:0.71rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--cyan);margin-bottom:18px;animation:slideUp .6s ease both;}
+    .gallery-hero h1{font-family:'Poppins',sans-serif;font-size:clamp(2.1rem,4.5vw,3.5rem);font-weight:900;color:#fff;text-transform:uppercase;letter-spacing:0.04em;line-height:1.08;margin-bottom:14px;text-shadow:0 2px 24px rgba(0,0,0,0.4);animation:slideUp .6s ease 0.1s both;}
+    .gallery-hero h1 span{color:var(--cyan);}
+    .hero-sub{font-size:.96rem;color:rgba(255,255,255,0.7);max-width:500px;line-height:1.78;margin-bottom:26px;animation:slideUp .6s ease 0.2s both;}
+    .hero-bc{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.16);backdrop-filter:blur(8px);padding:8px 18px;border-radius:30px;font-size:0.8rem;font-family:'Poppins',sans-serif;animation:slideUp .6s ease 0.3s both;}
+    .hero-bc a{color:rgba(255,255,255,0.75);font-weight:500;}
+    .hero-bc a:hover{color:#fff;}
+    .hero-bc .sep{color:rgba(255,255,255,0.3);}
+    .hero-bc .cur{color:#fff;font-weight:700;}
+    @keyframes slideUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+
+    /* ===== GALLERY SECTION ===== */
+    .gallery-section{padding:70px 4vw 80px;background:var(--off);}
+    .gallery-inner{max-width:1200px;margin:0 auto;}
+    .sec-label{font-family:'Poppins',sans-serif;font-size:0.71rem;font-weight:700;color:var(--red);letter-spacing:0.14em;text-transform:uppercase;text-align:center;margin-bottom:8px;}
+    .sec-title{font-family:'Poppins',sans-serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;color:var(--navy);text-align:center;margin-bottom:6px;}
+    .sec-div{width:60px;height:4px;background:var(--navy);border-radius:2px;margin:0 auto 44px;}
+
+    /* Filter tabs */
+    .filter-tabs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:36px;}
+    .ftab{padding:8px 18px;border-radius:30px;border:2px solid var(--navy);background:transparent;font-family:'Poppins',sans-serif;font-size:0.78rem;font-weight:600;color:var(--navy);cursor:pointer;transition:all .22s;white-space:nowrap;}
+    .ftab:hover{background:var(--navy);color:#fff;}
+    .ftab.active{background:var(--navy);color:#fff;}
+
+    /* Image grid */
+    .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+    .g-item{position:relative;overflow:hidden;border-radius:10px;cursor:pointer;aspect-ratio:4/3;background:#dde2f0;opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease,box-shadow .25s;}
+    .g-item.revealed{opacity:1;transform:translateY(0);}
+    .g-item.hidden{display:none;}
+    .g-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease;}
+    .g-item:hover img{transform:scale(1.07);}
+    .g-item .g-overlay{position:absolute;inset:0;background:rgba(14,27,72,0);transition:background .3s;display:flex;align-items:center;justify-content:center;}
+    .g-item:hover .g-overlay{background:rgba(14,27,72,0.38);}
+    .g-overlay i{color:#fff;font-size:1.6rem;opacity:0;transform:scale(0.7);transition:opacity .3s,transform .3s;}
+    .g-item:hover .g-overlay i{opacity:1;transform:scale(1);}
+
+    /* View More */
+    .view-more-wrap{text-align:center;margin-top:36px;}
+    .btn-view-more{padding:12px 36px;border:2px solid var(--navy);background:transparent;border-radius:8px;font-family:'Poppins',sans-serif;font-size:0.88rem;font-weight:700;color:var(--navy);cursor:pointer;transition:all .22s;display:inline-flex;align-items:center;gap:8px;}
+    .btn-view-more:hover{background:var(--navy);color:#fff;}
+    .btn-view-more.hidden{display:none;}
+
+    /* ===== LIGHTBOX ===== */
+    .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:2000;align-items:center;justify-content:center;}
+    .lightbox.show{display:flex;}
+    .lb-inner{position:relative;max-width:90vw;max-height:90vh;animation:scaleIn .25s ease;}
+    @keyframes scaleIn{from{opacity:0;transform:scale(0.85);}to{opacity:1;transform:scale(1);}}
+    .lb-inner img{max-width:90vw;max-height:85vh;border-radius:10px;display:block;object-fit:contain;}
+    .lb-close{
+      position:fixed;top:16px;right:16px;
+      width:32px;height:32px;
       background:rgba(255,255,255,0.15);
-      color:rgba(255,255,255,0.9);
-      font-family:'Poppins',sans-serif;
-      font-size:0.72rem;font-weight:700;
-      letter-spacing:0.15em;text-transform:uppercase;
-      padding:5px 14px;border-radius:20px;
-      border:1px solid rgba(255,255,255,0.25);
-      margin-bottom:14px;
+      border:1px solid rgba(255,255,255,0.3);
+      border-radius:50%;cursor:pointer;
+      display:flex;align-items:center;justify-content:center;
+      font-size:1rem;color:#fff;
+      transition:background .2s;
+      z-index:2001;
     }
-    .breadcrumb-banner h1{
-      font-family:'Poppins',sans-serif;
-      font-size:2.6rem;font-weight:800;
-      color:#fff;
-      letter-spacing:0.04em;
-      text-transform:uppercase;
-      margin-bottom:16px;
-      text-shadow:0 2px 12px rgba(0,0,0,0.2);
-    }
-    .breadcrumb-nav{
-      display:inline-flex;align-items:center;gap:8px;
-      background:rgba(255,255,255,0.12);
-      border:1px solid rgba(255,255,255,0.2);
-      backdrop-filter:blur(6px);
-      padding:8px 18px;border-radius:30px;
-      font-size:0.83rem;font-family:'Poppins',sans-serif;
-    }
-    .breadcrumb-nav a{color:rgba(255,255,255,0.8);font-weight:500;transition:color .2s;}
-    .breadcrumb-nav a:hover{color:#fff;}
-    .breadcrumb-nav .home-icon{font-size:0.9rem;}
-    .breadcrumb-nav .current{color:#fff;font-weight:700;}
-    .breadcrumb-nav .sep{color:rgba(255,255,255,0.5);font-size:0.75rem;}
+    .lb-close:hover{background:rgba(255,255,255,0.3);}
 
-    /* COLLAGE on right */
-    .breadcrumb-collage{
-      position:relative;width:340px;height:170px;flex-shrink:0;z-index:2;
-    }
-    .collage-img{
-      position:absolute;border-radius:8px;overflow:hidden;
-      box-shadow:0 6px 18px rgba(0,0,0,0.3);
-      border:2px solid rgba(255,255,255,0.3);
-    }
-    .collage-img img{width:100%;height:100%;object-fit:cover;display:block;}
-    .ci1{width:105px;height:78px;top:0;left:0;}
-    .ci2{width:105px;height:78px;top:0;left:115px;}
-    .ci3{width:105px;height:78px;top:0;left:230px;}
-    .ci4{width:105px;height:78px;top:86px;left:0;}
-    .ci5{width:105px;height:78px;top:86px;left:115px;}
-    .ci6{width:105px;height:78px;top:86px;left:230px;}
-    @media(max-width:860px){.breadcrumb-collage{display:none;}}
-    @media(max-width:600px){
-      .breadcrumb-banner h1{font-size:1.8rem;}
-    }
+    /* ===== FOOTER ===== */
+    footer{background:#12183a;color:#fff;padding:60px 4vw 0;}
+    .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.7fr 1fr 1fr 1.3fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,0.08);}
+    .f-brand-name{font-family:'Poppins',sans-serif;font-size:1.12rem;font-weight:700;color:#fff;margin-bottom:1rem;}
+    .f-brand-name span{color:#7a8de8;}
+    .f-brand p{font-size:0.82rem;color:rgba(255,255,255,0.48);line-height:1.8;max-width:280px;}
+    .f-contact-row{display:flex;align-items:flex-start;gap:10px;margin-top:1rem;}
+    .f-contact-row a{color:rgba(255,255,255,0.62);font-size:0.8rem;}
+    .f-contact-row a:hover{color:#fff;}
+    .fc-ic{width:30px;height:30px;flex-shrink:0;background:rgba(30,45,107,0.5);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--cyan);font-size:0.82rem;}
+    .f-col h5{font-family:'Poppins',sans-serif;font-size:0.79rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#fff;margin-bottom:1.1rem;padding-bottom:9px;border-bottom:2px solid rgba(0,188,212,0.35);}
+    .f-col ul{list-style:none;display:flex;flex-direction:column;gap:0.55rem;}
+    .f-col a{font-size:0.81rem;color:rgba(255,255,255,0.48);transition:color .2s;display:flex;align-items:center;gap:5px;}
+    .f-col a i{font-size:0.58rem;color:var(--cyan);}
+    .f-col a:hover{color:#fff;}
+    .footer-bottom{max-width:1200px;margin:0 auto;padding:18px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem;font-size:0.75rem;color:rgba(255,255,255,0.3);}
+    .footer-bottom a{color:rgba(0,188,212,0.75);}
 
-    /* GALLERY */
-    .gallery-section{padding:60px 4vw;background:#fff;}
-    .gallery-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
-    .gallery-item{
-      overflow:hidden;border-radius:8px;
-      box-shadow:0 2px 10px rgba(30,45,107,0.10);
-      cursor:pointer;background:#f0f3ff;
-      border:2px solid transparent;
-      transition:border-color .25s,box-shadow .25s,transform .25s;
-    }
-    .gallery-item:hover{border-color:var(--navy);box-shadow:0 8px 24px rgba(30,45,107,0.18);transform:translateY(-4px);}
-    .gallery-item img{width:100%;height:200px;object-fit:cover;display:block;transition:transform 0.3s ease;}
-    .gallery-item:hover img{transform:scale(1.06);}
-
-    /* LIGHTBOX */
-    .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:9999;align-items:center;justify-content:center;}
-    .lightbox.active{display:flex;}
-    .lightbox img{max-width:90vw;max-height:90vh;border-radius:8px;}
-
-    /* FOOTER */
-    footer{background:#0d1b4b;color:rgba(255,255,255,.7);padding:50px 4vw 0;}
-    .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1.2fr 1.2fr;gap:36px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.08);}
-    .footer-col h4{font-family:'Poppins',sans-serif;font-size:0.9rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#fff;margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid rgba(122,141,232,0.4);}
-    .footer-col p{font-size:0.83rem;line-height:1.85;color:rgba(255,255,255,.6);}
-    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:7px;}
-    .footer-col ul a{font-size:0.83rem;color:rgba(255,255,255,.6);text-decoration:none;transition:color .2s;}
-    .footer-col ul a::before{content:'✦ ';font-size:0.6rem;vertical-align:middle;}
-    .footer-col ul a:hover{color:#fff;}
-    .footer-addr{display:flex;flex-direction:column;gap:12px;}
-    .faddr-row{display:flex;align-items:flex-start;gap:10px;font-size:0.83rem;color:rgba(255,255,255,.6);}
-    .faddr-row svg{flex-shrink:0;margin-top:2px;color:rgba(255,255,255,.5);}
-    .faddr-row a{color:rgba(255,255,255,.6);text-decoration:none;transition:color .2s;}
-    .faddr-row a:hover{color:#fff;}
-    .footer-map iframe{display:block;border-radius:6px;width:100%;height:160px;}
-    .footer-bottom{max-width:1200px;margin:0 auto;padding:18px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.6rem;font-size:0.78rem;color:rgba(255,255,255,.35);}
-    .footer-bottom a{color:rgba(122,141,232,.8);text-decoration:none;}
-
-    /* RESPONSIVE */
+    /* ===== RESPONSIVE ===== */
     @media(max-width:860px){
-      .nav-center{display:none;}
-      .hamburger{display:flex;}
+      .nav-center{display:none;}.hamburger{display:flex;}
       .gallery-grid{grid-template-columns:repeat(2,1fr);}
+      .footer-grid{grid-template-columns:1fr 1fr;}
     }
-    @media(max-width:500px){
+    @media(max-width:600px){
+      .gallery-grid{grid-template-columns:repeat(2,1fr);}
       .footer-grid{grid-template-columns:1fr;}
+      .gallery-hero h1{font-size:1.95rem;}
+      .tb-left a:last-child{display:none;}
+      .filter-tabs{gap:6px;}
+      .ftab{padding:7px 13px;font-size:0.72rem;}
     }
   </style>
 </head>
 <body>
 
-  <!-- FLOAT BTNS -->
-  <div class="floats">
-    <a href="tel:+918779292084" class="fl-btn fl-ph">📞</a>
-    <a href="https://wa.me/918779292084" class="fl-btn fl-wa">💬</a>
+<!-- FLOATING BTNS -->
+<div class="floats">
+  <a href="tel:+918779292084" class="fl-btn fl-ph"><i class="fa-solid fa-phone"></i></a>
+  <a href="https://wa.me/918779292084" class="fl-btn fl-wa"><i class="fa-brands fa-whatsapp"></i></a>
+</div>
+
+<!-- MOBILE NAV -->
+<div class="mob-nav" id="mobNav">
+  <span class="mob-close" onclick="closeMob()">&#x2715;</span>
+  <a href="index.html" class="mob-link">Home</a>
+  <a href="about.html" class="mob-link">About Us</a>
+  <div class="mob-services-toggle" onclick="toggleMobServices()">
+    Our Services <i class="fa-solid fa-chevron-down mob-arrow" id="mobArrow"></i>
   </div>
-
-  <!-- MOBILE NAV -->
-  <div class="mob-nav" id="mobNav">
-    <span class="mob-close" onclick="closeMob()">✕</span>
-    <a href="index.html">Home</a>
-    <a href="#">About Us</a>
-    <a href="#">Children Counseling</a>
-    <a href="#">Marriage Counseling</a>
-    <a href="#">Senior Citizen Counseling</a>
-    <a href="#">Personal Counseling</a>
-    <a href="#">Relationship Counseling</a>
-    <a href="#">Financial Counseling</a>
-    <a href="#">Stress &amp; Anxiety Management</a>
-    <a href="#">Depression Support</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="contact.html">Contact Us</a>
-    <a href="contact.html" style="color:var(--navy);background:#f0f3ff;padding:12px;border-radius:6px;margin-top:1rem;border:none;">➜ Consult Now</a>
+  <div class="mob-sub" id="mobSub">
+    <a href="services.html#children">Children Counseling</a>
+    <a href="services.html#marriage">Marriage Counseling</a>
+    <a href="services.html#senior">Senior Citizen Counseling</a>
+    <a href="services.html#personal">Personal Counseling</a>
+    <a href="services.html#relationship">Relationship Counseling</a>
+    <a href="services.html#financial">Financial Counseling</a>
+    <a href="services.html#stress">Stress &amp; Anxiety Management</a>
+    <a href="services.html#depression">Depression Support</a>
   </div>
+  <a href="gallery.html" class="mob-link" style="color:var(--cyan);">Gallery</a>
+  <a href="contact.html" class="mob-link">Contact Us</a>
+</div>
 
-  <!-- TOP BAR -->
-  <div class="topbar">
-    <div class="tb-left">
-      <a href="tel:+918779292084"><span class="tb-icon">📞</span> +91 8779292084 / +91 7744896101</a>
-      <a href="mailto:cdcareeracademy@gmail.com"><span class="tb-icon">✉</span> cdcareeracademy@gmail.com</a>
-    </div>
-    <div class="tb-right">
-      <div class="tb-social">
-        <a href="#" title="Facebook">f</a>
-        <a href="#" title="Instagram">📷</a>
-      </div>
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="tb-left">
+    <a href="tel:+918779292084"><i class="fa-solid fa-phone"></i> +91 8779292084 / +91 7744896101</a>
+    <a href="mailto:cdcareeracademy@gmail.com"><i class="fa-solid fa-envelope"></i> cdcareeracademy@gmail.com</a>
+  </div>
+  <div class="tb-right">
+    <div class="tb-social">
+      <a href="https://facebook.com/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="https://instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://wa.me/918779292084" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+      <a href="https://youtube.com/" target="_blank"><i class="fa-brands fa-youtube"></i></a>
     </div>
   </div>
+</div>
 
-  <!-- NAVBAR -->
-  <nav>
-    <div class="nav-inner">
-      <div style="display:flex;align-items:center;gap:10px;">
-        <div class="logo-circle">
-          <span class="logo-emoji">🤝</span>
-          <span class="cdca">CDCA</span>
-          <span class="together">Together we achieve</span>
-        </div>
-      </div>
-      <div class="nav-center">
-        <span class="nav-tagline">Find the Right Path with Expert Counselling</span>
-        <ul class="nav-links">
-          <li><a href="index.html">HOME</a></li>
-          <li><a href="About.html">ABOUT US</a></li>
-          <li class="has-drop">
-            <a href="services.html">OUR SERVICES ▾</a>
-            <div class="drop-menu">
-              <a href="services.html#children">Children Counseling</a>
-              <a href="services.html#marriage">Marriage Counseling</a>
-              <a href="services.html#senior">Senior Citizen Counseling</a>
-              <a href="services.html#personal">Personal Counseling</a>
-              <a href="services.html#relationship">Relationship Counseling</a>
-              <a href="services.html#financial">Financial Counseling</a>
-              <a href="services.html#stress">Stress and Anxiety Management</a>
-              <a href="services.html#depression">Depression Support</a>
-            </div>
-          </li>
-          <li><a href="gallery.html" class="active">GALLERY</a></li>
-          <li><a href="contact.html">CONTACT US</a></li>
-        </ul>
-      </div>
-      <a href="contact.html" class="nav-cta">Consult Now</a>
-      <div class="hamburger" onclick="openMob()"><span></span><span></span><span></span></div>
-    </div>
-  </nav>
-
-  <!-- Breadcrumb Banner -->
-  <section class="breadcrumb-banner">
-    <div class="breadcrumb-inner">
-      <div class="breadcrumb-text">
-        <div class="breadcrumb-page-label">📸 Our Work</div>
-        <h1>OUR GALLERY</h1>
-        <nav class="breadcrumb-nav">
-          <span class="home-icon">🏠</span>
-          <a href="index.html">Home</a>
-          <span class="sep">›</span>
-          <span class="current">OUR GALLERY</span>
-        </nav>
-      </div>
-      <div class="breadcrumb-collage">
-        <div class="collage-img ci1"><img src="https://www.developmentcentre.in/images/gallery/img1.webp" alt=""/></div>
-        <div class="collage-img ci2"><img src="https://www.developmentcentre.in/images/gallery/img2.webp" alt=""/></div>
-        <div class="collage-img ci3"><img src="https://www.developmentcentre.in/images/gallery/img3.webp" alt=""/></div>
-        <div class="collage-img ci4"><img src="https://www.developmentcentre.in/images/gallery/img4.webp" alt=""/></div>
-        <div class="collage-img ci5"><img src="https://www.developmentcentre.in/images/gallery/img5.webp" alt=""/></div>
-        <div class="collage-img ci6"><img src="https://www.developmentcentre.in/images/gallery/img6.webp" alt=""/></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Gallery Grid -->
-  <section class="gallery-section">
-    <div class="gallery-grid">
-      <div class="gallery-item" onclick="openLightbox('https://www.developmentcentre.in/images/gallery/img1.webp')"><img src="https://www.developmentcentre.in/images/gallery/img1.webp" alt="Gallery 1"/></div>
-      <div class="gallery-item" onclick="openLightbox('https://www.developmentcentre.in/images/gallery/img2.webp')"><img src="https://www.developmentcentre.in/images/gallery/img2.webp" alt="Gallery 2"/></div>
-      <div class="gallery-item" onclick="openLightbox('https://www.developmentcentre.in/images/gallery/img3.webp')"><img src="https://www.developmentcentre.in/images/gallery/img3.webp" alt="Gallery 3"/></div>
-      <div class="gallery-item" onclick="openLightbox('https://www.developmentcentre.in/images/gallery/img4.webp')"><img src="https://www.developmentcentre.in/images/gallery/img4.webp" alt="Gallery 4"/></div>
-      <div class="gallery-item" onclick="openLightbox('https://www.developmentcentre.in/images/gallery/img5.webp')"><img src="https://www.developmentcentre.in/images/gallery/img5.webp" alt="Gallery 5"/></div>
-      <div class="gallery-item" onclick="openLightbox('https://www.developmentcentre.in/images/gallery/img6.webp')"><img src="https://www.developmentcentre.in/images/gallery/img6.webp" alt="Gallery 6"/></div>
-      <div class="gallery-item" onclick="openLightbox('https://www.developmentcentre.in/images/gallery/img7.webp')"><img src="https://www.developmentcentre.in/images/gallery/img7.webp" alt="Gallery 7"/></div>
-      <div class="gallery-item" onclick="openLightbox('https://www.developmentcentre.in/images/gallery/img8.webp')"><img src="https://www.developmentcentre.in/images/gallery/img8.webp" alt="Gallery 8"/></div>
-      <div class="gallery-item" onclick="openLightbox('https://www.developmentcentre.in/images/gallery/img9.webp')"><img src="https://www.developmentcentre.in/images/gallery/img9.webp" alt="Gallery 9"/></div>
-      <div class="gallery-item" onclick="openLightbox('https://www.developmentcentre.in/images/gallery/img10.webp')"><img src="https://www.developmentcentre.in/images/gallery/img10.webp" alt="Gallery 10"/></div>
-      <div class="gallery-item" onclick="openLightbox('https://www.developmentcentre.in/images/gallery/img11.webp')"><img src="https://www.developmentcentre.in/images/gallery/img11.webp" alt="Gallery 11"/></div>
-      <div class="gallery-item" onclick="openLightbox('https://www.developmentcentre.in/images/gallery/img14.webp')"><img src="https://www.developmentcentre.in/images/gallery/img14.webp" alt="Gallery 14"/></div>
-      <div class="gallery-item" onclick="openLightbox('https://www.developmentcentre.in/images/gallery/img15.webp')"><img src="https://www.developmentcentre.in/images/gallery/img15.webp" alt="Gallery 15"/></div>
-      <div class="gallery-item" onclick="openLightbox('https://www.developmentcentre.in/images/gallery/img16.webp')"><img src="https://www.developmentcentre.in/images/gallery/img16.webp" alt="Gallery 16"/></div>
-      <div class="gallery-item" onclick="openLightbox('https://www.developmentcentre.in/images/gallery/img17.webp')"><img src="https://www.developmentcentre.in/images/gallery/img17.webp" alt="Gallery 17"/></div>
-      <div class="gallery-item" onclick="openLightbox('https://www.developmentcentre.in/images/gallery/img18.webp')"><img src="https://www.developmentcentre.in/images/gallery/img18.webp" alt="Gallery 18"/></div>
-      <div class="gallery-item" onclick="openLightbox('https://www.developmentcentre.in/images/gallery/img19.webp')"><img src="https://www.developmentcentre.in/images/gallery/img19.webp" alt="Gallery 19"/></div>
-      <div class="gallery-item" onclick="openLightbox('https://www.developmentcentre.in/images/about1.webp')"><img src="https://www.developmentcentre.in/images/about1.webp" alt="About 1"/></div>
-      <div class="gallery-item" onclick="openLightbox('https://www.developmentcentre.in/images/about3.webp')"><img src="https://www.developmentcentre.in/images/about3.webp" alt="About 3"/></div>
-      <div class="gallery-item" onclick="openLightbox('https://www.developmentcentre.in/images/about2.webp')"><img src="https://www.developmentcentre.in/images/about2.webp" alt="About 2"/></div>
-    </div>
-  </section>
-
-  <!-- Lightbox -->
-  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-    <img id="lightbox-img" src="" alt="Gallery Image"/>
-  </div>
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h4>About Us</h4>
-        <p>Creative Development Centre is a trusted name in Counselling. We are committed to helping students and professionals unlock their full potential through expert counselling, skill development, and career planning. Our experienced team provides personalized support for academic, professional, and personal growth.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Our Services</h4>
-        <ul>
-          <li><a href="services.html#children">Children Counseling</a></li>
-          <li><a href="services.html#marriage">Marriage Counseling</a></li>
-          <li><a href="services.html#senior">Senior Citizen Counseling</a></li>
-          <li><a href="services.html#personal">Personal Counseling</a></li>
-          <li><a href="services.html#relationship">Relationship Counseling</a></li>
-          <li><a href="services.html#financial">Financial Counseling</a></li>
-          <li><a href="services.html#stress">Stress and Anxiety Management</a></li>
-          <li><a href="services.html#depression">Depression Support</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Address</h4>
-        <div class="footer-addr">
-          <div class="faddr-row">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>Shop No 9, 1st floor, Seasons Harmony, behind Ahir Auto, Khadakpada, Kalyan, Maharashtra 421301</span>
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-icon">C</div>
+      <div class="logo-text"><strong>CDCA</strong><span>Together We Achieve</span></div>
+    </a>
+    <div class="nav-center">
+      <span class="nav-tagline">Find the Right Path with Expert Counselling</span>
+      <ul class="nav-links">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="about.html">ABOUT US</a></li>
+        <li class="has-drop">
+          <a href="services.html">OUR SERVICES &#9662;</a>
+          <div class="drop-menu">
+            <a href="services.html#children">Children Counseling</a>
+            <a href="services.html#marriage">Marriage Counseling</a>
+            <a href="services.html#senior">Senior Citizen Counseling</a>
+            <a href="services.html#personal">Personal Counseling</a>
+            <a href="services.html#relationship">Relationship Counseling</a>
+            <a href="services.html#financial">Financial Counseling</a>
+            <a href="services.html#stress">Stress and Anxiety Management</a>
+            <a href="services.html#depression">Depression Support</a>
           </div>
-          <div class="faddr-row">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            <span><a href="tel:+918779292084">+91 8779292084</a> / <a href="tel:+917744896101">+91 7744896101</a></span>
-          </div>
-          <div class="faddr-row">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <a href="mailto:cdcareeracademy@gmail.com">cdcareeracademy@gmail.com</a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Google Map</h4>
-        <div class="footer-map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.8!2d73.143156!3d19.2554937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be79380541c6db1%3A0x59b3e3f65741ef3!2sCreative%20Development%20Center!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin"
-            width="100%" height="160" style="border:0;border-radius:6px;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-      </div>
+        </li>
+        <li><a href="gallery.html" class="active">GALLERY</a></li>
+        <li><a href="contact.html">CONTACT US</a></li>
+      </ul>
     </div>
-    <div class="footer-bottom">
-      <p>Copyrights &copy; 2026 Creative Development Centre. All Rights Reserved.</p>
-      <p>Designed &amp; Developed by <a href="https://www.webcagetechnologies.in/">WebCage Technologies</a></p>
-    </div>
-  </footer>
+    <a href="contact.html" class="btn-consult">Consult Now</a>
+    <div class="hamburger" onclick="openMob()"><span></span><span></span><span></span></div>
+  </div>
+</nav>
 
-  <script>
-    function openMob(){ document.getElementById('mobNav').classList.add('show'); document.body.style.overflow='hidden'; }
-    function closeMob(){ document.getElementById('mobNav').classList.remove('show'); document.body.style.overflow=''; }
-    function openLightbox(src){ document.getElementById('lightbox-img').src=src; document.getElementById('lightbox').classList.add('active'); }
-    function closeLightbox(){ document.getElementById('lightbox').classList.remove('active'); }
-  </script>
+<!-- GALLERY HERO -->
+<section class="gallery-hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-grid"></div>
+  <div class="hc hc1"></div>
+  <div class="hc hc2"></div>
+  <div class="hero-inner">
+    <div class="hero-badge"><i class="fa-solid fa-images"></i>&nbsp; Our Gallery</div>
+    <h1>Moments of <span>Healing</span><br>&amp; Growth</h1>
+    <p class="hero-sub">A glimpse into our counselling sessions, workshops, and the lives we've touched. Every image tells a story of hope and transformation.</p>
+    <div class="hero-bc">
+      <i class="fa-solid fa-house" style="color:rgba(255,255,255,0.5);font-size:0.73rem;"></i>
+      <a href="index.html">Home</a>
+      <span class="sep">&#8250;</span>
+      <span class="cur">Gallery</span>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY SECTION -->
+<section class="gallery-section">
+  <div class="gallery-inner">
+    <p class="sec-label">Our Work</p>
+    <h2 class="sec-title">Explore Our Gallery</h2>
+    <div class="sec-div"></div>
+
+    <!-- Filter Tabs -->
+    <div class="filter-tabs">
+      <button class="ftab active" data-filter="all">All</button>
+      <button class="ftab" data-filter="children">Children</button>
+      <button class="ftab" data-filter="marriage">Marriage</button>
+      <button class="ftab" data-filter="senior">Senior Citizen</button>
+      <button class="ftab" data-filter="personal">Personal</button>
+      <button class="ftab" data-filter="relationship">Relationship</button>
+      <button class="ftab" data-filter="financial">Financial</button>
+      <button class="ftab" data-filter="stress">Stress &amp; Anxiety</button>
+      <button class="ftab" data-filter="depression">Depression</button>
+    </div>
+
+    <!-- Image Grid -->
+    <div class="gallery-grid" id="galleryGrid">
+
+      <!-- Children (2) -->
+      <div class="g-item" data-cat="children" data-index="0">
+        <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600&q=80" alt="Children Counseling" loading="lazy"/>
+        <div class="g-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+      <div class="g-item" data-cat="children" data-index="1">
+        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&q=80" alt="Children Counseling" loading="lazy"/>
+        <div class="g-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+
+      <!-- Marriage (2) -->
+      <div class="g-item" data-cat="marriage" data-index="2">
+        <img src="https://images.unsplash.com/photo-1529156069898-dc5e5b5b8e8e?w=600&q=80" alt="Marriage Counseling" loading="lazy"/>
+        <div class="g-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+      <div class="g-item" data-cat="marriage" data-index="3">
+        <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=600&q=80" alt="Marriage Counseling" loading="lazy"/>
+        <div class="g-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+
+      <!-- Senior (2) -->
+      <div class="g-item" data-cat="senior" data-index="4">
+        <img src="https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=600&q=80" alt="Senior Citizen Counseling" loading="lazy"/>
+        <div class="g-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+      <div class="g-item" data-cat="senior" data-index="5">
+        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=80" alt="Senior Citizen Counseling" loading="lazy"/>
+        <div class="g-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+
+      <!-- Personal (2) -->
+      <div class="g-item" data-cat="personal" data-index="6">
+        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&q=80" alt="Personal Counseling" loading="lazy"/>
+        <div class="g-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+      <div class="g-item" data-cat="personal" data-index="7">
+        <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=600&q=80" alt="Personal Counseling" loading="lazy"/>
+        <div class="g-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+
+      <!-- Relationship (2) - initially hidden -->
+      <div class="g-item hidden" data-cat="relationship" data-index="8">
+        <img src="https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=600&q=80" alt="Relationship Counseling" loading="lazy"/>
+        <div class="g-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+      <div class="g-item hidden" data-cat="relationship" data-index="9">
+        <img src="https://images.unsplash.com/photo-1522529599102-193144843571?w=600&q=80" alt="Relationship Counseling" loading="lazy"/>
+        <div class="g-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+
+      <!-- Financial (2) - initially hidden -->
+      <div class="g-item hidden" data-cat="financial" data-index="10">
+        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80" alt="Financial Counseling" loading="lazy"/>
+        <div class="g-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+      <div class="g-item hidden" data-cat="financial" data-index="11">
+        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80" alt="Financial Counseling" loading="lazy"/>
+        <div class="g-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+
+      <!-- Stress (2) - initially hidden -->
+      <div class="g-item hidden" data-cat="stress" data-index="12">
+        <img src="https://images.unsplash.com/photo-1493836512294-502baa1986e2?w=600&q=80" alt="Stress and Anxiety Management" loading="lazy"/>
+        <div class="g-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+      <div class="g-item hidden" data-cat="stress" data-index="13">
+        <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=80" alt="Stress and Anxiety Management" loading="lazy"/>
+        <div class="g-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+
+      <!-- Depression (2) - initially hidden -->
+      <div class="g-item hidden" data-cat="depression" data-index="14">
+        <img src="https://images.unsplash.com/photo-1541199249251-f713e6145474?w=600&q=80" alt="Depression Support" loading="lazy"/>
+        <div class="g-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+      <div class="g-item hidden" data-cat="depression" data-index="15">
+        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&q=80" alt="Depression Support" loading="lazy"/>
+        <div class="g-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      </div>
+
+    </div><!-- /gallery-grid -->
+
+    <!-- View More Button -->
+    <div class="view-more-wrap">
+      <button class="btn-view-more" id="viewMoreBtn" onclick="loadMore()">
+        <i class="fa-solid fa-plus"></i> View More
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <div class="lb-inner">
+    <button class="lb-close" onclick="closeLightbox()"><i class="fa-solid fa-xmark"></i></button>
+    <img src="" alt="Gallery Image" id="lbImg"/>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="f-brand">
+      <div class="f-brand-name">Creative <span>Development</span> Centre</div>
+      <p>A trusted name in counselling. We help individuals unlock their full potential through expert guidance and personalized support.</p>
+      <div class="f-contact-row">
+        <div class="fc-ic"><i class="fa-solid fa-location-dot"></i></div>
+        <a href="https://maps.app.goo.gl/5kj2HM3q5ac1B6Pa9" target="_blank">Shop No 9, 1st floor, Seasons Harmony, Khadakpada, Kalyan, MH 421301</a>
+      </div>
+    </div>
+    <div class="f-col">
+      <h5>Our Services</h5>
+      <ul>
+        <li><a href="services.html#children"><i class="fa-solid fa-chevron-right"></i>Children Counseling</a></li>
+        <li><a href="services.html#marriage"><i class="fa-solid fa-chevron-right"></i>Marriage Counseling</a></li>
+        <li><a href="services.html#senior"><i class="fa-solid fa-chevron-right"></i>Senior Citizen Counseling</a></li>
+        <li><a href="services.html#personal"><i class="fa-solid fa-chevron-right"></i>Personal Counseling</a></li>
+        <li><a href="services.html#relationship"><i class="fa-solid fa-chevron-right"></i>Relationship Counseling</a></li>
+        <li><a href="services.html#financial"><i class="fa-solid fa-chevron-right"></i>Financial Counseling</a></li>
+        <li><a href="services.html#stress"><i class="fa-solid fa-chevron-right"></i>Stress &amp; Anxiety</a></li>
+        <li><a href="services.html#depression"><i class="fa-solid fa-chevron-right"></i>Depression Support</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h5>Quick Links</h5>
+      <ul>
+        <li><a href="index.html"><i class="fa-solid fa-chevron-right"></i>Home</a></li>
+        <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i>About Us</a></li>
+        <li><a href="gallery.html"><i class="fa-solid fa-chevron-right"></i>Gallery</a></li>
+        <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i>Contact Us</a></li>
+        <li><a href="contact.html"><i class="fa-solid fa-chevron-right"></i>Book Appointment</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h5>Contact Us</h5>
+      <ul>
+        <li><a href="tel:+918779292084"><i class="fa-solid fa-phone"></i>+91 8779292084</a></li>
+        <li><a href="tel:+917744896101"><i class="fa-solid fa-phone"></i>+91 7744896101</a></li>
+        <li><a href="mailto:cdcareeracademy@gmail.com"><i class="fa-solid fa-envelope"></i>cdcareeracademy@gmail.com</a></li>
+        <li><a href="https://wa.me/918779292084" target="_blank"><i class="fa-brands fa-whatsapp"></i>WhatsApp Us</a></li>
+      </ul>
+      <div style="margin-top:16px;border-radius:10px;overflow:hidden;">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.8!2d73.143156!3d19.2554937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be79380541c6db1%3A0x59b3e3f65741ef3!2sCreative%20Development%20Center!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin"
+          width="100%" height="140" style="border:0;display:block;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>Copyrights &copy; 2026 Creative Development Centre. All Rights Reserved.</p>
+    <p>Designed &amp; Developed by <a href="#" target="_blank">WebCultivate Software Solution</a></p>
+  </div>
+</footer>
+
+<script>
+  /* ---- Mobile nav ---- */
+  function openMob(){ document.getElementById('mobNav').classList.add('show'); document.body.style.overflow='hidden'; }
+  function closeMob(){ document.getElementById('mobNav').classList.remove('show'); document.body.style.overflow=''; }
+  function toggleMobServices(){
+    var sub = document.getElementById('mobSub');
+    var arrow = document.getElementById('mobArrow');
+    sub.classList.toggle('open');
+    arrow.classList.toggle('open');
+  }
+
+  /* ---- Filter tabs ---- */
+  var currentFilter = 'all';
+  var moreLoaded = false;
+
+  document.querySelectorAll('.ftab').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.ftab').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      currentFilter = btn.getAttribute('data-filter');
+      applyFilter();
+    });
+  });
+
+  function applyFilter(){
+    var items = document.querySelectorAll('.g-item');
+    var viewMoreBtn = document.getElementById('viewMoreBtn');
+
+    items.forEach(function(item){
+      var cat = item.getAttribute('data-cat');
+      var idx = parseInt(item.getAttribute('data-index'));
+      var matchesFilter = (currentFilter === 'all' || cat === currentFilter);
+      var isExtra = (idx >= 8); // indices 8-15 are the "more" items
+
+      if(!matchesFilter){
+        item.classList.add('hidden');
+      } else {
+        // If filter is not 'all', show all matching regardless of moreLoaded
+        if(currentFilter !== 'all'){
+          item.classList.remove('hidden');
+          setTimeout(function(){ item.classList.add('revealed'); }, 50);
+        } else {
+          // 'all' filter: respect moreLoaded state
+          if(isExtra && !moreLoaded){
+            item.classList.add('hidden');
+          } else {
+            item.classList.remove('hidden');
+            setTimeout(function(){ item.classList.add('revealed'); }, 50);
+          }
+        }
+      }
+    });
+
+    // Show/hide View More button
+    if(currentFilter === 'all' && !moreLoaded){
+      viewMoreBtn.classList.remove('hidden');
+    } else {
+      viewMoreBtn.classList.add('hidden');
+    }
+  }
+
+  /* ---- View More ---- */
+  function loadMore(){
+    moreLoaded = true;
+    document.getElementById('viewMoreBtn').classList.add('hidden');
+    var extras = document.querySelectorAll('.g-item[data-index]');
+    extras.forEach(function(item){
+      var idx = parseInt(item.getAttribute('data-index'));
+      if(idx >= 8){
+        item.classList.remove('hidden');
+        setTimeout(function(){ item.classList.add('revealed'); }, 80);
+      }
+    });
+  }
+
+  /* ---- Lightbox ---- */
+  document.querySelectorAll('.g-item').forEach(function(item){
+    item.addEventListener('click', function(){
+      var src = item.querySelector('img').src;
+      var alt = item.querySelector('img').alt;
+      document.getElementById('lbImg').src = src;
+      document.getElementById('lbImg').alt = alt;
+      document.getElementById('lightbox').classList.add('show');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function closeLightbox(e){
+    if(!e || e.target === document.getElementById('lightbox') || e.currentTarget.classList.contains('lb-close')){
+      document.getElementById('lightbox').classList.remove('show');
+      document.body.style.overflow = '';
+    }
+  }
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') closeLightbox();
+  });
+
+  /* ---- Scroll reveal ---- */
+  var revObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting && !en.target.classList.contains('hidden')){
+        en.target.classList.add('revealed');
+      }
+    });
+  }, {threshold: 0.1});
+
+  document.querySelectorAll('.g-item').forEach(function(el){
+    revObs.observe(el);
+  });
+
+  // Trigger reveal for initially visible items
+  window.addEventListener('load', function(){
+    document.querySelectorAll('.g-item:not(.hidden)').forEach(function(el, i){
+      setTimeout(function(){ el.classList.add('revealed'); }, i * 60);
+    });
+  });
+</script>
 </body>
 </html>
