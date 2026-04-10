@@ -1260,47 +1260,6 @@ footer{background:#12183a;color:#fff;padding:60px 4vw 0;}
 <!------------------------------------ Sakshi-section-end --------------------------------->
 
 <script>
-// ── REVIEW SLIDER ──
-const revTrack = document.getElementById('reviewTrack');
-const revCards = revTrack.querySelectorAll('.tcard');
-const revDotsWrap = document.getElementById('revDots');
-let revCur = 0;
-function revVisible(){ return window.innerWidth < 700 ? 1 : window.innerWidth < 1024 ? 2 : 3; }
-function revTotal(){ return Math.ceil(revCards.length / revVisible()); }
-function buildRevDots(){
-  revDotsWrap.innerHTML = '';
-  for(let i = 0; i < revTotal(); i++){
-    const d = document.createElement('button');
-    d.className = 'rev-dot' + (i === revCur ? ' active' : '');
-    d.onclick = () => revGoTo(i);
-    revDotsWrap.appendChild(d);
-  }
-}
-function revGoTo(n){
-  revCur = ((n % revTotal()) + revTotal()) % revTotal();
-  const cardW = revCards[0].offsetWidth + 20;
-  revTrack.style.transform = `translateX(-${revCur * revVisible() * cardW}px)`;
-  revDotsWrap.querySelectorAll('.rev-dot').forEach((d,i) => d.classList.toggle('active', i === revCur));
-}
-function revSlide(dir){ revGoTo(revCur + dir); }
-buildRevDots();
-setInterval(() => revSlide(1), 4000);
-window.addEventListener('resize', () => { buildRevDots(); revGoTo(0); });
-
-// ── ABOUT SLIDER ──
-let aCur = 0;
-const aSlides = document.querySelectorAll('.about-slide');
-const aDots = document.querySelectorAll('.about-sdot');
-function aboutGoTo(n){
-  aSlides[aCur].classList.remove('active');
-  aDots[aCur].classList.remove('active');
-  aCur = ((n % aSlides.length) + aSlides.length) % aSlides.length;
-  aSlides[aCur].classList.add('active');
-  aDots[aCur].classList.add('active');
-}
-function aboutSlide(dir){ aboutGoTo(aCur + dir); }
-setInterval(()=>aboutSlide(1), 3500);
-
 // ── SLIDER ──
 let cur = 0;
 const slides = document.querySelectorAll('.slide');
